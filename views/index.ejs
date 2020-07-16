@@ -6,6 +6,48 @@
     <link rel="stylesheet" href="/public/index/style.css" type="text/css">
   </head>
   <body>
-    <h1>Hello</h1>
+
+    <%- include('./partials/nav.ejs') %>
+
+    <div id="wrapper">
+
+      <div id="searchbar">
+        <input id="searchinput" type="search" name="" value="" placeholder="Type the Pokemon Name">
+      </div>
+
+      <div id="pokebar">
+        <div id="prev">
+          <div style="float:left">#prev</div>
+          <img src="../public/img/arcanine.png" alt="" style="float:left">
+          <div style="clear:both"></div>
+        </div>
+        <div id="pokemon">Poliwag</div>
+        <div id="next">
+          <img src="../public/img/arcanine.png" alt="" >
+          <div style="float:right">#next</div>
+          <div style="clear:both"></div>
+        </div>
+        <div style="clear:both"></div>
+      </div>
+
+      <div style="clear:both"></div>
+
+      <div id="sidebar">
+        <ul>
+          
+        </ul>
+
+        <div id="loadMore" data-id="1">Load More</div>
+      </div>
+
+      <div id="mainpanel">
+        This is the main panel
+      </div>
+
+      <div style="clear:both"></div>
+    </div>
+    <a href="" id="atag"></a>
+    <script type="text/javascript" src="../public/scripts/script.js"></script>
+    <script type="text/javascript" src="../public/scripts/loadPokedex.js"></script>
   </body>
 </html>

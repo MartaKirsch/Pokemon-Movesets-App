@@ -4,8 +4,59 @@
 @import url("media992.css");
 @import url("media1200.css");
 @import url("media1600.css");
+@import url("types.css");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+
+/*
+beige: #f5da88
+blue: #41eff5
+yellow: #fef579
+pistachio: #adeec2
+red: #e36c3d
+*/
 
 *
 {
   box-sizing: border-box;
 }
+
+body
+{
+  background-image: url('../img/stripes-light.png');
+  font-family: Montserrat;
+}
+
+#wrapper
+{
+  -webkit-box-shadow: 21px 20px 35px -17px rgba(0,0,0,0.75);
+  -moz-box-shadow: 21px 20px 35px -17px rgba(0,0,0,0.75);
+  box-shadow: 21px 20px 35px -17px rgba(0,0,0,0.75);
+  background-color: #e36c3d;
+}
+
+/* default wyglad input search w chromie - usun */
+#searchbar input[type="search"]::-webkit-search-decoration,
+#searchbar input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+#searchbar input[type="search"]::placeholder
+{
+  color: #ddd;
+}
+
+#searchbar input[type="search"]:focus::placeholder
+{
+  color: white;
+}
+
+a
+{
+  color: inherit;
+  text-decoration: none;
+}
+
+/* #searchbar,#pokebar,#sidebar,#mainpanel
+{
+  border: 1px solid black;
+} */

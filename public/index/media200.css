@@ -1,7 +1,9 @@
 @media (min-width:200px){
-  body
-  {
-    background-color: #5d676c;
-    color:white;
-  }
+
+#wrapper
+{
+  margin: auto;
+  border-bottom: 4px solid  #adeec2;
+}
+
 }
