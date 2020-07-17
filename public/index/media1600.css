@@ -34,7 +34,7 @@
   border: 2px solid #ddd;
 }
 
-#navbar li:nth-child(2)
+#navbar li:nth-child(2),#navbar a:nth-child(2)
 {
   float: right;
 }
@@ -91,6 +91,14 @@
   font-size: 2.5vw;
 }
 
+#welcome
+{
+  letter-spacing: 1px;
+  text-align: center;
+  /* color: #adeec2; */
+  color: white;
+  font-size: 2.5vw;
+}
 
 #prev:hover, #next:hover
 {
@@ -175,6 +183,11 @@
   width: 95%;
   margin: 0 auto 1vh auto;
   background-color: #eee;
+}
+
+#sidebar li:hover
+{
+  background-color: #ddd;
 }
 
 #sidebar img

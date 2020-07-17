@@ -16,3 +16,7 @@ app.set('view engine', 'ejs');
 app.get('/', (req, res)=>{
   res.render('index');
 });
+
+app.get('/pokemon/:name', (req, res)=>{
+  res.render('pokemon', {name: req.params.name});
+});
