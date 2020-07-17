@@ -1,0 +1,36 @@
+@import url("media200.css");
+@import url("media576.css");
+@import url("media768.css");
+@import url("media992.css");
+@import url("media1200.css");
+@import url("media1600.css");
+@import url("../index/types.css");
+@import url("../index/style.css");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+
+/*
+beige: #f5da88
+blue: #41eff5
+yellow: #fef579
+pistachio: #adeec2
+red: #e36c3d
+*/
+
+#mainpanel
+{
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+#mainpanel::-webkit-scrollbar {
+  width: 1vw;
+}
+#mainpanel::-webkit-scrollbar-track {
+  background: #adeec2;
+}
+#mainpanel::-webkit-scrollbar-thumb {
+  background: #7D8D9C;
+  /* border-radius: 15px; */
+}
+#mainpanel::-webkit-scrollbar-thumb:hover {
+  background: #6c7c8b;
+}

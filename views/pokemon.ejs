@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <link rel="stylesheet" href="/public/index/style.css" type="text/css">
+    <link rel="stylesheet" href="/public/pokemon/style.css" type="text/css">
   </head>
   <body>
 
@@ -17,14 +17,14 @@
 
       <div id="pokebar">
         <div id="prev">
-          <div style="float:left">#prev</div>
-          <img src="../public/img/arcanine.png" alt="" style="float:left">
+          <div class="prev-text">#prev</div>
+          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" alt="" style="float:left">
           <div style="clear:both"></div>
         </div>
         <div id="pokemon"><%= name %></div>
         <div id="next">
-          <img src="../public/img/arcanine.png" alt="" >
-          <div style="float:right">#next</div>
+          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png" alt="" >
+          <div class="next-text">#next</div>
           <div style="clear:both"></div>
         </div>
         <div style="clear:both"></div>
@@ -41,7 +41,40 @@
       </div>
 
       <div id="mainpanel">
-        This is the main panel
+
+        <div id="topbar">
+          <div id="poke-img">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/413.png" alt="">
+          </div>
+          <div id="forms">
+            <div id="rag-forms">
+              <ul>
+                <li>regular</li>
+                <li class="no-form">alolan</li>
+                <li class="no-form">galarian</li>
+              </ul>
+            </div>
+            <div id="types">
+              <div id="types-text">Types:</div>
+              <div class="grass type">
+                Grass
+              </div>
+              <div class="bug type">
+                bug
+              </div>
+            </div>
+            <div id="other-forms">
+              <ul>
+                <li>Plant cloak</li>
+                <li>Sandy cloak</li>
+                <li>Trash cloak</li>
+              </ul>
+            </div>
+            <div style="clear:both"></div>
+          </div>
+          <div style="clear:both"></div>
+        </div>
+
       </div>
 
       <div style="clear:both"></div>
