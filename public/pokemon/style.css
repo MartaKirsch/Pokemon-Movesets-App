@@ -6,6 +6,7 @@
 @import url("media1600.css");
 @import url("../index/types.css");
 @import url("../index/style.css");
+@import url("../topbar/style.css");
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
 
 /*
@@ -15,7 +16,6 @@ yellow: #fef579
 pistachio: #adeec2
 red: #e36c3d
 */
-
 #mainpanel
 {
   overflow-x: hidden;

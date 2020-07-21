@@ -42,7 +42,7 @@
 
       <div id="mainpanel">
 
-        <div id="topbar">
+        <!-- <div id="topbar">
           <div id="poke-img">
             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/413.png" alt="">
           </div>
@@ -74,9 +74,68 @@
             <div style="clear:both"></div>
           </div>
           <div style="clear:both"></div>
+        </div> -->
+
+        <%- include('./partials/topbar.ejs') %>
+
+        <div id="moveset-wrapper">
+
+          <div class="moveset-column">
+            <ul>
+              <li>
+                <div>Held Item:</div>
+                <div>Choice Scarf</div>
+                <div style="clear:both"></div>
+              </li>
+              <li>
+                <div>Ability:</div>
+                <div>Sturdy</div>
+                <div style="clear:both"></div>
+              </li>
+              <li>
+                <div>EVs:</div>
+                <div>160 Atk / 252 SDef / 96 Spd</div>
+                <div style="clear:both"></div>
+              </li>
+              <li>
+                <div>Nature:</div>
+                <div>Careful(+SDef, -SAtk)</div>
+                <div style="clear:both"></div>
+              </li>
+            </ul>
+          </div>
+          <div class="moveset-column">
+            <ul>
+              <li>
+                <div>Move #1:</div>
+                <div>Bug Bite</div>
+                <div style="clear:both"></div>
+              </li>
+              <li>
+                <div>Move #2:</div>
+                <div>Bide</div>
+                <div style="clear:both"></div>
+              </li>
+              <li>
+                <div>Move #3:</div>
+                <div>Quiver Dance</div>
+                <div style="clear:both"></div>
+              </li>
+              <li>
+                <div>Move #4:</div>
+                <div>Rock Polish</div>
+                <div style="clear:both"></div>
+              </li>
+            </ul>
+          </div>
+
+          <div style="clear:both"></div>
+
         </div>
 
-
+        <div id="nick-footer">
+          The author of this moveset is: Ahiru
+        </div>
 
       </div>
 
