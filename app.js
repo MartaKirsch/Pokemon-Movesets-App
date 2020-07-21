@@ -20,3 +20,18 @@ app.get('/', (req, res)=>{
 app.get('/pokemon/:name', (req, res)=>{
   res.render('pokemon-moveset', {name: req.params.name});
 });
+
+app.get('/add', (req, res)=>{
+  res.render('add');
+});
+
+//post requests
+app.post('/add', (req,res)=>{
+  res.render('index');
+});
+
+
+//404 Page
+app.use((req,res)=>{
+  res.status(404).render('404');
+});

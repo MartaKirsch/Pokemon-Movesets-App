@@ -4,10 +4,8 @@
 @import url("media992.css");
 @import url("media1200.css");
 @import url("media1600.css");
-@import url("types.css");
 @import url("../nav/style.css");
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
-
 /*
 beige: #f5da88
 blue: #41eff5
@@ -35,24 +33,52 @@ body
   background-color: #e36c3d;
 }
 
-/* default wyglad input search w chromie - usun */
-#searchbar input[type="search"]::-webkit-search-decoration,
-#searchbar input[type="search"]::-webkit-search-cancel-button {
-  -webkit-appearance: none;
+::-webkit-scrollbar {
+ width: 1vw;
+}
+::-webkit-scrollbar-track {
+ background: #adeec2;
 }
 
-#searchbar input[type="search"]::placeholder
-{
-  color: #ddd;
+::-webkit-scrollbar-thumb {
+ background: #7D8D9C;
 }
 
-#searchbar input[type="search"]:focus::placeholder
-{
-  color: white;
+::-webkit-scrollbar-thumb:hover {
+ background: #6c7c8b;
 }
 
 a
 {
   color: inherit;
   text-decoration: none;
+}
+
+ul
+{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+
+.row input[type="text"]::placeholder
+{
+  color: #ddd;
+}
+
+.row input[type="text"]:focus::placeholder
+{
+  color: white;
+}
+
+select option
+{
+  text-align: center;
+}
+
+form
+{
+  padding: 0;
+  margin: 0;
 }

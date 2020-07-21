@@ -1,0 +1,33 @@
+@media (min-width:1600px){
+
+  #navbar
+  {
+    margin: 5vh auto 0;
+    height: 8vh;
+    width: 13vw;
+  }
+
+  #navbar li
+  {
+    font-size: 1.3vw;
+    float: left;
+    margin: 0;
+    padding: 1vw;
+    background-color: #eee;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+  }
+
+  #navbar li:nth-child(2),#navbar a:nth-child(2)
+  {
+    float: right;
+  }
+
+  #navbar li:hover
+  {
+    background-color: #ddd;
+    border: 2px solid #e36c3d;
+    cursor: pointer;
+  }
+
+}

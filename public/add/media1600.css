@@ -1,0 +1,171 @@
+@media (min-width:1600px){
+
+#wrapper
+{
+  padding: 2vw;
+  height: 75vh;
+  margin: 2vh auto 0 auto;
+  scrollbar-width: 1vw;
+  scrollbar-color: #7D8D9C #adeec2;
+  width: 35vw;
+  border-radius: 15px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.column
+{
+  border-radius: 15px;
+  background-color: white;
+  width: 100%;
+  padding: 2vw;
+}
+
+.row
+{
+  text-align: center;
+  width: 100%;
+  padding: 1vw;
+  font-size: 1.5vw;
+  height: 4vw;
+  /* border: 1px solid #ababab; */
+  border-radius: 15px;
+  margin-bottom: 2vw;
+}
+
+.row:hover
+{
+  cursor: pointer;
+  background-color: #eee;
+}
+
+.attribute
+{
+  float: left;
+  width: 38%;
+}
+
+.row input[type="text"]
+{
+  text-align: center;
+  width: 58%;
+  float: right;
+  height: 2vw;
+  font-size: 1vw;
+  padding: .5vw;
+  border: none;
+  border-bottom: 1px solid #e36c3d;
+  border-radius: 10px;
+}
+
+.row input[type="text"]:focus, .row select:focus
+{
+  outline: none;
+}
+
+.row select
+{
+  float: right;
+  width: 20%;
+  height: 2vw;
+  border: none;
+  border-bottom: 1px solid #e36c3d;
+  border-radius: 10px;
+  text-align-last: center;
+}
+
+.typing, .typing:hover
+{
+  background-color: #adeec2;
+  color: white;
+  border: 1px solid white;
+}
+
+#EVul
+{
+  width: 60%;
+  margin: 0 auto 2vw;
+}
+
+#EVul li
+{
+  padding: 0;
+  margin: 0 0 2vw 0;
+  height: 2vw;
+}
+
+#EVul li:last-child
+{
+  margin: 0;
+}
+
+#EVul li div
+{
+  width: 40%;
+  height: 1.5vw;
+}
+
+#EVul li div input[type="text"], #EVul li div select
+{
+  outline: none;
+  border: 1px solid black;
+  border-radius: 10px;
+  font-size: 1vw;
+  text-align: center;
+  height: 2vw;
+  width: 100%;
+  text-align-last: center;
+}
+
+#EVul li div input[type="text"]:focus::placeholder
+{
+  color: white;
+}
+
+#EVul li div input[type="text"]:focus, #EVul li div select:focus
+{
+  border: 2px solid #e36c3d;
+}
+
+#EVul li div:nth-child(1)
+{
+  float: left;
+}
+#EVul li div:nth-child(2)
+{
+  float: right;
+}
+#EVul li div:nth-child(3)
+{
+  margin: 0;
+  padding: 0;
+  height: 0;
+  width: 0;
+}
+
+#addMoveset
+{
+  outline: none;
+  border: none;
+  padding: 0.5vw;
+  border-radius: 15px;
+  width: 95%;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+  background-color: #adeec2;
+  font-size: 1.5vw;
+  height: 6vh;
+  text-shadow: 1px 1px 2px #CE5937,1px 1px 2px #CE5937,1px 1px 2px #CE5937,1px 1px 2px #CE5937;
+}
+
+#addMoveset:hover
+{
+  outline: none;
+  border: 2px solid #e36c3d;
+  cursor: pointer;
+  background-color: #acddb1;
+  text-shadow: 1px 1px 2px #bd4826,1px 1px 2px #bd4826,1px 1px 2px #bd4826,1px 1px 2px #bd4826;
+}
+
+}
