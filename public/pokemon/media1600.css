@@ -133,6 +133,9 @@
 #other-forms
 {
   float: right;
+  height: 16.5vh;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 #other-forms ul
@@ -154,7 +157,7 @@
   /* float: left; */
   margin:0 0 .5vw 1vw;
 }
-#rag-forms ul li.no-form
+#rag-forms ul li.no-form, #other-forms ul li.no-form
 {
   color: #666;
   background-color: #f4f4f4;
@@ -167,7 +170,7 @@
   background-color: #adeec2;
 }
 
-#rag-forms ul li.no-form:hover
+#rag-forms ul li.no-form:hover, #other-forms ul li.no-form:hover
 {
   cursor: default;
   color: #666;
@@ -239,6 +242,61 @@
   border-radius: 10px;
   color:#f5da88;
   background-color: #f5da88;
+}
+
+#evolutions
+{
+  margin: 5vw 0;
+}
+
+.evolutions-row
+{
+  margin-bottom: 3vw;
+}
+
+.evolutions-row:last-of-type
+{
+  margin-bottom: 0vw;
+}
+
+.evolutions-wrapper
+{
+  width: 40vw;
+  margin: auto;
+  display: flex;
+}
+
+.evolutions-img
+{
+  width: 5vw;
+  float: left;
+}
+
+.evolutions-img:nth-last-of-type(2)
+{
+  float: right;
+}
+
+.evolutions-arrow
+{
+  margin: auto;
+  text-align: center;
+  width: 10vw;
+  float: left;
+}
+
+.evolutions-arrow img
+{
+  margin: auto;
+  width: 3vw;
+}
+
+#other-forms ul li.pokemon-moveset-form, #other-forms ul li.pokemon-moveset-form:hover,
+#rag-forms ul li.pokemon-moveset-form, #rag-forms ul li.pokemon-moveset-form:hover
+{
+  cursor: default;
+  background-color: #adeec2;
+  color: white;
 }
 
 }

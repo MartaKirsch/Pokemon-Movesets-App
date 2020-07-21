@@ -18,5 +18,5 @@ app.get('/', (req, res)=>{
 });
 
 app.get('/pokemon/:name', (req, res)=>{
-  res.render('pokemon', {name: req.params.name});
+  res.render('pokemon-moveset', {name: req.params.name});
 });

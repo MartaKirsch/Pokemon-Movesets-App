@@ -34,3 +34,9 @@ red: #e36c3d
 #mainpanel::-webkit-scrollbar-thumb:hover {
   background: #6c7c8b;
 }
+
+#other-forms::-webkit-scrollbar {
+  width: 0vw;
+}
+
+/* <div>Icons made by <a href="https://www.flaticon.com/authors/vaadin" title="Vaadin">Vaadin</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> */

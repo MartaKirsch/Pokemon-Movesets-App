@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="/public/pokemon-moveset/style.css" type="text/css">
+  </head>
+  <body>
+
+    <%- include('./partials/nav.ejs') %>
+
+    <div id="wrapper">
+
+      <div id="searchbar">
+        <input id="searchinput" type="search" name="" value="" placeholder="Type the Pokemon Name">
+      </div>
+
+      <div id="pokebar">
+        <div id="prev">
+          <div class="prev-text">#prev</div>
+          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" alt="" style="float:left">
+          <div style="clear:both"></div>
+        </div>
+        <div id="pokemon"><%= name %></div>
+        <div id="next">
+          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png" alt="" >
+          <div class="next-text">#next</div>
+          <div style="clear:both"></div>
+        </div>
+        <div style="clear:both"></div>
+      </div>
+
+      <div style="clear:both"></div>
+
+      <div id="sidebar">
+        <ul>
+
+        </ul>
+
+        <div id="loadMore" data-id="1">Load More</div>
+      </div>
+
+      <div id="mainpanel">
+
+        <div id="topbar">
+          <div id="poke-img">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/413.png" alt="">
+          </div>
+          <div id="forms">
+            <div id="rag-forms">
+              <ul>
+                <li class="pokemon-moveset-form">regular</li>
+                <li class="no-form">alolan</li>
+                <li class="no-form">galarian</li>
+              </ul>
+            </div>
+            <div id="types">
+              <div id="types-text">Types:</div>
+              <div class="grass type">
+                Grass
+              </div>
+              <div class="bug type">
+                bug
+              </div>
+            </div>
+            <div id="other-forms">
+              <ul>
+                <li class="pokemon-moveset-form">Plant cloak</li>
+                <li class="no-form">Plant cloak</li>
+                <li class="no-form">Sandy cloak</li>
+                <li class="no-form">Trash cloak</li>
+              </ul>
+            </div>
+            <div style="clear:both"></div>
+          </div>
+          <div style="clear:both"></div>
+        </div>
+
+
+
+      </div>
+
+      <div style="clear:both"></div>
+    </div>
+    <a href="" id="atag"></a>
+    <script type="text/javascript" src="../public/scripts/fakeClick.js"></script>
+    <script type="text/javascript" src="../public/scripts/loadPokedex.js"></script>
+  </body>
+</html>
