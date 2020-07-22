@@ -4,8 +4,241 @@ submitButton.type = 'button';
 
 
 //'live' check on text inputs' entered data
-const inputValidation = (e)=>{
-  console.log(e.target.id);
+const inputValidation = async (e)=>{
+
+  //get the number of the input
+  let index = 0;
+  //exception for 10+
+  if(e.target.id.slice(e.target.id.length-2, e.target.id.length-1)!="-")
+  {
+    index = e.target.id.slice(e.target.id.length-2, e.target.id.length);
+  }
+  //single char numbers
+  else
+  {
+    index = e.target.id.slice(e.target.id.length-1, e.target.id.length);
+  }
+
+  //get the entered value
+  let value = e.target.value;
+  let wrongDiv = e.target.nextElementSibling.nextElementSibling;
+  let parentDiv = e.target.parentNode;
+  let pokemon = {};
+
+  //reset the tab
+  tab[index] = 0;
+
+  //check all the cases
+  if(index==0)
+  {
+    if(value == "")
+    {
+      tab[index] = 0;
+      wrongDiv.innerHTML = "You need to insert a Pokemon's name!";
+      wrongDiv.style.visibility = "visible";
+      parentDiv.style.border = "1px solid #e36c3d";
+    }
+    else
+    {
+      let name = "";
+
+      //change the entered name to the api standards
+      for(let i=0; i<value.length;i++)
+      {
+        if(value.charAt(i)==' ')
+        {
+          name+= '-';
+        }
+        else
+        {
+          name+=value.charAt(i).toLowerCase();
+        }
+      }
+
+      //try to get the wanted item to check if it exists
+
+      fetch(`https://pokeapi.co/api/v2/pokemon/${name}/`, {method: "GET"})
+        .then((res)=>{
+          if(!res.ok)
+          {
+            tab[index] = 0;
+            wrongDiv.innerHTML = "Wrong name! This pokemon doesn't exist!";
+            wrongDiv.style.visibility = "visible";
+            parentDiv.style.border = "1px solid #e36c3d";
+          }
+          else
+          {
+            tab[index] = 1;
+            wrongDiv.innerHTML = "";
+            wrongDiv.style.visibility = "hidden";
+            parentDiv.style.border = "none";
+
+          }
+        });
+    }
+  }
+
+  else if(index==2)
+  {
+    if(value == "")
+    {
+      tab[index] = 0;
+      wrongDiv.innerHTML = "You need to insert an Ability!";
+      wrongDiv.style.visibility = "visible";
+      parentDiv.style.border = "1px solid #e36c3d";
+    }
+    else
+    {
+      let name = "";
+
+      //change the entered name to the api standards
+      for(let i=0; i<value.length;i++)
+      {
+        if(value.charAt(i)==' ')
+        {
+          name+= '-';
+        }
+        else
+        {
+          name+=value.charAt(i).toLowerCase();
+        }
+      }
+
+      //try to get the wanted item to check if it exists
+
+      fetch(`https://pokeapi.co/api/v2/ability/${name}/`, {method: "GET"})
+        .then((res)=>{
+          if(!res.ok)
+          {
+            tab[index] = 0;
+            wrongDiv.innerHTML = "Wrong name! This ability doesn't exist!";
+            wrongDiv.style.visibility = "visible";
+            parentDiv.style.border = "1px solid #e36c3d";
+          }
+          else
+          {
+            tab[index] = 1;
+            wrongDiv.innerHTML = "";
+            wrongDiv.style.visibility = "hidden";
+            parentDiv.style.border = "none";
+          }
+        });
+    }
+  }
+
+  else if(index==4)
+  {
+    if(value == "")
+    {
+      tab[index] = 0;
+      wrongDiv.innerHTML = "You need to insert a Nature!";
+      wrongDiv.style.visibility = "visible";
+      parentDiv.style.border = "1px solid #e36c3d";
+    }
+    else
+    {
+      let name = "";
+
+      //change the entered name to the api standards
+      for(let i=0; i<value.length;i++)
+      {
+        if(value.charAt(i)==' ')
+        {
+          name+= '-';
+        }
+        else
+        {
+          name+=value.charAt(i).toLowerCase();
+        }
+      }
+
+      //try to get the wanted item to check if it exists
+
+      fetch(`https://pokeapi.co/api/v2/nature/${name}/`, {method: "GET"})
+        .then((res)=>{
+          if(!res.ok)
+          {
+            tab[index] = 0;
+            wrongDiv.innerHTML = "Wrong name! This nature doesn't exist!";
+            wrongDiv.style.visibility = "visible";
+            parentDiv.style.border = "1px solid #e36c3d";
+          }
+          else
+          {
+            tab[index] = 1;
+            wrongDiv.innerHTML = "";
+            wrongDiv.style.visibility = "hidden";
+            parentDiv.style.border = "none";
+          }
+        });
+    }
+  }
+
+  else if(index>=5 && index<=8)
+  {
+    if(value == "")
+    {
+      tab[index] = 0;
+      wrongDiv.innerHTML = "You need to insert a Move!";
+      wrongDiv.style.visibility = "visible";
+      parentDiv.style.border = "1px solid #e36c3d";
+    }
+    else
+    {
+      let name = "";
+
+      //change the entered name to the api standards
+      for(let i=0; i<value.length;i++)
+      {
+        if(value.charAt(i)==' ')
+        {
+          name+= '-';
+        }
+        else
+        {
+          name+=value.charAt(i).toLowerCase();
+        }
+      }
+
+      //try to get the wanted item to check if it exists
+
+      fetch(`https://pokeapi.co/api/v2/move/${name}/`, {method: "GET"})
+        .then((res)=>{
+          if(!res.ok)
+          {
+            tab[index] = 0;
+            wrongDiv.innerHTML = "Wrong name! This move doesn't exist!";
+            wrongDiv.style.visibility = "visible";
+            parentDiv.style.border = "1px solid #e36c3d";
+          }
+          else
+          {
+            tab[index] = 1;
+            wrongDiv.innerHTML = "";
+            wrongDiv.style.visibility = "hidden";
+            parentDiv.style.border = "none";
+          }
+        });
+    }
+  }
+
+  else if(index==10)
+  {
+    if(value == "")
+    {
+      tab[index] = 0;
+      wrongDiv.innerHTML = "You need to insert a Name!";
+      wrongDiv.style.visibility = "visible";
+      parentDiv.style.border = "1px solid #e36c3d";
+    }
+    else
+    {
+      tab[index] = 1;
+      wrongDiv.innerHTML = "";
+      wrongDiv.style.visibility = "hidden";
+      parentDiv.style.border = "none";
+    }
+  }
 };
 
 //'live' check on optional text inputs' entered data
@@ -138,7 +371,7 @@ const evInputValidation = (e)=>{
 //check if everything is done correctly
 const checkForm = ()=>{
 
-  //check if everything is set as supposed to
+  //check if sth is empty
   let isOK = true;
 
   tab.forEach((item)=>{
@@ -148,7 +381,7 @@ const checkForm = ()=>{
     }
   });
 
-  //if isOK is true, change the main tab
+  //if isOK is true, change button type to 'submit'
   if(isOK==true)
   {
     submitButton.type = 'submit';
