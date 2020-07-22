@@ -1,6 +1,3 @@
-const textInputs = document.querySelectorAll('.main-text-input');
-const rows = document.querySelectorAll('.row');
-
 //functions for changing classes
 const changeClassOn = (index)=>{
   rows[index].classList.add('typing');

@@ -73,6 +73,8 @@ const inputValidation = async (e)=>{
             wrongDiv.style.visibility = "hidden";
             parentDiv.style.border = "none";
 
+            //set the global pokemon object equal to the received data
+            res.json().then((data)=>{setPoke(data)});
           }
         });
     }
@@ -121,6 +123,9 @@ const inputValidation = async (e)=>{
             wrongDiv.innerHTML = "";
             wrongDiv.style.visibility = "hidden";
             parentDiv.style.border = "none";
+
+            //set the global ability object equal to the received data
+            res.json().then((data)=>{setAbility(data)});
           }
         });
     }
@@ -217,6 +222,9 @@ const inputValidation = async (e)=>{
             wrongDiv.innerHTML = "";
             wrongDiv.style.visibility = "hidden";
             parentDiv.style.border = "none";
+
+            //set the global move object equal to the received data
+            res.json().then((data)=>{setMove(data,index-5)});
           }
         });
     }
@@ -367,6 +375,90 @@ const evInputValidation = (e)=>{
 
 };
 
+//check if set pokemon has set ability and moves
+const pokemonCheck = () => {
+
+  //ability check
+  let abCheck = false;
+  pokemon.abilities.forEach((ab) => {
+    if(ab.ability.name == ability.name)
+    {
+      abCheck = true;
+    }
+  });
+
+  if(abCheck==false)
+  {
+    alert(`This pokemon doesn't have this ability!`)
+    return false;
+  }
+
+  //moves check
+  else
+  {
+    //check if some moves double
+    let doublesCheck = false;
+    for(let i=0;i<4;i++)
+    {
+      for (let j=0;j<4;j++)
+      {
+        if(i!=j && moves[i].name==moves[j].name)
+        {
+          doublesCheck = true;
+        }
+      }
+    }
+
+    if(doublesCheck == true)
+    {
+      alert(`Some moves double!`)
+      return false;
+    }
+    //if they don't double, check if the pokemon has all of them
+    else
+    {
+      let moveCheck = [false,false,false,false];
+      let counter = 0;
+
+      moves.forEach((move)=>{
+        pokemon.moves.forEach(pmove=>{
+          if(pmove.move.name == move.name)
+          {
+            moveCheck[counter] = true;
+          }
+        });
+        counter++;
+      });
+
+
+      counter = 1;
+      let wrongIndex = 0;
+      let isOK = true;
+
+      moveCheck.forEach(item=>{
+        if(item==false)
+        {
+          wrongIndex = counter;
+          isOK=false;
+        }
+        counter++;
+      });
+
+      if(isOK==false)
+      {
+        alert(`This pokemon doesn't have the move #${wrongIndex}!`)
+        return false;
+      }
+      else {
+        return true;
+      }
+    }
+
+  }
+
+};
+
+
 
 //check if everything is done correctly
 const checkForm = ()=>{
@@ -374,17 +466,33 @@ const checkForm = ()=>{
   //check if sth is empty
   let isOK = true;
 
-  tab.forEach((item)=>{
-    if(item==0)
+  for(let i=0;i<tab.length;i++)
+  {
+    if(tab[i]==0)
     {
       isOK=false;
+      if(i>2)
+      {
+        textInputs[i-1].nextElementSibling.nextElementSibling.innerHTML = "You need to correct this!";
+        textInputs[i-1].nextElementSibling.nextElementSibling.style.visibility = "visible";
+        textInputs[i-1].parentNode.style.border = "1px solid #e36c3d";
+      }
+      else
+      {
+        textInputs[i].nextElementSibling.nextElementSibling.innerHTML = "You need to correct this!";
+        textInputs[i].nextElementSibling.nextElementSibling.style.visibility = "visible";
+        textInputs[i].parentNode.style.border = "1px solid #e36c3d";
+      }
     }
-  });
+  }
 
   //if isOK is true, change button type to 'submit'
   if(isOK==true)
   {
-    submitButton.type = 'submit';
+    if(pokemonCheck())
+    {
+      submitButton.type = 'submit';
+    }
   }
   else
   {
