@@ -14,7 +14,18 @@ const changeClassOff = (index)=>{
 for(let i=0; i<textInputs.length;i++)
 {
   let id = textInputs[i].id;
-  id = id.slice(id.length-1, id.length);
+
+  //exception for 10+
+  if(id.slice(id.length-2, id.length-1)!="-")
+  {
+    id = id.slice(id.length-2, id.length);
+  }
+  //single char numbers
+  else
+  {
+    id = id.slice(id.length-1, id.length);
+  }
+
   textInputs[i].addEventListener('focus', ()=>{changeClassOn(id)});
   textInputs[i].addEventListener('focusout', ()=>{changeClassOff(id)});
 }
@@ -27,14 +38,14 @@ const evFunction = ()=>{
 
   for(let i=0; i<evInputs.length;i++)
   {
-    evInputs[i].addEventListener('focus', ()=>{changeClassOn(2)});
-    evInputs[i].addEventListener('focusout', ()=>{changeClassOff(2)});
+    evInputs[i].addEventListener('focus', ()=>{changeClassOn(3)});
+    evInputs[i].addEventListener('focusout', ()=>{changeClassOff(3)});
   }
 
   for(let i=0; i<evSelects.length;i++)
   {
-    evSelects[i].addEventListener('focus', ()=>{changeClassOn(2)});
-    evSelects[i].addEventListener('focusout', ()=>{changeClassOff(2)});
+    evSelects[i].addEventListener('focus', ()=>{changeClassOn(3)});
+    evSelects[i].addEventListener('focusout', ()=>{changeClassOff(3)});
   }
 };
 

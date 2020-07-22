@@ -168,4 +168,21 @@
   text-shadow: 1px 1px 2px #bd4826,1px 1px 2px #bd4826,1px 1px 2px #bd4826,1px 1px 2px #bd4826;
 }
 
+#EVul li div.wrong-data, .wrong-data
+{
+  background-color:#e36c3d;
+  color: white;
+  width: 100%;
+  height: 2vw;
+  padding: .5vw;
+  text-align: center;
+  visibility: hidden;
+  border-radius: 10px;
+  font-size: .8vw;
+}
+.wrong-data
+{
+  margin: 1vw 0 0 0;
+}
+
 }
