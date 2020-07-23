@@ -9,7 +9,7 @@ let generateEV = ()=>{
     string+=`
     <li>
       <div>
-        <select id="select-${i}" class="" name="stat-${i}">
+        <select id="select-${i}" class="" name="stat[]">
           <option value="HP">HP</option>
           <option value="Atk">Atk</option>
           <option value="Def">Def</option>
@@ -19,7 +19,7 @@ let generateEV = ()=>{
         </select>
       </div>
       <div>
-        <input id="num-input-${i}" type="text" name="value-${i}" value="" placeholder="Num">
+        <input id="num-input-${i}" type="text" name="value[]" value="" placeholder="Num">
       </div>
       <div style="clear:both"></div>
       <div class="wrong-data"></div>
