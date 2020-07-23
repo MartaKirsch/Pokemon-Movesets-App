@@ -45,7 +45,7 @@
   width: 38%;
 }
 
-.row input[type="text"]
+.row input[type="text"],.row input[type="password"]
 {
   text-align: center;
   width: 58%;
@@ -58,7 +58,7 @@
   border-radius: 10px;
 }
 
-.row input[type="text"]:focus, .row select:focus
+.row input[type="text"]:focus, .row select:focus, .row input[type="password"]:focus
 {
   outline: none;
 }
@@ -105,7 +105,7 @@
   height: 1.5vw;
 }
 
-#EVul li div input[type="text"], #EVul li div select
+#EVul li div input[type="text"],#EVul li div input[type="password"], #EVul li div select
 {
   outline: none;
   border: 1px solid black;
@@ -117,12 +117,12 @@
   text-align-last: center;
 }
 
-#EVul li div input[type="text"]:focus::placeholder
+#EVul li div input[type="text"]:focus::placeholder,#EVul li div input[type="password"]:focus::placeholder
 {
   color: white;
 }
 
-#EVul li div input[type="text"]:focus, #EVul li div select:focus
+#EVul li div input[type="text"]:focus, #EVul li div select:focus, #EVul li div input[type="password"]:focus
 {
   border: 2px solid #e36c3d;
 }

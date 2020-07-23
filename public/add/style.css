@@ -62,12 +62,12 @@ ul
 }
 
 
-.row input[type="text"]::placeholder
+.row input[type="text"]::placeholder,.row input[type="password"]::placeholder
 {
   color: #ddd;
 }
 
-.row input[type="text"]:focus::placeholder
+.row input[type="text"]:focus::placeholder,.row input[type="password"]:focus::placeholder
 {
   color: white;
 }

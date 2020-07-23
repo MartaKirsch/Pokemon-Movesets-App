@@ -13,7 +13,7 @@ const rows = document.querySelectorAll('.row');
 const select = document.querySelector('.row select');
 
 //boolean table for all the inputs
-let tab = [0,1,0,0,0,0,0,0,0,1,0];
+let tab = [0,1,0,0,0,0,0,0,0,1,0,0];
 let evtab = [];
 
 //empty objects for pokemon, ability and moves

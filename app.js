@@ -1,10 +1,17 @@
 const express = require('express');
+const mongoose = require('mongoose');
+const addRoutes = require('./routes/addRoutes');
 
 //create app
 const app = express();
 
-//listen to port 3000
-app.listen(3000);
+//db link & listen to port 3000
+const dbURI = 'mongodb+srv://pandeu:alabala00@cluster0.whmux.mongodb.net/movesetsApp';
+
+mongoose.connect(dbURI,{ useNewUrlParser: true, useUnifiedTopology: true })
+  .then((result)=>{console.log('connected to db');app.listen(3000);})
+  .catch((err)=>{console.log('there is an error: '+err);});
+
 
 //static files
 app.use('/public', express.static('public'));
@@ -21,15 +28,9 @@ app.get('/pokemon/:name', (req, res)=>{
   res.render('pokemon-moveset', {name: req.params.name});
 });
 
-app.get('/add', (req, res)=>{
-  res.render('add');
-});
 
-//post requests
-app.post('/add', (req,res)=>{
-  res.render('index');
-});
-
+//use the addRoutes.js file for incoming requests with '/add'
+app.use('/add', addRoutes);
 
 //404 Page
 app.use((req,res)=>{
