@@ -10,6 +10,7 @@ let generateEV = ()=>{
     <li>
       <div>
         <select id="select-${i}" class="" name="stat[]">
+          <option value="empty">Stat</option>
           <option value="HP">HP</option>
           <option value="Atk">Atk</option>
           <option value="Def">Def</option>
@@ -42,6 +43,10 @@ let generateEV = ()=>{
   //add event listeners for check-form.js to check if everything is entered correctly
   evTextInputs.forEach((input)=>{
     input.addEventListener('change', evInputValidation);
+  });
+  evSelects.forEach((input)=>{
+    input.addEventListener('change', evInputValidation);
+    // input.addEventListener('click', evInputValidation);
   });
 };
 

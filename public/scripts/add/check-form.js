@@ -354,19 +354,101 @@ const evInputValidation = (e)=>{
   //reset the tab for ev
   tab[3] = 0;
 
-  //get entered value and the wrong info div
-  let value = e.target.value;
-  let wrongDiv = e.target.parentNode.nextElementSibling.nextElementSibling;
+  //get the wrong info div
+  let wrongDiv;
+  if(e.target.type == "text")
+  {
+    wrongDiv = e.target.parentNode.nextElementSibling.nextElementSibling;
+  }
+  else
+  {
+    wrongDiv = e.target.parentNode.nextElementSibling.nextElementSibling.nextElementSibling;;
+  }
 
   //get the number of the input
   let index = e.target.id.slice(e.target.id.length-1, e.target.id.length);
 
-  //check if it's between 1-252
-  if(value>=1 && value<=252)
+  //get the number value
+  let value = evTextInputs[index].value;
+
+  //reset all of the wrongDivs
+  evTextInputs.forEach((input) => {
+    let div = input.parentNode.nextElementSibling.nextElementSibling;
+    if(div.innerHTML.charAt(0)!='W' && div.innerHTML.charAt(0)!='S')
+    {
+      div.innerHTML = "";
+      div.style.visibility = "hidden";
+    }
+  });
+  evSelects.forEach((input) => {
+    let div = input.parentNode.nextElementSibling.nextElementSibling.nextElementSibling;
+    if(div.innerHTML.charAt(0)!='W')
+    {
+      div.innerHTML = "";
+      div.style.visibility = "hidden";
+    }
+  });
+
+  //check if some stats double
+  let doublesCheck = false;
+  for(let i=0;i<evSelects.length;i++)
   {
-    evtab[index] = 1;
-    wrongDiv.innerHTML = "";
-    wrongDiv.style.visibility = "hidden";
+    for (let j=0;j<evSelects.length;j++)
+    {
+      if(i!=j && evSelects[i].value==evSelects[j].value && evSelects[j].value!="empty")
+      {
+        doublesCheck = true;
+      }
+    }
+  }
+
+  if(doublesCheck == true)
+  {
+    evtab[index] = 0;
+    wrongDiv.innerHTML = "Stats cannot double!";
+    wrongDiv.style.visibility = "visible";
+  }
+
+  //check if it's between 1-252
+  else if(doublesCheck == false && value>=1 && value<=252)
+  {
+    //check if sum is 1-510
+    let sum = 0;
+    for(let i=0;i<evTextInputs.length;i++)
+    {
+      if(evTextInputs[i].value=="")
+      {
+        sum=200;
+        break;
+      }
+      sum += parseInt(evTextInputs[i].value);
+    }
+
+    console.log(evSelects[index].value);
+
+    console.log(sum);
+
+    if(sum>=1 && sum<=510 && evSelects[index].value != "empty")
+    {
+      evtab[index] = 1;
+      wrongDiv.innerHTML = "";
+      wrongDiv.style.visibility = "hidden";
+    }
+
+    else if(evSelects[index].value == "empty")
+    {
+      evtab[index] = 0;
+      wrongDiv.innerHTML = "The stat type cannot be empty!";
+      wrongDiv.style.visibility = "visible";
+    }
+
+    else
+    {
+      evtab[index] = 0;
+      wrongDiv.innerHTML = "The sum of all EVs needs to be 1-510!";
+      wrongDiv.style.visibility = "visible";
+    }
+
   }
   else
   {
