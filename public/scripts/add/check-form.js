@@ -354,107 +354,149 @@ const evInputValidation = (e)=>{
   //reset the tab for ev
   tab[3] = 0;
 
-  //get the wrong info div
-  let wrongDiv;
-  if(e.target.type == "text")
-  {
-    wrongDiv = e.target.parentNode.nextElementSibling.nextElementSibling;
-  }
-  else
-  {
-    wrongDiv = e.target.parentNode.nextElementSibling.nextElementSibling.nextElementSibling;;
-  }
-
   //get the number of the input
   let index = e.target.id.slice(e.target.id.length-1, e.target.id.length);
 
   //get the number value
   let value = evTextInputs[index].value;
 
-  //reset all of the wrongDivs
-  evTextInputs.forEach((input) => {
-    let div = input.parentNode.nextElementSibling.nextElementSibling;
-    if(div.innerHTML.charAt(0)!='W' && div.innerHTML.charAt(0)!='S')
-    {
-      div.innerHTML = "";
-      div.style.visibility = "hidden";
-    }
-  });
-  evSelects.forEach((input) => {
-    let div = input.parentNode.nextElementSibling.nextElementSibling.nextElementSibling;
-    if(div.innerHTML.charAt(0)!='W')
-    {
-      div.innerHTML = "";
-      div.style.visibility = "hidden";
-    }
+  //reset all of the wrongDivs error messages
+  wrongDivs.forEach((div) => {
+
+    div.innerHTML = "";
+    div.style.visibility = "hidden";
+
   });
 
-  //check if some stats double
-  let doublesCheck = false;
+  //check all the evs rows flags
   for(let i=0;i<evSelects.length;i++)
   {
-    for (let j=0;j<evSelects.length;j++)
+    //reset double flags
+    for(let j=0;j<evSelects.length;j++)
     {
-      if(i!=j && evSelects[i].value==evSelects[j].value && evSelects[j].value!="empty")
+      evflags[j].double = 0;
+    }
+
+    //check if some stats double
+    for(let j=0;j<evSelects.length;j++)
+    {
+      for(let k=0;k<evSelects.length;k++)
       {
-        doublesCheck = true;
+        if(j!=k && evSelects[j].value==evSelects[k].value && evSelects[k].value!="empty")
+        {
+          evflags[j].double = 1;
+          evflags[k].double = 1;
+        }
       }
     }
-  }
 
-  if(doublesCheck == true)
-  {
-    evtab[index] = 0;
-    wrongDiv.innerHTML = "Stats cannot double!";
-    wrongDiv.style.visibility = "visible";
-  }
-
-  //check if it's between 1-252
-  else if(doublesCheck == false && value>=1 && value<=252)
-  {
-    //check if sum is 1-510
-    let sum = 0;
-    for(let i=0;i<evTextInputs.length;i++)
+    //3 checks at once
+    for(let j=0;j<evSelects.length;j++)
     {
-      if(evTextInputs[i].value=="")
+      let numValue = parseInt(evTextInputs[j].value);
+
+      //check if there's an empty num
+      if(evTextInputs[j].value=="")
+      {
+        evflags[j].emptyNum = 1;
+      }
+      else
+      {
+        evflags[j].emptyNum = 0;
+      }
+
+      //check if there's an empty stat
+      if(evSelects[j].value=="empty")
+      {
+        evflags[j].emptyStat = 1;
+      }
+      else
+      {
+        evflags[j].emptyStat = 0;
+      }
+
+      //check if entered values are correct (1-252)
+      if(numValue>=1 && numValue<=252 && evSelects[j].value!="empty")
+      {
+        evflags[j].wrongNum = 0;
+      }
+      else if(evSelects[j].value=="empty")
+      {
+        evflags[j].wrongNum = 0;
+      }
+      else
+      {
+        evflags[j].wrongNum = 1;
+      }
+
+    }
+
+    //check if sum of the evs is correct (1-510)
+    let sum = 0;
+    for(let j=0;j<evTextInputs.length;j++)
+    {
+      if(evTextInputs[j].value=="")
       {
         sum=200;
         break;
       }
-      sum += parseInt(evTextInputs[i].value);
+      sum += parseInt(evTextInputs[j].value);
     }
 
-    console.log(evSelects[index].value);
-
-    console.log(sum);
-
-    if(sum>=1 && sum<=510 && evSelects[index].value != "empty")
+    if(sum>=1 && sum<=510)
     {
-      evtab[index] = 1;
-      wrongDiv.innerHTML = "";
-      wrongDiv.style.visibility = "hidden";
+      evflags[i].wrongSum = 0;
     }
-
-    else if(evSelects[index].value == "empty")
-    {
-      evtab[index] = 0;
-      wrongDiv.innerHTML = "The stat type cannot be empty!";
-      wrongDiv.style.visibility = "visible";
-    }
-
     else
     {
-      evtab[index] = 0;
-      wrongDiv.innerHTML = "The sum of all EVs needs to be 1-510!";
-      wrongDiv.style.visibility = "visible";
+      evflags[i].wrongSum = 1;
     }
 
   }
-  else
+
+
+  //display error messages depending on the evflags
+  for(let i=0;i<evSelects.length;i++)
   {
-    evtab[index] = 0;
-    wrongDiv.innerHTML = "Wrong value! It needs to be 1-252!";
-    wrongDiv.style.visibility = "visible";
+    //reset the OK status of a row of evs
+    evtab[i] = 0;
+
+    if(evflags[i].double==1)
+    {
+      wrongDivs[i].innerHTML = "Stats cannot double!";
+      wrongDivs[i].style.visibility = "visible";
+    }
+
+    else if(evflags[i].emptyNum==1 && evSelects[i].value!="empty")
+    {
+      wrongDivs[i].innerHTML = "Enter the number of EVs!";
+      wrongDivs[i].style.visibility = "visible";
+    }
+
+    else if(evflags[i].emptyStat==1  && evTextInputs[i].value!="")
+    {
+      wrongDivs[i].innerHTML = "The stat type cannot be empty!";
+      wrongDivs[i].style.visibility = "visible";
+    }
+
+    else if(evflags[i].wrongNum==1)
+    {
+      wrongDivs[i].innerHTML = "Wrong value! It needs to be 1-252!";
+      wrongDivs[i].style.visibility = "visible";
+    }
+
+    else if(evflags[i].wrongSum==1)
+    {
+      wrongDivs[index].innerHTML = "The sum of all EVs needs to be 1-510!";
+      wrongDivs[index].style.visibility = "visible";
+    }
+
+    //everything is OK
+    else
+    {
+      evtab[i] = 1;
+    }
+
   }
 
   //check if all the ev values are correct

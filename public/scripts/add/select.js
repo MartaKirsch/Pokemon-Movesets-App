@@ -3,6 +3,7 @@ let generateEV = ()=>{
 
   //reset the evtab
   evtab = [0];
+  evflags = [{}];
 
   for(let i=0;i<select.value;i++)
   {
@@ -27,11 +28,13 @@ let generateEV = ()=>{
     </li>
     `;
 
-    //add one element to the evtab
+    //add one element to the evtab and evflags
     evtab.push(0);
+    evflags.push({double:1, emptyStat: 1, emptyNum: 1, wrongNum: 1, wrongSum: 1});
   }
   //correct the array, cause there's always one element in addition from creating the variable
   evtab = evtab.slice(0, evtab.length-1);
+  evflags = evflags.slice(1, evflags.length);
 
   //put the created lis into the ul
   document.querySelector('#EVul').innerHTML = string;
@@ -39,6 +42,7 @@ let generateEV = ()=>{
   //update all the inputs needed
   evTextInputs = document.querySelectorAll('#EVul input[type=text]');
   evSelects = document.querySelectorAll('#EVul select');
+  wrongDivs = document.querySelectorAll('#EVul .wrong-data');
 
   //add event listeners for check-form.js to check if everything is entered correctly
   evTextInputs.forEach((input)=>{
