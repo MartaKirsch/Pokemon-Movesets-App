@@ -292,7 +292,7 @@ const optionalInputValidation = async (e)=>{
   //check for the name length
   else if(index==9)
   {
-    if(value.length>2)
+    if(value.length>20)
     {
       tab[index] = 0;
       wrongDiv.innerHTML = "Too long! The name must be less than 20 chars!";
@@ -306,6 +306,26 @@ const optionalInputValidation = async (e)=>{
       wrongDiv.style.visibility = "hidden";
       parentDiv.style.border = "none";
     }
+
+    //check if a moveset with this name already exists
+    fetch(`add/check/${value}`, {method: "GET"})
+      .then(data=>data.json())
+      .then((res)=>{
+        if(res.value == "exists")
+        {
+          tab[index] = 0;
+          wrongDiv.innerHTML = "Moveset with this name already exists!";
+          wrongDiv.style.visibility = "visible";
+          parentDiv.style.border = "1px solid #e36c3d";
+        }
+        else
+        {
+          tab[index] = 1;
+          wrongDiv.innerHTML = "";
+          wrongDiv.style.visibility = "hidden";
+          parentDiv.style.border = "none";
+        }
+      });
   }
   //check if the item exists
   else if(index==1)

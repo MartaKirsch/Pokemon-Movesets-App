@@ -60,11 +60,42 @@ const add_post = (req, res) => {
   }
   else
   {
-    saveMoveset(moveset, res);
+    //check if there's another moveset of this name
+    Moveset.find({ name: data.name}, (err, docs)=>{
+      if(docs.length==0)
+      {
+        saveMoveset(moveset, res);
+      }
+      else
+      {
+        res.render('add',{data: data});
+      }
+    });
   }
 };
 
+const add_check = (req, res) => {
+  let name = req.params.name;
+  // let re = new RegExp(name, 'i');
+  name = name.toLowerCase();
+
+  //check if moveset with identical name exists
+  Moveset.find({ movesetName: name}, (err, docs)=>{
+    if(docs.length==0)
+    {
+      res.json({value: "no-exist"});
+    }
+    else
+    {
+      res.json({value: "exists"});
+    }
+  });
+};
+
+
+
 module.exports = {
   add_index,
-  add_post
+  add_post,
+  add_check
 }

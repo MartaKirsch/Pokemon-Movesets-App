@@ -14,4 +14,6 @@ router.get('/', urlencodedParser, addController.add_index);
 
 router.post('/', urlencodedParser, addController.add_post);
 
+router.get('/check/:name', addController.add_check);
+
 module.exports = router;
