@@ -39,4 +39,9 @@ red: #e36c3d
   width: 0vw;
 }
 
+#loadMore
+{
+  display: none;
+}
+
 /* <div>Icons made by <a href="https://www.flaticon.com/authors/vaadin" title="Vaadin">Vaadin</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> */

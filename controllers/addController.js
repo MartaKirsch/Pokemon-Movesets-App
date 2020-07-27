@@ -60,17 +60,7 @@ const add_post = (req, res) => {
   }
   else
   {
-    //check if there's another moveset of this name
-    Moveset.find({ name: data.name}, (err, docs)=>{
-      if(docs.length==0)
-      {
-        saveMoveset(moveset, res);
-      }
-      else
-      {
-        res.render('add',{data: data});
-      }
-    });
+    saveMoveset(moveset, res);
   }
 };
 
