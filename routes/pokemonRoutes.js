@@ -11,5 +11,7 @@ const router = express.Router();
 
 router.get('/:name', pokemonController.loadPokeDBinfo);
 
+// router.get('/loadData/:name', pokemonController.loadData);
+
 
 module.exports = router;

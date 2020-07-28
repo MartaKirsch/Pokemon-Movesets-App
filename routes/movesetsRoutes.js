@@ -11,5 +11,6 @@ const router = express.Router();
 
 router.get('/load/:name/:id', movesetsController.loadMovesetsList);
 
+router.get('/:name/:id', movesetsController.loadMoveset)
 
 module.exports = router;

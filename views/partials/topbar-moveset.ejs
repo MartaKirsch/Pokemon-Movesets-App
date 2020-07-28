@@ -1,0 +1,103 @@
+<div id="topbar">
+  <div id="poke-img">
+    <%
+    if(pokemonForm.name != pokemonSpecies.name)
+    {
+      %>
+      <img src="<%= pokemonForm.sprites.front_default %>" alt="">
+      <%
+    }
+    else
+    {
+      %>
+      <img src="<%= pokemon.sprites.front_default %>" alt="">
+      <%
+    }
+    %>
+
+  </div>
+  <div id="forms">
+    <div id="rag-forms">
+      <ul>
+        <a href="/pokemon/<%= pokemonSpecies.name %> " %> " ><li>regular</li></a>
+        <%
+        let alolan = false;
+        for(let i=0;i<pokemonSpecies.varieties.length;i++)
+        {
+          //set the regular-alolan-galarian forms
+          if(pokemonSpecies.varieties[i].pokemon.name==`${pokemon.name}-alola`)
+          {
+            alolan = true
+          }
+        }
+
+        if(alolan)
+        {
+          %>
+          <a href="/pokemon/<%= pokemon.name %>-alola " ><li class="">alolan</li></a>
+          <%
+        }
+        else if(pokemon.name.includes('alola'))
+        {
+          %>
+          <a href="/pokemon/<%= pokemon.name %>" ><li class="">alolan</li></a>
+          <%
+        }
+        else
+        {
+          %>
+          <li class="no-form">alolan</li>
+          <%
+        }
+        %>
+        <li class="no-form">galarian</li>
+      </ul>
+    </div>
+    <div id="types">
+      <div id="types-text">Types:</div>
+      <%
+      if(pokemon.types.length==1)
+      {
+        %>
+        <div class=" <%= pokemon.types[0].type.name %> type">
+          <%= pokemon.types[0].type.name %>
+        </div>
+        <%
+      }
+      else
+      {
+        %>
+        <div class=" <%= pokemon.types[0].type.name %> type">
+          <%= pokemon.types[0].type.name %>
+        </div>
+        <div class=" <%= pokemon.types[1].type.name %>  type">
+          <%= pokemon.types[1].type.name %>
+        </div>
+        <%
+      }
+      %>
+
+    </div>
+    <div id="other-forms">
+      <ul>
+
+        <%
+        for(let i=0;i<pokemonSpecies.varieties.length;i++)
+        {
+          if(pokemonSpecies.varieties[i].pokemon.name!=`${pokemonSpecies.name}-alola`)
+          {
+            %> <a href="/pokemon/<%=pokemonSpecies.varieties[i].pokemon.name%>">
+                <li>
+                  <%= pokemonSpecies.varieties[i].pokemon.name %>
+                </li>
+              </a> <%
+          }
+        }
+        %>
+
+      </ul>
+    </div>
+    <div style="clear:both"></div>
+  </div>
+  <div style="clear:both"></div>
+</div>

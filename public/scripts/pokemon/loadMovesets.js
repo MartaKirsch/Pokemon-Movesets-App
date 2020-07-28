@@ -9,9 +9,8 @@ const loadMovesets = async (id)=>{
   //make id an int
   id = parseInt(id, 10);
 
-  // get old sidebar
+  // get sidebar
   const sidebar = document.querySelector('#sidebar ul');
-  const oldContent = sidebar.innerHTML;
 
   //get searched pokemon name
   const pokeName = document.querySelector('#pokeName').innerHTML;
@@ -50,7 +49,7 @@ const loadMovesets = async (id)=>{
     movesets.forEach((moveset)=>{
       if(dbpokemon.types.length==1)
       {
-        newContent += `<a href="/movesets/${moveset.id}"><li>
+        newContent += `<a href="/movesets/${dbpoke.name}/${moveset._id}"><li>
           <img src="${dbpokemon.sprites.front_default}" alt="">
           <div class="sidebarContent">
             <div class="sidebarName">${moveset.movesetName}</div>
@@ -64,7 +63,7 @@ const loadMovesets = async (id)=>{
       }
       else
       {
-        newContent += `<a href="/movesets/${moveset.id}"><li>
+        newContent += `<a href="/movesets/${dbpoke.name}/${moveset.id}"><li>
           <img src="${dbpokemon.sprites.front_default}" alt="">
           <div class="sidebarContent">
             <div class="sidebarName">${moveset.movesetName}</div>
@@ -80,9 +79,9 @@ const loadMovesets = async (id)=>{
     });
 
   }
-
+  console.log(id);
   //set display of the loadmore button as block
-  if(movesets.length == 10)
+  if(movesets.length >= (id + 9))
   {
     loadMore.style.display = "block";
   }
@@ -92,10 +91,10 @@ const loadMovesets = async (id)=>{
   }
 
   //put the new sidebar content on the page
-  sidebar.innerHTML = oldContent + newContent;
+  sidebar.innerHTML =  newContent;
 
   //set the data id param on the loadmore button for loading next pokemon from pokedex
-  loadMore.dataset.id = id+10;
+  loadMore.dataset.id = movesets.length;
 };
 
 

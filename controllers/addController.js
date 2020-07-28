@@ -9,7 +9,7 @@ const saveMoveset = (moveset, res) =>
   //save the moveset to the db
   moveset.save()
     .then((result)=>{
-      res.render('index');
+      res.redirect('/');
     })
     .catch((err)=>{
       console.log(err);
@@ -24,15 +24,22 @@ const add_post = (req, res) => {
   let moves = [{name: data.move1}, {name: data.move2}, {name: data.move3}, {name: data.move4}];
   //get evs and add them to an array
   let stats = [{}];
-  for(let i=0; i<6; i++)
+  if (stats.length==1)
   {
-    if(data['stat[]'][i])
+    stats[0] = {stat: data['stat[]'][0], value:data['value[]'][0]}
+  }
+  else
+  {
+    for(let i=0; i<6; i++)
     {
-      stats[i] = {stat: data['stat[]'][i], value:data['value[]'][i]};
-    }
-    else
-    {
-      break;
+      if(data['stat[]'][i])
+      {
+        stats[i] = {stat: data['stat[]'][i], value:data['value[]'][i]};
+      }
+      else
+      {
+        break;
+      }
     }
   }
 
