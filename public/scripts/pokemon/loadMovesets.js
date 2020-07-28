@@ -100,3 +100,4 @@ const loadMovesets = async (id)=>{
 
 
 loadMore.addEventListener('click', loadMovesets);
+window.onload = loadMovesets(1);
