@@ -47,6 +47,7 @@ const loadPokeDBinfo = async (req, res) => {
     const pokemonSpecies = tab[1];
     const pokemonForm = tab[2];
 
+
     res.render('pokemon', {pokemon, pokemonSpecies, pokemonForm});
 
   });

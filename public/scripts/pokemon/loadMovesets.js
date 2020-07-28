@@ -15,17 +15,15 @@ const loadMovesets = async (id)=>{
   //get searched pokemon name
   const pokeName = document.querySelector('#pokeName').innerHTML;
 
-  //in chrome there's an error involving cors, it makes it work
-  const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-
-  // get pokemon in pokedex order
-  let [dbpoke, movesets] = await Promise.all([
-    fetch(proxyUrl+"http://pokeapi.co/api/v2/pokemon/"+pokeName+"").then(value => value.json()),
-    fetch(`/movesets/load/${pokeName}/${id}`, {method: 'GET'}).then(value => value.json())
-  ]);
+  //get all data
+  let tab = await getData(pokeName, id);
 
   //set the global variable equal to the received info
-  dbpokemon = dbpoke;
+  pokemon = tab[0];
+  pokemonSpecies = tab[1];
+  pokemonForm = tab[2];
+  movesets = tab[3];
+
 
   let newContent = "";
 
@@ -47,14 +45,14 @@ const loadMovesets = async (id)=>{
   else
   {
     movesets.forEach((moveset)=>{
-      if(dbpokemon.types.length==1)
+      if(pokemon.types.length==1)
       {
-        newContent += `<a href="/movesets/${dbpoke.name}/${moveset._id}"><li>
-          <img src="${dbpokemon.sprites.front_default}" alt="">
+        newContent += `<a href="/movesets/${pokemon.name}/${moveset._id}"><li>
+          <img src="${pokemonForm.sprites.front_default}" alt="">
           <div class="sidebarContent">
             <div class="sidebarName">${moveset.movesetName}</div>
             <div class="types">
-              <div class="type ${dbpokemon.types[0].type.name}">${dbpokemon.types[0].type.name}</div>
+              <div class="type ${pokemon.types[0].type.name}">${pokemon.types[0].type.name}</div>
               <div style="clear:both"></div>
             </div>
             <div style="clear:both"></div>
@@ -63,13 +61,13 @@ const loadMovesets = async (id)=>{
       }
       else
       {
-        newContent += `<a href="/movesets/${dbpoke.name}/${moveset.id}"><li>
-          <img src="${dbpokemon.sprites.front_default}" alt="">
+        newContent += `<a href="/movesets/${pokemon.name}/${moveset.id}"><li>
+          <img src="${pokemon.sprites.front_default}" alt="">
           <div class="sidebarContent">
             <div class="sidebarName">${moveset.movesetName}</div>
             <div class="types">
-              <div class="type ${dbpokemon.types[0].type.name}">${dbpokemon.types[0].type.name}</div>
-              <div class="type ${dbpokemon.types[1].type.name}">${dbpokemon.types[1].type.name}</div>
+              <div class="type ${pokemon.types[0].type.name}">${pokemon.types[0].type.name}</div>
+              <div class="type ${pokemon.types[1].type.name}">${pokemon.types[1].type.name}</div>
               <div style="clear:both"></div>
             </div>
             <div style="clear:both"></div>
@@ -79,7 +77,6 @@ const loadMovesets = async (id)=>{
     });
 
   }
-  console.log(id);
   //set display of the loadmore button as block
   if(movesets.length >= (id + 9))
   {

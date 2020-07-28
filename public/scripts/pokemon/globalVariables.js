@@ -1,5 +1,8 @@
 //the pokemon info from the db
-let dbpokemon = {};
+let pokemon = {};
+let pokemonSpecies = {};
+let pokemonForm = {};
+let movesets;
 
 //loadmore button
 const loadMore = document.querySelector("#loadMore");
