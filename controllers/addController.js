@@ -24,22 +24,20 @@ const add_post = (req, res) => {
   let moves = [{name: data.move1}, {name: data.move2}, {name: data.move3}, {name: data.move4}];
   //get evs and add them to an array
   let stats = [{}];
-  if (stats.length==1)
+
+  if (data['stat[]'].length==1)
   {
-    stats[0] = {stat: data['stat[]'][0], value:data['value[]'][0]}
+    let val = parseInt(data['value[]'],10);
+    let stat = data['stat[]'].toString();
+    stats[0] = {stat: stat, value:val};
   }
   else
   {
-    for(let i=0; i<6; i++)
+    for(let i=0; i<data['stat[]'].length; i++)
     {
-      if(data['stat[]'][i])
-      {
-        stats[i] = {stat: data['stat[]'][i], value:data['value[]'][i]};
-      }
-      else
-      {
-        break;
-      }
+      let val = parseInt(data['value[]'][i],10);
+      let stat = data['stat[]'][i].toString();
+      stats[i] = {stat: stat, value:val};
     }
   }
 

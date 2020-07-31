@@ -23,6 +23,9 @@ const getData = async (name, id)=> {
       fetch("http://pokeapi.co/api/v2/pokemon-form/"+name+"").then(value => value.json()).catch(err=>console.log(err)),
       fetch(`/movesets/load/${name}/${id}`, {method: 'GET'}).then(value => value.json()).catch(err=>console.log(err))
     ]);
+
+    tab[4] = await fetch(tab[1].evolution_chain.url).then(value => value.json()).catch(err=>console.log(err));
+
     return tab;
   }
   else
@@ -31,12 +34,26 @@ const getData = async (name, id)=> {
       fetch("http://pokeapi.co/api/v2/pokemon/"+name+"").then(value => value.json()).catch(err=>console.log(err)),
       fetch(`/movesets/load/${name}/${id}`, {method: 'GET'}).then(value => value.json())
     ]);
+
+    let species = await fetch("http://pokeapi.co/api/v2/pokemon-species/"+name).then(value => value.json()).catch(err=>console.log(err));
+
     tab[3] = tab[1];
     tab[1] = tab[0];
     tab[2] = tab[0];
 
+    tab[4] = await fetch(species.evolution_chain.url).then(value => value.json()).catch(err=>console.log(err));
+
     return tab;
   }
 
+
+};
+
+const getDataMovesets = async (name, id)=> {
+  let tab = await fetch(`/movesets/load/${name}/${id}`, {method: 'GET'})
+  .then(value => value.json())
+  .catch(err=>console.log(err));
+
+  return tab;
 
 };

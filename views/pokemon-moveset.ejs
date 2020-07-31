@@ -16,17 +16,24 @@
       </div>
 
       <div id="pokebar">
-        <div id="prev">
-          <div class="prev-text">#prev</div>
-          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" alt="" style="float:left">
-          <div style="clear:both"></div>
-        </div>
-        <div id="pokemon">Name</div>
-        <div id="next">
-          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png" alt="" >
-          <div class="next-text">#next</div>
-          <div style="clear:both"></div>
-        </div>
+        <a href="/pokemon/<%= pokemon.id - 1 %>">
+          <div id="prev">
+            <div class="prev-text">#prev</div>
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/<%= pokemon.id - 1 %>.png" alt="" style="float:left">
+            <div style="clear:both"></div>
+          </div>
+        </a>
+
+        <a href="/pokemon/<%= pokemon.name %>"><div id="pokemon"><%= pokemon.name%></div></a>
+
+        <a href="/pokemon/<%= pokemon.id - 1 %>">
+          <div id="next">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/<%= pokemon.id + 1 %>.png" alt="" >
+            <div class="next-text">#next</div>
+            <div style="clear:both"></div>
+          </div>
+        </a>
+
         <div style="clear:both"></div>
       </div>
 
@@ -37,13 +44,13 @@
 
         </ul>
 
-        <div id="loadMore" data-id="1">Load More</div>
+        <div id="loadMore" class="moveset" data-id="1">Load More</div>
       </div>
 
       <div id="mainpanel">
 
+      <%- include('./partials/topbar-moveset.ejs') %>
 
-        <%- include('./partials/topbar-moveset.ejs') %>
 
         <div id="moveset-wrapper">
 
@@ -51,22 +58,41 @@
             <ul>
               <li>
                 <div>Held Item:</div>
-                <div>Choice Scarf</div>
+                <div>
+                  <% if(moveset.heldItem != '')
+                  {
+                    %> <%= moveset.heldItem %> <%
+                  }
+                  else
+                  {
+                    %> - <%
+                  }
+                  %></div>
                 <div style="clear:both"></div>
               </li>
               <li>
                 <div>Ability:</div>
-                <div>Sturdy</div>
+                <div><%= moveset.ability %></div>
                 <div style="clear:both"></div>
               </li>
               <li>
                 <div>EVs:</div>
-                <div>160 Atk / 252 SDef / 96 Spd</div>
+                <div>
+                  <%
+                  let string = "";
+                  moveset.EVs.forEach((ev)=>{
+                    string += `${ev.value} ${ev.stat} / `;
+                  });
+                  string = string.slice(0, string.length-2);
+                  %>
+
+                  <%= string %>
+                </div>
                 <div style="clear:both"></div>
               </li>
               <li>
                 <div>Nature:</div>
-                <div>Careful(+SDef, -SAtk)</div>
+                <div><%= moveset.nature %></div>
                 <div style="clear:both"></div>
               </li>
             </ul>
@@ -75,22 +101,22 @@
             <ul>
               <li>
                 <div>Move #1:</div>
-                <div>Bug Bite</div>
+                <div><%= moveset.moves[0].name %></div>
                 <div style="clear:both"></div>
               </li>
               <li>
                 <div>Move #2:</div>
-                <div>Bide</div>
+                <div><%= moveset.moves[1].name %></div>
                 <div style="clear:both"></div>
               </li>
               <li>
                 <div>Move #3:</div>
-                <div>Quiver Dance</div>
+                <div><%= moveset.moves[2].name %></div>
                 <div style="clear:both"></div>
               </li>
               <li>
                 <div>Move #4:</div>
-                <div>Rock Polish</div>
+                <div><%= moveset.moves[3].name %></div>
                 <div style="clear:both"></div>
               </li>
             </ul>
@@ -101,7 +127,7 @@
         </div>
 
         <div id="nick-footer">
-          The author of this moveset is: Ahiru
+          The author of this moveset is: <%= moveset.author %>
         </div>
 
       </div>
@@ -109,7 +135,13 @@
       <div style="clear:both"></div>
     </div>
     <a href="" id="atag"></a>
-    <script type="text/javascript" src="../public/scripts/fakeClick.js"></script>
-    <script type="text/javascript" src="../public/scripts/loadPokedex.js"></script>
+    <div id="pokeName" style="display:none"><%= pokemon.name %></div>
+    <div id="movesetId" style="display:none"><%= id %></div>
+    <div id="siteType" style="display:none">moveset</div>
+    <script type="text/javascript" src="/public/scripts/pokemon/globalVariables.js"></script>
+    <script type="text/javascript" src="/public/scripts/pokemon/getData.js"></script>
+    <script type="text/javascript" src="/public/scripts/fakeClick.js"></script>
+    <script type="text/javascript" src="/public/scripts/pokemon/loadMovesets.js"></script>
+    <script type="text/javascript" src="/public/scripts/pokemon/setMovesetAsSelected.js"></script>
   </body>
 </html>

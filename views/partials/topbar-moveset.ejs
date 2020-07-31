@@ -14,38 +14,29 @@
       <%
     }
     %>
-
   </div>
   <div id="forms">
     <div id="rag-forms">
       <ul>
-        <a href="/pokemon/<%= pokemonSpecies.name %> " %> " ><li>regular</li></a>
         <%
-        let alolan = false;
-        for(let i=0;i<pokemonSpecies.varieties.length;i++)
-        {
-          //set the regular-alolan-galarian forms
-          if(pokemonSpecies.varieties[i].pokemon.name==`${pokemon.name}-alola`)
-          {
-            alolan = true
-          }
-        }
-
-        if(alolan)
+        if(pokemon.name.includes('alola'))
         {
           %>
-          <a href="/pokemon/<%= pokemon.name %>-alola " ><li class="">alolan</li></a>
+          <li class="no-form">regular</li>
+          <li class="pokemon-moveset-form">alolan</li>
           <%
         }
-        else if(pokemon.name.includes('alola'))
+        else if(pokemonSpecies.name == pokemon.name)
         {
           %>
-          <a href="/pokemon/<%= pokemon.name %>" ><li class="">alolan</li></a>
+          <li class="pokemon-moveset-form">regular</li>
+          <li class="no-form">alolan</li>
           <%
         }
         else
         {
           %>
+          <li class="no-form">regular</li>
           <li class="no-form">alolan</li>
           <%
         }
@@ -80,20 +71,36 @@
     </div>
     <div id="other-forms">
       <ul>
-
         <%
-        for(let i=0;i<pokemonSpecies.varieties.length;i++)
+
+        if(pokemonSpecies.varieties)
         {
-          if(pokemonSpecies.varieties[i].pokemon.name!=`${pokemonSpecies.name}-alola`)
+          for(let i=0;i<pokemonSpecies.varieties.length;i++)
           {
-            %> <a href="/pokemon/<%=pokemonSpecies.varieties[i].pokemon.name%>">
-                <li>
-                  <%= pokemonSpecies.varieties[i].pokemon.name %>
+            if(pokemonSpecies.varieties[i].pokemon.name!=`${pokemonSpecies.name}-alola`)
+            {
+              if(pokemonSpecies.varieties[i].pokemon.name == pokemon.name)
+              {
+                %>
+                 <li class="pokemon-moveset-form">
+                    <%=pokemonSpecies.varieties[i].pokemon.name%>
+                 </li>
+                <%
+              }
+              else
+              {
+                %>
+                <li class="no-form">
+                  <%=pokemonSpecies.varieties[i].pokemon.name%>
                 </li>
-              </a> <%
+                <%
+              }
+
+            }
           }
         }
         %>
+
 
       </ul>
     </div>

@@ -72,4 +72,14 @@
   padding: 1vw;
 }
 
+#sidebar li.selectedMoveset
+{
+  background-color: #adeec2;
+}
+
+#sidebar li.selectedMoveset:hover
+{
+  background-color: #acddb1;
+}
+
 }
