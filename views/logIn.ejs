@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="/public/logIn/style.css" type="text/css">
+  </head>
+  <body>
+
+    <%- include('./partials/nav.ejs') %>
+
+
+    <div id="wrapper">
+      <div class="column">
+
+        <form action="/account" method="post">
+
+          <div class="row">
+            <div class="attribute">Nickname</div>
+            <input type="text" id="nickname" class="main-text-input" name="nickname" value="" placeholder="Enter Your Nickname">
+            <div style="clear:both"></div>
+          </div>
+
+          <div class="row">
+            <div class="attribute">Password</div>
+            <input type="password" id="password" class="main-text-input" name="password" value="" placeholder="Enter Your Password">
+            <div style="clear:both"></div>
+          </div>
+
+          <input type="button" id="logIn" name="" value="Log In">
+        </form>
+
+      </div>
+
+      <div id="register">
+        You don't have an account? Click me and we'll fix it!
+      </div>
+    </div>
+    <a id="atag" href="/account"></a>
+    <script type="text/javascript" src="../public/scripts/logIn/logIn.js"></script>
+  </body>
+</html>

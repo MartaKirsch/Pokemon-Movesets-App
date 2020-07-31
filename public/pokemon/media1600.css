@@ -139,25 +139,19 @@
   width: 40vw;
   margin: auto;
   display: flex;
+  justify-content: space-around;
 }
 
 .evolutions-img
 {
   width: 5vw;
-  float: left;
-}
-
-.evolutions-img:nth-last-of-type(2)
-{
-  float: right;
 }
 
 .evolutions-arrow
 {
-  margin: auto;
+  margin: auto 0;
   text-align: center;
   width: 10vw;
-  float: left;
 }
 
 .evolutions-arrow img

@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const addRoutes = require('./routes/addRoutes');
 const movesetsRoutes = require('./routes/movesetsRoutes');
 const pokemonRoutes = require('./routes/pokemonRoutes');
+const accountRoutes = require('./routes/accountRoutes');
+const session = require('express-session');
 
 //create app
 const app = express();
@@ -21,6 +23,8 @@ app.use('/public', express.static('public'));
 //set view engine
 app.set('view engine', 'ejs');
 
+//session
+app.use(session({secret: 'ssshhhhh', resave:true, saveUninitialized: false}));
 
 
 //get requests
@@ -29,13 +33,11 @@ app.get('/', (req, res)=>{
 });
 
 
-
-
-
 //use the addRoutes.js file for incoming requests with '/add', etc
 app.use('/add', addRoutes);
 app.use('/movesets', movesetsRoutes);
 app.use('/pokemon', pokemonRoutes);
+app.use('/account', accountRoutes);
 
 //404 Page
 app.use((req,res)=>{
