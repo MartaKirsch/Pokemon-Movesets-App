@@ -14,11 +14,14 @@ const buttonAction = async (e)=>{
   //if it's log in than check the account password and nickname with db
   if(e.target.value=="Log In")
   {
+    const nickname = document.querySelector('#nickname');
+    const password = document.querySelector('#password');
+
     //check data with db
-    let data = await fetch('/account/checkData', {method: 'GET'}).then(res=>res.json());
+    let data = await fetch(`/account/checkData/${nickname.value}/${password.value}`, {method: 'GET'}).then(res=>res.json());
 
     //if it's ok, then redirect to /account
-    if(data.mssg == "hello")
+    if(data.status == "OK")
     {
       let anchorObj = document.getElementById('atag');
 
@@ -30,6 +33,11 @@ const buttonAction = async (e)=>{
           let allowDefault = anchorObj.dispatchEvent(evt);
         }
       }
+    }
+
+    else
+    {
+      alert('Incorrect login data!');
     }
   }
 

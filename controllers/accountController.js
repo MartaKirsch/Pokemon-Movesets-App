@@ -1,4 +1,5 @@
 const Account = require('../models/accountModel.js');
+const Moveset = require('../models/movesetModel.js');
 const fetch = require('node-fetch');
 const session = require('express-session');
 
@@ -7,7 +8,7 @@ const account_index = (req, res) => {
 
   if(sess.login)
   {
-    res.render('account');
+    res.render('account',{nickname: sess.login});
   }
   else
   {
@@ -19,8 +20,19 @@ const account_checkData = (req, res) => {
   let sess = req.session;
   console.log('checking data');
 
-  sess.login = true;
-  res.json({mssg:'hello'});
+  Account.find({name: req.params.nickname, password: req.params.password}).then(docs=>{
+
+    if(docs.length!=0)
+    {
+      sess.login = req.params.nickname;
+      res.json({status:'OK'});
+    }
+    else
+    {
+      res.json({status:'404'});
+    }
+  });
+
 
 };
 
@@ -36,9 +48,9 @@ const account_logOut = (req, res) => {
 
 const account_checkIfExists = (req, res) => {
 
-  Account.find({name: req.params.nickname}).then((docs)=>{
-    console.log(docs);
-    if(docs)
+  Account.find({"name_lowercase": req.params.nickname.toLowerCase()}).then((docs)=>{
+
+    if(docs.length!=0)
     {
       res.json({status:'404'});
     }
@@ -56,9 +68,10 @@ const account_register = (req, res) => {
 
   let account = new Account({
     name: req.body.nickname,
+    "name_lowercase": req.body.nickname.toLowerCase(),
     password: req.body.password
   });
-  console.log('about to register');
+
   account.save()
     .then((result)=>{
       sess.login = req.body.nickname;
@@ -70,10 +83,19 @@ const account_register = (req, res) => {
 
 };
 
+const account_loadMovesets = async (req, res) => {
+  let sess = req.session;
+
+  let id = parseInt(req.params.id, 10);
+  let data = await Moveset.find({author:sess.login}).limit(9+id);
+  res.json(data);
+};
+
 module.exports = {
   account_index,
   account_checkData,
   account_logOut,
   account_checkIfExists,
-  account_register
+  account_register,
+  account_loadMovesets
 };

@@ -14,7 +14,7 @@ const rows = document.querySelectorAll('.row');
 const select = document.querySelector('.row select');
 
 //boolean arrays for all the inputs
-let tab = [0,1,0,0,0,0,0,0,0,1,0,0];
+let tab = [0,1,0,0,0,0,0,0,0,1];
 
 //boolean arrays for the evs
 let evtab = [];

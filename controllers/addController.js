@@ -1,7 +1,17 @@
 const Moveset = require('../models/movesetModel.js');
+const session = require('express-session');
 
 const add_index = (req, res) => {
-  res.render('add');
+  let sess = req.session;
+
+  if(sess.login)
+  {
+    res.render('add');
+  }
+  else
+  {
+    res.redirect('/account');
+  }
 };
 
 const saveMoveset = (moveset, res) =>
@@ -17,6 +27,7 @@ const saveMoveset = (moveset, res) =>
 };
 
 const add_post = (req, res) => {
+  let sess = req.session;
 
   //get the data
   const data = req.body;
@@ -51,8 +62,7 @@ const add_post = (req, res) => {
     "nature": data.nature,
     "moves": moves,
     "movesetName": data.movesetName,
-    "author": data.author,
-    "password": data.password
+    "author": sess.login
   });
 
   if(data.movesetName=="")

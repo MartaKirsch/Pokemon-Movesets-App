@@ -3,7 +3,7 @@
 #wrapper
 {
   padding: 2vw;
-  height: 75vh;
+  /* height: 75vh; */
   margin: 2vh auto 0 auto;
   scrollbar-width: 1vw;
   scrollbar-color: #7D8D9C #adeec2;
@@ -112,7 +112,7 @@
   padding: 1vw;
   border: 3px solid #adeec2;
   border-radius: 15px;
-  margin: 1vw 0;
+  margin: 1vw 0 0 0;
   text-align: center;
 }
 

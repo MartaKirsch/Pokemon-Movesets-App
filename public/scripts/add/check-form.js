@@ -230,41 +230,6 @@ const inputValidation = async (e)=>{
     }
   }
 
-  else if(index==10)
-  {
-    if(value == "")
-    {
-      tab[index] = 0;
-      wrongDiv.innerHTML = "You need to insert a Name!";
-      wrongDiv.style.visibility = "visible";
-      parentDiv.style.border = "1px solid #e36c3d";
-    }
-    else
-    {
-      tab[index] = 1;
-      wrongDiv.innerHTML = "";
-      wrongDiv.style.visibility = "hidden";
-      parentDiv.style.border = "none";
-    }
-  }
-
-  else if(index==11)
-  {
-    if(value == "")
-    {
-      tab[index] = 0;
-      wrongDiv.innerHTML = "You need to insert a Password!";
-      wrongDiv.style.visibility = "visible";
-      parentDiv.style.border = "1px solid #e36c3d";
-    }
-    else
-    {
-      tab[index] = 1;
-      wrongDiv.innerHTML = "";
-      wrongDiv.style.visibility = "hidden";
-      parentDiv.style.border = "none";
-    }
-  }
 };
 
 //'live' check on optional text inputs' entered data

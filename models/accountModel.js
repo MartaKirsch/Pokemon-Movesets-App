@@ -6,6 +6,10 @@ const accountSchema = new Schema({
     type: String,
     required: true
   },
+  "name_lowercase": {
+    type: String,
+    required: true
+  },
   "password": {
     type: String,
     required: true
