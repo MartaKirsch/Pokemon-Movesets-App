@@ -24,6 +24,10 @@ const movesetSchema = new Schema({
     type: String,
     required: true
   },
+  "movesetNameLowercase": {
+    type: String,
+    required: true
+  },
   "author": {
     type: String,
     required: true

@@ -9,7 +9,7 @@ let urlencodedParser = bodyParser.urlencoded({ extended: false });
 const router = express.Router();
 
 
-router.get('/load/:name/:id', movesetsController.loadMovesetsList);
+router.get('/load/:name/:id/:account', movesetsController.loadMovesetsList);
 
 router.get('/:name/:id', movesetsController.loadMoveset)
 

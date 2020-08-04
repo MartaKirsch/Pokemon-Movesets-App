@@ -32,7 +32,7 @@ const getData = async (name, id)=> {
   {
     let tab = await Promise.all([
       fetch("http://pokeapi.co/api/v2/pokemon/"+name+"").then(value => value.json()).catch(err=>console.log(err)),
-      fetch(`/movesets/load/${name}/${id}`, {method: 'GET'}).then(value => value.json())
+      fetch(`/movesets/load/${name}/${id}/false`, {method: 'GET'}).then(value => value.json())
     ]);
 
     let species = await fetch("http://pokeapi.co/api/v2/pokemon-species/"+name).then(value => value.json()).catch(err=>console.log(err));
@@ -50,7 +50,7 @@ const getData = async (name, id)=> {
 };
 
 const getDataMovesets = async (name, id)=> {
-  let tab = await fetch(`/movesets/load/${name}/${id}`, {method: 'GET'})
+  let tab = await fetch(`/movesets/load/${name}/${id}/false`, {method: 'GET'})
   .then(value => value.json())
   .catch(err=>console.log(err));
 

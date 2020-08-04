@@ -55,21 +55,23 @@ const add_post = (req, res) => {
 
   //create new moveset
   const moveset = new Moveset({
-    "name": data.name,
+    "name": data.name.toLowerCase(),
     "heldItem": data.heldItem,
     "ability": data.ability,
     "EVs": stats,
     "nature": data.nature,
     "moves": moves,
     "movesetName": data.movesetName,
+    "movesetNameLowercase": data.movesetName.toLowerCase(),
     "author": sess.login
   });
 
   if(data.movesetName=="")
   {
     //find how many movesets for this pokemon this author already has and do sth like msName = "author#(num+1)"
-    Moveset.find({ name: data.name, author: data.author}, (err, docs)=>{
-      moveset.movesetName = `${data.author}#${docs.length+1}`;
+    Moveset.find({ name: data.name.toLowerCase(), author: sess.login}, (err, docs)=>{
+      moveset.movesetName = `${sess.login}#${docs.length+1}`;
+      moveset.movesetNameLowercase = `${sess.login}#${docs.length+1}`.toLowerCase();
       saveMoveset(moveset, res);
     });
   }

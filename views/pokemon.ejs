@@ -256,6 +256,12 @@
                   conditions += 'Trade';
                 }
 
+                //known move
+                if(evolDetails.known_move)
+                {
+                  conditions+=', after ' + evolDetails.known_move.name + ' is learnt'
+                }
+
                 //held item
                 if(evolDetails.held_item)
                 {
@@ -344,7 +350,13 @@
                     //type of evolution trigger
                     if(evolDetails2.trigger.name == 'level-up')
                     {
-                      conditions2+= 'Level ' + evolDetails2.min_level;
+                      if(evolDetails2.min_level)
+                      {
+                        conditions2+= 'Level ' + evolDetails2.min_level;
+                      } else
+                      {
+                        conditions2+= 'Level Up';
+                      }
                       if(evolDetails2.item)
                       {
                         conditions2 += ', Use '+ evolDetails2.item.name;
@@ -361,6 +373,12 @@
                     else if(evolDetails2.trigger.name == 'trade')
                     {
                       conditions2 += 'Trade';
+                    }
+
+                    //known move
+                    if(evolDetails2.known_move)
+                    {
+                      conditions2+=', after ' + evolDetails2.known_move.name + ' is learnt'
                     }
 
                     //held item

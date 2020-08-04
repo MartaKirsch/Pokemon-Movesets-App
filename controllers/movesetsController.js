@@ -1,11 +1,22 @@
 const Moveset = require('../models/movesetModel.js');
 const fetch = require('node-fetch');
+const session = require('express-session');
 
 //browser-side js asks for info from DB while loading movesets list
 const loadMovesetsList = async (req, res) => {
+  let sess = req.session;
+
   let id = parseInt(req.params.id, 10);
-  let data = await  Moveset.find({name: req.params.name}).limit(9+id);
-  res.json(data);
+  if(req.params.account == 'true')
+  {
+    let data = await  Moveset.find({name: req.params.name, author: sess.login}).limit(9+id);
+    res.json(data);
+  }
+  else
+  {
+    let data = await  Moveset.find({name: req.params.name}).limit(9+id);
+    res.json(data);
+  }
 };
 
 //load single moveset info and render a view
@@ -77,7 +88,7 @@ const loadMoveset = async (req, res) => {
 
   Moveset.find({_id: req.params.id})
   .then(data=>{
-    
+
     res.render('pokemon-moveset', {pokemon, pokemonSpecies: species, pokemonEvolution: evol, pokemonForm:forms, id: req.params.id, moveset:data[0]});
   })
   .catch(err=>{console.log(err);res.render('404');});
