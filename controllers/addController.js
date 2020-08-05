@@ -14,8 +14,7 @@ const add_index = (req, res) => {
   }
 };
 
-const saveMoveset = (moveset, res) =>
-{
+const saveMoveset = (moveset, res) => {
   //save the moveset to the db
   moveset.save()
     .then((result)=>{

@@ -97,7 +97,7 @@
   text-shadow: 1px 1px 2px #CE5937,1px 1px 2px #CE5937,1px 1px 2px #CE5937,1px 1px 2px #CE5937;
 }
 
-#logIn:hover
+#logIn:hover, #logIn:focus
 {
   outline: none;
   border: 2px solid #e36c3d;

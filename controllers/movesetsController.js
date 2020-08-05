@@ -9,14 +9,36 @@ const loadMovesetsList = async (req, res) => {
   let id = parseInt(req.params.id, 10);
   if(req.params.account == 'true')
   {
-    let data = await  Moveset.find({name: req.params.name, author: sess.login}).limit(9+id);
+    let data = await Moveset.find({name: req.params.name, author: sess.login})
+    .skip(id)
+    .limit(10)
+    .sort( 'createdOn' );
     res.json(data);
   }
   else
   {
-    let data = await  Moveset.find({name: req.params.name}).limit(9+id);
+    let data = await Moveset.find({name: req.params.name}).skip(id).limit(10).sort( 'createdOn' );
     res.json(data);
   }
+};
+
+const loadAllMovesetsList = async (req, res) => {
+  // let sess = req.session;
+
+  // let id = parseInt(req.params.id, 10);
+  // if(req.params.account == 'true')
+  // {
+  //   let data = await Moveset.find({name: req.params.name, author: sess.login})
+  //   .skip(id)
+  //   .limit(10)
+  //   .sort( 'createdOn' );
+  //   res.json(data);
+  // }
+  // else
+  // {
+    let data = await Moveset.find({name: req.params.name});
+    res.json(data);
+  // }
 };
 
 //load single moveset info and render a view
@@ -98,5 +120,6 @@ const loadMoveset = async (req, res) => {
 
 module.exports = {
   loadMovesetsList,
-  loadMoveset
+  loadMoveset,
+  loadAllMovesetsList
 }

@@ -10,6 +10,7 @@ const router = express.Router();
 
 
 router.get('/load/:name/:id/:account', movesetsController.loadMovesetsList);
+router.get('/loadAll/:name', movesetsController.loadAllMovesetsList);
 
 router.get('/:name/:id', movesetsController.loadMoveset)
 

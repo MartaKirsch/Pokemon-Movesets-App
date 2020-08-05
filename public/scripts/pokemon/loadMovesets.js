@@ -31,6 +31,7 @@ const setData = async (pokeName, id) => {
 
     movesets = await getDataMovesets(pokeName, id);
 
+
   }
 };
 
@@ -49,7 +50,7 @@ const stateChanges = async (id) => {
   }
 
   //create new li elements
-  if(movesets.length==0)
+  if(movesets.length==0 && oldContent != "")
   {
     newContent += `<a href=""><li>
       <img src="" alt="">
@@ -65,7 +66,7 @@ const stateChanges = async (id) => {
   }
   else
   {
-    for(let i=sidebarLength;i<movesets.length;i++)
+    for(let i=0;i<movesets.length;i++)
     {
       if(pokemon.types.length==1)
       {
@@ -100,7 +101,7 @@ const stateChanges = async (id) => {
 
   }
   //set display of the loadmore button as block
-  if(movesets.length >= (id + 9))
+  if(movesets.length >= (id + 10))
   {
     loadMore.style.display = "block";
   }
@@ -113,7 +114,7 @@ const stateChanges = async (id) => {
   sidebar.innerHTML = oldContent + newContent;
 
   //set the data id param on the loadmore button for loading next pokemon from pokedex
-  loadMore.dataset.id = movesets.length;
+  loadMore.dataset.id = id + 10;
 };
 
 const loadMovesets = async (id)=>{
@@ -138,7 +139,6 @@ const loadMovesets = async (id)=>{
     if(document.querySelector('#siteType').innerHTML=="db")
     {
       stateChanges(id);
-      console.log(pokemonEvolution);
     }
     else
     {
@@ -154,4 +154,4 @@ const loadMovesets = async (id)=>{
 
 
 loadMore.addEventListener('click', loadMovesets);
-window.onload = loadMovesets(1);
+window.onload = loadMovesets(0);

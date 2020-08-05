@@ -1,7 +1,13 @@
-const generateLis = async (movesets)=> {
+const generateLis = async (movesets, type)=> {
   let newContent = "";
+  let oldContent = sidebar.innerHTML;
 
-  if(movesets.length==0)
+  if(type==0 && search.dataset.id == 0)
+  {
+    oldContent = "";
+  }
+
+  if(movesets.length==0 && oldContent != "")
   {
     newContent += `<a href=""><li>
       <img src="" alt="">
@@ -64,7 +70,11 @@ const generateLis = async (movesets)=> {
             </div>
             <div style="clear:both"></div>
           </div>
-        </li></a>`;
+        </li></a>
+        <div class="liBottomDiv">
+          <div class="liBottomLeft">Update</div>
+          <div class="liBottomRight">Delete</div>
+        </div>`;
       }
       else
       {
@@ -87,5 +97,5 @@ const generateLis = async (movesets)=> {
   }
 
   //put the new sidebar content on the page
-  sidebar.innerHTML = newContent;
+  sidebar.innerHTML = oldContent + newContent;
 };

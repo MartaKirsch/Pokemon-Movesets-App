@@ -1,0 +1,54 @@
+@media (min-width:1600px){
+
+#sidebar li
+{
+  margin: 0 auto;
+}
+
+.liBottomDiv
+{
+  /* color: white; */
+  display: flex;
+  margin: 0 auto 1vh auto;
+  width: 95%;
+  height: 4vh;
+  padding: 0 0.5vw 0.5vw 0.5vw;
+  text-align: center;
+}
+
+.liBottomLeft, .liBottomRight
+{
+  padding: 0.5vh;
+  flex:1;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.liBottomLeft
+{
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  background-color: #adeec2;
+}
+
+.liBottomLeft:hover
+{
+  background-color: #acddb1;
+}
+
+.liBottomRight:hover
+{
+  background-color: #e4ca77;
+}
+
+.liBottomRight
+{
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  background-color: #f5da88;
+}
+
+
+
+
+}

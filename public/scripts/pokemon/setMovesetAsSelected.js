@@ -13,14 +13,14 @@ const load = async () => {
     }
   };
 
-  //update movesets
-  movesets = await getDataMovesets(pokemon.name, parseInt(loadMore.dataset.id));
+  //get all movesets
+  let allMovesets = await getDataAllMovesets(pokemon.name);
 
-  let moveset = movesets.find(sameId);
-  let movesetIndex = movesets.findIndex(sameId);
+  let moveset = allMovesets.find(sameId);
+  let movesetIndex = allMovesets.findIndex(sameId);
 
   //set the current moveset looks as clicked
-  if(movesetIndex > loadmoreId)
+  if(movesetIndex > loadmoreId-1)
   {
     console.log('load more movesets');
     loadMovesets(loadmoreId);

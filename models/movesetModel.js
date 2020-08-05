@@ -31,7 +31,11 @@ const movesetSchema = new Schema({
   "author": {
     type: String,
     required: true
-  }
+  },
+  "createdOn": {
+    type: Date, 
+    default: Date.now
+   },
 });
 
 //create model

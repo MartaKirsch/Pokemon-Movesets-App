@@ -87,7 +87,7 @@ const account_loadMovesets = async (req, res) => {
   let sess = req.session;
 
   let id = parseInt(req.params.id, 10);
-  let data = await Moveset.find({author:sess.login}).limit(9+id);
+  let data = await Moveset.find({author:sess.login}).skip(id).limit(10).sort( 'createdOn' );
   res.json(data);
 };
 
