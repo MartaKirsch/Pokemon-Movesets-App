@@ -10,8 +10,11 @@ const router = express.Router();
 
 
 router.get('/load/:name/:id/:account', movesetsController.loadMovesetsList);
+
 router.get('/loadAll/:name', movesetsController.loadAllMovesetsList);
 
-router.get('/:name/:id', movesetsController.loadMoveset)
+router.get('/:name/:id', movesetsController.loadMoveset);
+
+router.delete('/:id', movesetsController.deleteMoveset);
 
 module.exports = router;

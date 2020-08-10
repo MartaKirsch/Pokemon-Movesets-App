@@ -27,11 +27,12 @@ let generateEV = ()=>{
       <div class="wrong-data"></div>
     </li>
     `;
-
     //add one element to the evtab and evflags
     evtab.push(0);
     evflags.push({double:1, emptyStat: 1, emptyNum: 1, wrongNum: 1, wrongSum: 1});
   }
+  console.log(document.getElementsByName('stat[]'));
+  console.log(document.getElementsByName('stat[]').length);
   //correct the array, cause there's always one element in addition from creating the variable
   evtab = evtab.slice(0, evtab.length-1);
   evflags = evflags.slice(1, evflags.length);

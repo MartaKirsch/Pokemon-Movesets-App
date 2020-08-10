@@ -73,7 +73,7 @@ const generateLis = async (movesets, type)=> {
         </li></a>
         <div class="liBottomDiv">
           <div class="liBottomLeft">Update</div>
-          <div class="liBottomRight">Delete</div>
+          <div class="liBottomRight" data-id="${movesets[i]._id}" data-name="${movesets[i].name}">Delete</div>
         </div>`;
       }
       else
@@ -89,7 +89,11 @@ const generateLis = async (movesets, type)=> {
             </div>
             <div style="clear:both"></div>
           </div>
-        </li></a>`;
+        </li></a>
+        <div class="liBottomDiv">
+          <div class="liBottomLeft">Update</div>
+          <div class="liBottomRight" data-id="${movesets[i]._id}" data-name="${movesets[i].name}">Delete</div>
+        </div>`;
       }
 
 
@@ -98,4 +102,5 @@ const generateLis = async (movesets, type)=> {
 
   //put the new sidebar content on the page
   sidebar.innerHTML = oldContent + newContent;
+  addDeleteEventListeners();
 };

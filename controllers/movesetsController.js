@@ -118,8 +118,18 @@ const loadMoveset = async (req, res) => {
 
 };
 
+const deleteMoveset = async (req, res) => {
+  const sess = req.session;
+  const id = req.params.id;
+
+  Moveset.findOneAndDelete({author: sess.login,_id: id}).then((docs)=>{
+    res.json(docs);
+  });
+};
+
 module.exports = {
   loadMovesetsList,
   loadMoveset,
-  loadAllMovesetsList
+  loadAllMovesetsList,
+  deleteMoveset
 }

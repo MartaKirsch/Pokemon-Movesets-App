@@ -49,6 +49,58 @@
 }
 
 
+.col
+{
+  text-align: center;
+  width: 47.5%;
+  background-color: white;
+  padding: 1vw;
+  margin: auto;
+  border-radius: 15px;
+}
+
+.col a
+{
+  text-decoration: underline;
+  text-transform: uppercase;
+  color: #adeec2;
+}
+
+#deleteOptions
+{
+  background-color: none ;
+  display: flex;
+  text-align: center;
+  width: 47.5%;
+  padding: 1vw;
+  margin: 1vw auto 0 auto;
+  border-radius: 15px;
+  justify-content: space-between;
+}
+
+.yes, #deleteOptions a
+{
+  flex:1;
+  text-align: center;
+  max-width: 40%;
+  background-color: white;
+  padding: .5vw;
+  margin: auto;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.yes:hover
+{
+  background-color: #adeec2;
+  color:white;
+}
+
+#deleteOptions a:hover
+{
+  background-color: #e36c3d;
+  color:white;
+}
 
 
 }

@@ -35,13 +35,7 @@ const add_post = (req, res) => {
   //get evs and add them to an array
   let stats = [{}];
 
-  if (data['stat[]'].length==1)
-  {
-    let val = parseInt(data['value[]'],10);
-    let stat = data['stat[]'].toString();
-    stats[0] = {stat: stat, value:val};
-  }
-  else
+  if (data['stat[]'][0].length>1)
   {
     for(let i=0; i<data['stat[]'].length; i++)
     {
@@ -49,6 +43,12 @@ const add_post = (req, res) => {
       let stat = data['stat[]'][i].toString();
       stats[i] = {stat: stat, value:val};
     }
+  }
+  else
+  {
+    let val = parseInt(data['value[]'],10);
+    let stat = data['stat[]'].toString();
+    stats[0] = {stat: stat, value:val};
   }
 
 
@@ -68,10 +68,25 @@ const add_post = (req, res) => {
   if(data.movesetName=="")
   {
     //find how many movesets for this pokemon this author already has and do sth like msName = "author#(num+1)"
-    Moveset.find({ name: data.name.toLowerCase(), author: sess.login}, (err, docs)=>{
-      moveset.movesetName = `${sess.login}#${docs.length+1}`;
-      moveset.movesetNameLowercase = `${sess.login}#${docs.length+1}`.toLowerCase();
+    let reg = new RegExp("^"+sess.login+'#\\d+$');
+    Moveset.find({ name: data.name.toLowerCase(), author: sess.login, movesetName: reg}).sort( 'createdOn' ).then((docs)=>{
+
+      //get the biggest num after # from returned docs
+      let buffor = 0;
+      let reg2 = /\d+$/;
+      docs.forEach((ms) => {
+        let num = parseInt(ms.movesetName.match(reg2).toString());
+        if(num>buffor)
+        {
+          buffor = num;
+        }
+      });
+
+      //set a new name and save
+      moveset.movesetName = `${sess.login}#${buffor+1}`;
+      moveset.movesetNameLowercase = `${sess.login}#${buffor+1}`.toLowerCase();
       saveMoveset(moveset, res);
+
     });
   }
   else
