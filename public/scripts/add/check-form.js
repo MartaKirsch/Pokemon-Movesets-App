@@ -273,13 +273,27 @@ const optionalInputValidation = async (e)=>{
     }
 
     //check if a moveset with this name already exists
-    fetch(`add/check/${value}`, {method: "GET"})
+    fetch(`add/check`, {
+      method: "POST",
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({name: value})
+     })
       .then(data=>data.json())
       .then((res)=>{
         if(res.value == "exists")
         {
           tab[index] = 0;
           wrongDiv.innerHTML = "Moveset with this name already exists!";
+          wrongDiv.style.visibility = "visible";
+          parentDiv.style.border = "1px solid #e36c3d";
+        }
+        else if(res.value == "prohibited")
+        {
+          tab[index] = 0;
+          wrongDiv.innerHTML = "This moveset name is prohibited (nick#num)!";
           wrongDiv.style.visibility = "visible";
           parentDiv.style.border = "1px solid #e36c3d";
         }

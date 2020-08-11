@@ -96,21 +96,35 @@ const add_post = (req, res) => {
 };
 
 const add_check = (req, res) => {
-  let name = req.params.name;
-  // let re = new RegExp(name, 'i');
+  let sess = req.session;
+  let name = req.body.name;
+
   name = name.toLowerCase();
 
-  //check if moveset with identical name exists
-  Moveset.find({ movesetName: name}, (err, docs)=>{
-    if(docs.length==0)
-    {
-      res.json({value: "no-exist"});
-    }
-    else
-    {
-      res.json({value: "exists"});
-    }
-  });
+  //check if set name isn't prohibited
+  let reg = new RegExp(sess.login + "#\\d+", 'i');
+  
+
+  if(reg.test(name))
+  {
+    res.json({value: "prohibited"});
+  }
+  else
+  {
+    //check if moveset with identical name exists
+    Moveset.find({ movesetName: name}, (err, docs)=>{
+      if(docs.length==0)
+      {
+        res.json({value: "no-exist"});
+      }
+      else
+      {
+        res.json({value: "exists"});
+      }
+    });
+  }
+
+
 };
 
 
