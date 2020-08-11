@@ -165,5 +165,53 @@
   text-shadow: 1px 1px 2px #bd4826,1px 1px 2px #bd4826,1px 1px 2px #bd4826,1px 1px 2px #bd4826;
 }
 
+#hints
+{
+  display: none;
+  direction:rtl;
+  width: 96%;
+  position: relative;
+  z-index: 1000;
+  list-style-type: none;
+  margin: 0 auto;
+  padding: 0;
+  max-height: 36vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border-bottom: 3px solid #467854;
+  border-bottom-right-radius: 15px;
+}
+
+#hints li
+{
+  direction:ltr;
+  width: 100%;
+  padding: 1vw;
+  font-size: 1vw;
+  z-index: 1000;
+  background-color: #dcf9e8;
+  cursor: pointer;
+  border-bottom: 1px solid #467854;
+}
+
+#hints li:hover
+{
+  background-color: #cbe8d7;
+}
+
+#hints::-webkit-scrollbar {
+ width: .5vw;
+}
+#hints::-webkit-scrollbar-track {
+ background: #adeec2;
+}
+
+#hints::-webkit-scrollbar-thumb {
+ background: #7D8D9C;
+}
+
+#hints::-webkit-scrollbar-thumb:hover {
+ background: #6c7c8b;
+}
 
 }
