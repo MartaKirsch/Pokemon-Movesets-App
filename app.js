@@ -17,6 +17,10 @@ let port = process.env.PORT;
 if (port == null || port == "") {
   port = 3000;
 }
+else
+{
+  dbURI = process.env.MONGODB_URI;
+}
 
 mongoose.connect(dbURI,{ useNewUrlParser: true, useUnifiedTopology: true })
   .then((result)=>{console.log('connected to db');app.listen(port);})
