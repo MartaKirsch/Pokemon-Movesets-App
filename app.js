@@ -12,8 +12,14 @@ const app = express();
 //db link & listen to port 3000
 const dbURI = 'mongodb+srv://pandeu:alabala00@cluster0.whmux.mongodb.net/movesetsApp';
 
+//heroku stuff
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+
 mongoose.connect(dbURI,{ useNewUrlParser: true, useUnifiedTopology: true })
-  .then((result)=>{console.log('connected to db');app.listen(3000);})
+  .then((result)=>{console.log('connected to db');app.listen(port);})
   .catch((err)=>{console.log('there is an error: '+err);});
 
 
