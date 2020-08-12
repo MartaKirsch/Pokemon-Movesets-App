@@ -6,6 +6,11 @@ submitButton.type = 'button';
 //'live' check on text inputs' entered data
 const inputValidation = async (e)=>{
 
+  if(e.type!='change')
+  {
+    e.target = e;
+  }
+
   //get the number of the input
   let index = 0;
   //exception for 10+
@@ -350,6 +355,11 @@ const optionalInputValidation = async (e)=>{
 //'live' check on ev number inputs' entered data
 const evInputValidation = (e)=>{
 
+  if(e.type!='change')
+  {
+    e.target = e;
+  }
+
   //reset the tab for ev
   tab[3] = 0;
 
@@ -632,6 +642,7 @@ const checkForm = ()=>{
   {
     if(pokemonCheck())
     {
+      document.getElementById('main-text-0').disabled = false;
       submitButton.type = 'submit';
     }
   }

@@ -14,6 +14,7 @@ router.get('/checkData/:nickname/:password', accountController.account_checkData
 router.get('/logout', accountController.account_logOut);
 router.get('/check-if-exists/:nickname', accountController.account_checkIfExists);
 router.get('/load-movesets/:id', accountController.account_loadMovesets);
+router.get('/update/:id', accountController.account_update);
 
 router.post('/register', urlencodedParser, accountController.account_register);
 

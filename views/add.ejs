@@ -9,29 +9,49 @@
 
     <%- include('./partials/nav.ejs') %>
 
+    <%
+    let pokemon = "";
+    let item = "";
+    let ability = "";
+    let stats = [{},{}];
+    let nature = "";
+    let moves = [{name:""},{name:""},{name:""},{name:""}];
+    let msname = "";
+
+    if(type!="add")
+    {
+      pokemon = moveset.name;
+      item = moveset.heldItem;
+      ability = moveset.ability;
+      stats = moveset.EVs;
+      nature = moveset.nature;
+      moves = moveset.moves;
+      msname = moveset.movesetName;
+    }
+    %>
 
     <div id="wrapper">
       <div class="column">
 
-        <form action="/add" method="post">
+        <form action="<% if(type!="add"){ %>/movesets/update/<%=moveset._id%><% } else { %>/add<% } %>" method="post">
 
           <div class="row">
             <div class="attribute">Pokemon</div>
-            <input type="text" id="main-text-0" class="main-text-input" name="name" value="" placeholder="Enter the Pokemon's Name">
+            <input type="text" id="main-text-0" class="main-text-input" name="name" value="<%= pokemon %>" placeholder="Enter the Pokemon's Name" <% if(type!="add"){ %> disabled <% } %>>
             <div style="clear:both"></div>
             <div class="wrong-data"></div>
           </div>
 
           <div class="row">
             <div class="attribute optional">Held Item</div>
-            <input type="text" id="main-text-1" class="main-text-input" name="heldItem" value="" placeholder="Enter a Held Item/Empty">
+            <input type="text" id="main-text-1" class="main-text-input" name="heldItem" value="<%= item %>" placeholder="Enter a Held Item/Empty">
             <div style="clear:both"></div>
             <div class="wrong-data"></div>
           </div>
 
           <div class="row">
             <div class="attribute">Ability</div>
-            <input type="text" id="main-text-2" class="main-text-input" name="ability" value="" placeholder="Enter the Ability">
+            <input type="text" id="main-text-2" class="main-text-input" name="ability" value="<%= ability %>" placeholder="Enter the Ability">
             <div style="clear:both"></div>
             <div class="wrong-data"></div>
           </div>
@@ -56,55 +76,67 @@
 
           <div class="row">
             <div class="attribute">Nature</div>
-            <input type="text" id="main-text-4" class="main-text-input" name="nature" value="" placeholder="Enter the Nature">
+            <input type="text" id="main-text-4" class="main-text-input" name="nature" value="<%= nature %>" placeholder="Enter the Nature">
             <div style="clear:both"></div>
             <div class="wrong-data"></div>
           </div>
 
           <div class="row">
             <div class="attribute">Move #1</div>
-            <input type="text" id="main-text-5" class="main-text-input" name="move1" value="" placeholder="Enter Move #1">
+            <input type="text" id="main-text-5" class="main-text-input" name="move1" value="<%= moves[0].name %>" placeholder="Enter Move #1">
             <div style="clear:both"></div>
             <div class="wrong-data"></div>
           </div>
 
           <div class="row">
             <div class="attribute">Move #2</div>
-            <input type="text" id="main-text-6" class="main-text-input" name="move2" value="" placeholder="Enter Move #2">
+            <input type="text" id="main-text-6" class="main-text-input" name="move2" value="<%= moves[1].name %>" placeholder="Enter Move #2">
             <div style="clear:both"></div>
             <div class="wrong-data"></div>
           </div>
 
           <div class="row">
             <div class="attribute">Move #3</div>
-            <input type="text" id="main-text-7" class="main-text-input" name="move3" value="" placeholder="Enter Move #3">
+            <input type="text" id="main-text-7" class="main-text-input" name="move3" value="<%= moves[2].name %>" placeholder="Enter Move #3">
             <div style="clear:both"></div>
             <div class="wrong-data"></div>
           </div>
 
           <div class="row">
             <div class="attribute">Move #4</div>
-            <input type="text" id="main-text-8" class="main-text-input" name="move4" value="" placeholder="Enter Move #4">
+            <input type="text" id="main-text-8" class="main-text-input" name="move4" value="<%= moves[3].name %>" placeholder="Enter Move #4">
             <div style="clear:both"></div>
             <div class="wrong-data"></div>
           </div>
 
           <div class="row">
             <div class="attribute optional">MS Name</div>
-            <input type="text" id="main-text-9" class="main-text-input" name="movesetName" value="" placeholder="Moveset's Name/Empty">
+            <input type="text" id="main-text-9" class="main-text-input" name="movesetName" value="<%= msname %>" placeholder="Moveset's Name/Empty">
             <div style="clear:both"></div>
             <div class="wrong-data"></div>
           </div>
 
-          <input type="submit" id="addMoveset" name="" value="Add Moveset">
+          <input type="submit" id="addMoveset" name="" value="<% if(type!="add"){ %> Update <% } else {
+            %>Add Moveset<%
+          } %>">
         </form>
 
       </div>
     </div>
 
-    <script type="text/javascript" src="../public/scripts/add/global-variables.js"></script>
-    <script type="text/javascript" src="../public/scripts/add/select.js"></script>
-    <script type="text/javascript" src="../public/scripts/add/change-class.js"></script>
-    <script type="text/javascript" src="../public/scripts/add/check-form.js"></script>
+    <div id="ifStats" style="visibility:hidden"><%= JSON.stringify(stats) %></div>
+
+    <script type="text/javascript" src="/public/scripts/add/global-variables.js"></script>
+    <script type="text/javascript" src="/public/scripts/add/select.js"></script>
+    <script type="text/javascript" src="/public/scripts/add/change-class.js"></script>
+    <script type="text/javascript" src="/public/scripts/add/check-form.js"></script>
+    <%
+    if(type!="add")
+    {
+      %>
+        <script type="text/javascript" src="/public/scripts/account/updateMoveset.js"></script>
+      <%
+    }
+    %>
   </body>
 </html>

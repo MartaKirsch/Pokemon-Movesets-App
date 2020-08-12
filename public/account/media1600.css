@@ -16,6 +16,11 @@
   text-align: center;
 }
 
+#sidebar ul a
+{
+  flex:1;
+}
+
 .liBottomLeft, .liBottomRight
 {
   padding: 0.5vh;

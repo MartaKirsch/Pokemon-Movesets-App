@@ -6,7 +6,7 @@ const add_index = (req, res) => {
 
   if(sess.login)
   {
-    res.render('add');
+    res.render('add', {type:"add"});
   }
   else
   {
@@ -103,7 +103,7 @@ const add_check = (req, res) => {
 
   //check if set name isn't prohibited
   let reg = new RegExp(sess.login + "#\\d+", 'i');
-  
+
 
   if(reg.test(name))
   {

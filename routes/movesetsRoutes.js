@@ -15,6 +15,8 @@ router.get('/loadAll/:name', movesetsController.loadAllMovesetsList);
 
 router.get('/:name/:id', movesetsController.loadMoveset);
 
+router.post('/update/:id', urlencodedParser, movesetsController.updateMoveset);
+
 router.delete('/:id', movesetsController.deleteMoveset);
 
 module.exports = router;

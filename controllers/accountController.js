@@ -91,11 +91,36 @@ const account_loadMovesets = async (req, res) => {
   res.json(data);
 };
 
+const account_update = (req,res) => {
+
+  let sess = req.session;
+
+  if(sess.login)
+  {
+    //get the moveset data from db
+    Moveset.find({_id: req.params.id})
+    .then((docs)=>{
+
+      //render the update form
+      res.render('add', {type: "update", moveset: docs[0]});
+    })
+    .catch(err=>{
+      res.render('404');
+    });
+  }
+  else
+  {
+    res.redirect('/account');
+  }
+
+};
+
 module.exports = {
   account_index,
   account_checkData,
   account_logOut,
   account_checkIfExists,
   account_register,
-  account_loadMovesets
+  account_loadMovesets,
+  account_update
 };

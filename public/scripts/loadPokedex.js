@@ -20,16 +20,16 @@ const loadPokedex = async (id)=>{
 
   // get pokemon in pokedex order
   let tab = await Promise.all([
-    fetch(proxyUrl+"http://pokeapi.co/api/v2/pokemon/"+id+"").then(value => value.json()),
-    fetch(proxyUrl+"http://pokeapi.co/api/v2/pokemon/"+(id + 1)+"").then(value => value.json()),
-    fetch(proxyUrl+"http://pokeapi.co/api/v2/pokemon/"+(id + 2)+"").then(value => value.json()),
-    fetch(proxyUrl+"http://pokeapi.co/api/v2/pokemon/"+(id + 3)+"").then(value => value.json()),
-    fetch(proxyUrl+"http://pokeapi.co/api/v2/pokemon/"+(id + 4)+"").then(value => value.json()),
-    fetch(proxyUrl+"http://pokeapi.co/api/v2/pokemon/"+(id + 5)+"").then(value => value.json()),
-    fetch(proxyUrl+"http://pokeapi.co/api/v2/pokemon/"+(id + 6)+"").then(value => value.json()),
-    fetch(proxyUrl+"http://pokeapi.co/api/v2/pokemon/"+(id + 7)+"").then(value => value.json()),
-    fetch(proxyUrl+"http://pokeapi.co/api/v2/pokemon/"+(id + 8)+"").then(value => value.json()),
-    fetch(proxyUrl+"http://pokeapi.co/api/v2/pokemon/"+(id + 9)+"").then(value => value.json())
+    fetch("http://pokeapi.co/api/v2/pokemon/"+id+"").then(value => value.json()),
+    fetch("http://pokeapi.co/api/v2/pokemon/"+(id + 1)+"").then(value => value.json()),
+    fetch("http://pokeapi.co/api/v2/pokemon/"+(id + 2)+"").then(value => value.json()),
+    fetch("http://pokeapi.co/api/v2/pokemon/"+(id + 3)+"").then(value => value.json()),
+    fetch("http://pokeapi.co/api/v2/pokemon/"+(id + 4)+"").then(value => value.json()),
+    fetch("http://pokeapi.co/api/v2/pokemon/"+(id + 5)+"").then(value => value.json()),
+    fetch("http://pokeapi.co/api/v2/pokemon/"+(id + 6)+"").then(value => value.json()),
+    fetch("http://pokeapi.co/api/v2/pokemon/"+(id + 7)+"").then(value => value.json()),
+    fetch("http://pokeapi.co/api/v2/pokemon/"+(id + 8)+"").then(value => value.json()),
+    fetch("http://pokeapi.co/api/v2/pokemon/"+(id + 9)+"").then(value => value.json())
   ]);
 
   let newContent = "";
