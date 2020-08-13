@@ -11,16 +11,30 @@
 
     <div id="wrapper">
 
-      <div id="searchbar">
-        <input id="searchinput" type="search" name="" value="" placeholder="Type the Pokemon Name">
-        <ul id="hints">
+      <div id="leftWrapper">
 
-        </ul>
+        <div id="searchbar">
+          <input id="searchinput" type="search" name="" value="" placeholder="Type the Pokemon Name">
+          <ul id="hints">
+
+          </ul>
+        </div>
+
+
+        <div id="sidebar">
+          <ul>
+
+          </ul>
+
+          <div id="loadMore" data-id="1">Load More</div>
+        </div>
+
       </div>
 
-      <div id="pokebar">
-        <a href="/pokemon/<%= pokemon.id - 1 %>">
-          <div id="prev">
+      <div id="rightWrapper">
+
+        <div id="pokebar">
+          <a  id="prev" href="/pokemon/<%= pokemon.id - 1 %>">
             <div class="prev-text">#prev</div>
 
             <%
@@ -31,391 +45,264 @@
               else
               {
                 %>
-                  <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/<%= pokemon.id - 1 %>.png" alt="" style="float:left">
+                  <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/<%= pokemon.id - 1 %>.png" alt="" >
                 <%
               }
             %>
 
 
-            <div style="clear:both"></div>
-          </div>
-        </a>
-        <div id="pokemon"><%= pokemon.name %></div>
-        <a href="/pokemon/<%= pokemon.id + 1 %>">
-          <div id="next">
+          </a>
+          <div id="pokemon"><%= pokemon.name %></div>
+          <a id="next" href="/pokemon/<%= pokemon.id + 1 %>">
 
-            <%
-              if(pokemon.id > 10000)
-              {
-
-              }
-              else
-              {
-                %>
-                  <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/<%= pokemon.id + 1 %>.png" alt="" style="float:right">
-                <%
-              }
-            %>
             <div class="next-text">#next</div>
-            <div style="clear:both"></div>
-          </div>
-        </a>
-        <div style="clear:both"></div>
-      </div>
+            <div>
 
-      <div style="clear:both"></div>
-
-      <div id="sidebar">
-        <ul>
-
-        </ul>
-
-        <div id="loadMore" data-id="1">Load More</div>
-      </div>
-
-      <div id="mainpanel">
-
-        <%- include('./partials/topbar.ejs') %>
-
-        <div id="stats">
-
-          <div class="row">
-            <div class="row-section">
-              HP
-            </div>
-            <div class="row-section">
-              <div class="stats-bar" style="width: <%= pokemon.stats[0].base_stat*100/255 %>%"><div style="visibility:hidden">.</div></div>
-            </div>
-            <div class="row-section">
-              <%= Math.floor((((2*pokemon.stats[0].base_stat+0+(0/4))))+110) %>
-            </div>
-            <div class="row-section">
-              <%= Math.floor((((2*pokemon.stats[0].base_stat+31+(252/4))))+110) %>
-            </div>
-            <div style="clear:both"></div>
-          </div>
-          <div class="row">
-            <div class="row-section">
-              Attack
-            </div>
-            <div class="row-section">
-              <div class="stats-bar" style="width: <%= pokemon.stats[1].base_stat*100/255 %>%"><div style="visibility:hidden">.</div></div>
-            </div>
-            <div class="row-section">
-              <%= Math.floor(((((2*pokemon.stats[1].base_stat+0+(0/4)))+5)*0.9)) %>
-            </div>
-            <div class="row-section">
-              <%= Math.floor(((((2*pokemon.stats[1].base_stat+31+(252/4)))+5)*1.1)) %>
-            </div>
-            <div style="clear:both"></div>
-          </div>
-          <div class="row">
-            <div class="row-section">
-              Defense
-            </div>
-            <div class="row-section">
-              <div class="stats-bar" style="width: <%= pokemon.stats[2].base_stat*100/255 %>%"><div style="visibility:hidden">.</div></div>
-            </div>
-            <div class="row-section">
-              <%= Math.floor(((((2*pokemon.stats[2].base_stat+0+(0/4)))+5)*0.9)) %>
-            </div>
-            <div class="row-section">
-              <%= Math.floor(((((2*pokemon.stats[2].base_stat+31+(252/4)))+5)*1.1)) %>
-            </div>
-            <div style="clear:both"></div>
-          </div>
-          <div class="row">
-            <div class="row-section">
-              Sp. Atk
-            </div>
-            <div class="row-section">
-              <div class="stats-bar" style="width: <%= pokemon.stats[3].base_stat*100/255 %>%"><div style="visibility:hidden">.</div></div>
-            </div>
-            <div class="row-section">
-              <%= Math.floor(((((2*pokemon.stats[3].base_stat+0+(0/4)))+5)*0.9)) %>
-            </div>
-            <div class="row-section">
-              <%= Math.floor(((((2*pokemon.stats[3].base_stat+31+(252/4)))+5)*1.1)) %>
-            </div>
-            <div style="clear:both"></div>
-          </div>
-          <div class="row">
-            <div class="row-section">
-              Sp. Def
-            </div>
-            <div class="row-section">
-              <div class="stats-bar" style="width: <%= pokemon.stats[4].base_stat*100/255 %>%"><div style="visibility:hidden">.</div></div>
-            </div>
-            <div class="row-section">
-              <%= Math.floor(((((2*pokemon.stats[4].base_stat+0+(0/4)))+5)*0.9)) %>
-            </div>
-            <div class="row-section">
-              <%= Math.floor(((((2*pokemon.stats[4].base_stat+31+(252/4)))+5)*1.1)) %>
-            </div>
-            <div style="clear:both"></div>
-          </div>
-          <div class="row">
-            <div class="row-section">
-              Speed
-            </div>
-            <div class="row-section">
-              <div class="stats-bar" style="width: <%= pokemon.stats[5].base_stat*100/255 %>%"><div style="visibility:hidden">.</div></div>
-            </div>
-            <div class="row-section">
-              <%= Math.floor(((((2*pokemon.stats[5].base_stat+0+(0/4)))+5)*0.9)) %>
-            </div>
-            <div class="row-section">
-              <%= Math.floor(((((2*pokemon.stats[5].base_stat+31+(252/4)))+5)*1.1)) %>
-            </div>
-            <div style="clear:both"></div>
-          </div>
-          <div class="row">
-            <div class="row-section">
-              Stat
-            </div>
-            <div class="row-section">
-              .
-            </div>
-            <div class="row-section">
-              Min
-            </div>
-            <div class="row-section">
-              Max
-            </div>
-            <div style="clear:both"></div>
-          </div>
-
-        </div>
-
-        <div id="evolutions">
-
-          <%
-
-            let one=0;
-            //check if pokemon has evolution
-
-            one = pokemonEvolution.chain.evolves_to.length;
-
-            //check if it's a pokemon with no evolutions
-            if(one != 0)
-            {
-              //loop through first stages of evolution
-              for(let i=0; i< one; i++)
-              {
-                //get the first stage of evol
-                let first = "";
-                for(let k=0;k< pokemonEvolution.chain.species.url.length; k++)
+              <%
+                if(pokemon.id > 10000)
                 {
-                  first += pokemonEvolution.chain.species.url.charAt(k);
-                  if(pokemonEvolution.chain.species.url.charAt(k)=='/' && k!=pokemonEvolution.chain.species.url.length-1)
-                  {
-                    first = "";
-                  }
+
                 }
-                first = first.slice(0, first.length-1);
-
-                //get the second stage of evol
-                let second = "";
-                for(let k=0;k< pokemonEvolution.chain.evolves_to[i].species.url.length; k++)
-                {
-                  second += pokemonEvolution.chain.evolves_to[i].species.url.charAt(k);
-                  if(pokemonEvolution.chain.evolves_to[i].species.url.charAt(k)=='/'&& k!=pokemonEvolution.chain.evolves_to[i].species.url.length-1)
-                  {
-                    second = "";
-                  }
-                }
-
-                second = second.slice(0, second.length-1);
-
-                //get the conditions of evolution
-                let conditions="";
-                let evolDetails = pokemonEvolution.chain.evolves_to[i].evolution_details[0];
-
-                //type of evolution trigger
-                if(evolDetails.trigger.name == 'level-up')
-                {
-                  if(evolDetails.min_level)
-                  {
-                    conditions+= 'Level ' + evolDetails.min_level;
-                  } else
-                  {
-                    conditions+= 'Level Up';
-                  }
-                  if(evolDetails.item)
-                  {
-                    conditions += ', Use '+ evolDetails.item.name;
-                  }
-                }
-                else if(evolDetails.trigger.name == 'use-item')
-                {
-                  conditions += 'Use '+ evolDetails.item.name;
-                  if(evolDetails.min_level)
-                  {
-                    conditions += ', Level ' + evolDetails.min_level;
-                  }
-                }
-                else if(evolDetails.trigger.name == 'trade')
-                {
-                  conditions += 'Trade';
-                }
-
-                //known move
-                if(evolDetails.known_move)
-                {
-                  conditions+=', after ' + evolDetails.known_move.name + ' is learnt'
-                }
-
-                //held item
-                if(evolDetails.held_item)
-                {
-                  conditions += ', Holding ' + evolDetails.held_item.name;
-                }
-
-                //gender
-                if(evolDetails.gender)
-                {
-                  if(evolDetails.gender==1)
-                  {
-                    conditions += ', Female';
-                  }
-                  if(evolDetails.gender==2)
-                  {
-                    conditions += ', Male';
-                  }
-                }
-
-                //happiness
-                if(evolDetails.min_happiness)
-                {
-                  conditions += ', Happiness ' + evolDetails.min_happiness;
-                }
-
-                //time of day
-                if(evolDetails.time_of_day)
-                {
-                  conditions += ', During ' + evolDetails.time_of_day;
-                }
-
-
-                //only one stage of evolution
-                if(pokemonEvolution.chain.evolves_to[i].evolves_to.length==0)
-                {
-                  %>
-
-                  <div class="evolutions-row">
-                    <div class="evolutions-wrapper">
-                      <a href="/pokemon/<%= first %>">
-                        <div class="evolutions-img">
-                          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/<%= first %>.png" alt="">
-                        </div>
-                      </a>
-                      <div class="evolutions-arrow">
-                        <img src="../public/img/long-right-arrow-2.png" alt="">
-                        <div class="evolutions-description">
-                          <%= conditions %>
-                        </div>
-                      </div>
-                      <a href="/pokemon/<%= second %>">
-                        <div class="evolutions-img">
-                          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/<%= second %>.png" alt="">
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-
-                  <%
-                }
-
-                //two stages of evolution
                 else
                 {
+                  %>
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/<%= pokemon.id + 1 %>.png" alt="" >
+                  <%
+                }
+              %>
+            </div>
+          </a>
+        </div>
 
-                  for(let j=0; j< pokemonEvolution.chain.evolves_to[i].evolves_to.length; j++)
+        <div id="mainpanel">
+
+          <%- include('./partials/topbar.ejs') %>
+
+          <div id="stats">
+
+            <div class="row">
+              <div class="row-section">
+                HP
+              </div>
+              <div class="row-section">
+                <div class="stats-bar" style="width: <%= pokemon.stats[0].base_stat*100/255 %>%"><div style="visibility:hidden">.</div></div>
+              </div>
+              <div class="row-section">
+                <%= Math.floor((((2*pokemon.stats[0].base_stat+0+(0/4))))+110) %>
+              </div>
+              <div class="row-section">
+                <%= Math.floor((((2*pokemon.stats[0].base_stat+31+(252/4))))+110) %>
+              </div>
+              <div style="clear:both"></div>
+            </div>
+            <div class="row">
+              <div class="row-section">
+                Attack
+              </div>
+              <div class="row-section">
+                <div class="stats-bar" style="width: <%= pokemon.stats[1].base_stat*100/255 %>%"><div style="visibility:hidden">.</div></div>
+              </div>
+              <div class="row-section">
+                <%= Math.floor(((((2*pokemon.stats[1].base_stat+0+(0/4)))+5)*0.9)) %>
+              </div>
+              <div class="row-section">
+                <%= Math.floor(((((2*pokemon.stats[1].base_stat+31+(252/4)))+5)*1.1)) %>
+              </div>
+              <div style="clear:both"></div>
+            </div>
+            <div class="row">
+              <div class="row-section">
+                Defense
+              </div>
+              <div class="row-section">
+                <div class="stats-bar" style="width: <%= pokemon.stats[2].base_stat*100/255 %>%"><div style="visibility:hidden">.</div></div>
+              </div>
+              <div class="row-section">
+                <%= Math.floor(((((2*pokemon.stats[2].base_stat+0+(0/4)))+5)*0.9)) %>
+              </div>
+              <div class="row-section">
+                <%= Math.floor(((((2*pokemon.stats[2].base_stat+31+(252/4)))+5)*1.1)) %>
+              </div>
+              <div style="clear:both"></div>
+            </div>
+            <div class="row">
+              <div class="row-section">
+                Sp. Atk
+              </div>
+              <div class="row-section">
+                <div class="stats-bar" style="width: <%= pokemon.stats[3].base_stat*100/255 %>%"><div style="visibility:hidden">.</div></div>
+              </div>
+              <div class="row-section">
+                <%= Math.floor(((((2*pokemon.stats[3].base_stat+0+(0/4)))+5)*0.9)) %>
+              </div>
+              <div class="row-section">
+                <%= Math.floor(((((2*pokemon.stats[3].base_stat+31+(252/4)))+5)*1.1)) %>
+              </div>
+              <div style="clear:both"></div>
+            </div>
+            <div class="row">
+              <div class="row-section">
+                Sp. Def
+              </div>
+              <div class="row-section">
+                <div class="stats-bar" style="width: <%= pokemon.stats[4].base_stat*100/255 %>%"><div style="visibility:hidden">.</div></div>
+              </div>
+              <div class="row-section">
+                <%= Math.floor(((((2*pokemon.stats[4].base_stat+0+(0/4)))+5)*0.9)) %>
+              </div>
+              <div class="row-section">
+                <%= Math.floor(((((2*pokemon.stats[4].base_stat+31+(252/4)))+5)*1.1)) %>
+              </div>
+              <div style="clear:both"></div>
+            </div>
+            <div class="row">
+              <div class="row-section">
+                Speed
+              </div>
+              <div class="row-section">
+                <div class="stats-bar" style="width: <%= pokemon.stats[5].base_stat*100/255 %>%"><div style="visibility:hidden">.</div></div>
+              </div>
+              <div class="row-section">
+                <%= Math.floor(((((2*pokemon.stats[5].base_stat+0+(0/4)))+5)*0.9)) %>
+              </div>
+              <div class="row-section">
+                <%= Math.floor(((((2*pokemon.stats[5].base_stat+31+(252/4)))+5)*1.1)) %>
+              </div>
+              <div style="clear:both"></div>
+            </div>
+            <div class="row">
+              <div class="row-section">
+                Stat
+              </div>
+              <div class="row-section">
+                .
+              </div>
+              <div class="row-section">
+                Min
+              </div>
+              <div class="row-section">
+                Max
+              </div>
+              <div style="clear:both"></div>
+            </div>
+
+          </div>
+
+          <div id="evolutions">
+
+            <%
+
+              let one=0;
+              //check if pokemon has evolution
+
+              one = pokemonEvolution.chain.evolves_to.length;
+
+              //check if it's a pokemon with no evolutions
+              if(one != 0)
+              {
+                //loop through first stages of evolution
+                for(let i=0; i< one; i++)
+                {
+                  //get the first stage of evol
+                  let first = "";
+                  for(let k=0;k< pokemonEvolution.chain.species.url.length; k++)
                   {
-                    //get the id of third stage of evolution
-                    let third = "";
-                    for(let k=0;k< pokemonEvolution.chain.evolves_to[i].evolves_to[j].species.url.length; k++)
+                    first += pokemonEvolution.chain.species.url.charAt(k);
+                    if(pokemonEvolution.chain.species.url.charAt(k)=='/' && k!=pokemonEvolution.chain.species.url.length-1)
                     {
-                      third += pokemonEvolution.chain.evolves_to[i].evolves_to[j].species.url.charAt(k);
-                      if(pokemonEvolution.chain.evolves_to[i].evolves_to[j].species.url.charAt(k)=='/' && k!=pokemonEvolution.chain.evolves_to[i].evolves_to[j].species.url.length-1)
-                      {
-                        third = "";
-                      }
+                      first = "";
                     }
-                    third = third.slice(0, third.length-1);
+                  }
+                  first = first.slice(0, first.length-1);
 
-
-                    //get the conditions of second evolution
-
-                    let conditions2="";
-                    let evolDetails2 = pokemonEvolution.chain.evolves_to[i].evolves_to[j].evolution_details[0];
-
-                    //type of evolution trigger
-                    if(evolDetails2.trigger.name == 'level-up')
+                  //get the second stage of evol
+                  let second = "";
+                  for(let k=0;k< pokemonEvolution.chain.evolves_to[i].species.url.length; k++)
+                  {
+                    second += pokemonEvolution.chain.evolves_to[i].species.url.charAt(k);
+                    if(pokemonEvolution.chain.evolves_to[i].species.url.charAt(k)=='/'&& k!=pokemonEvolution.chain.evolves_to[i].species.url.length-1)
                     {
-                      if(evolDetails2.min_level)
-                      {
-                        conditions2+= 'Level ' + evolDetails2.min_level;
-                      } else
-                      {
-                        conditions2+= 'Level Up';
-                      }
-                      if(evolDetails2.item)
-                      {
-                        conditions2 += ', Use '+ evolDetails2.item.name;
-                      }
+                      second = "";
                     }
-                    else if(evolDetails2.trigger.name == 'use-item')
-                    {
-                      conditions2 += 'Use '+ evolDetails2.item.name;
-                      if(evolDetails2.min_level)
-                      {
-                        conditions2 += ', Level ' + evolDetails2.min_level;
-                      }
-                    }
-                    else if(evolDetails2.trigger.name == 'trade')
-                    {
-                      conditions2 += 'Trade';
-                    }
+                  }
 
-                    //known move
-                    if(evolDetails2.known_move)
-                    {
-                      conditions2+=', after ' + evolDetails2.known_move.name + ' is learnt'
-                    }
+                  second = second.slice(0, second.length-1);
 
-                    //held item
-                    if(evolDetails2.held_item)
-                    {
-                      conditions2 += ', Holding ' + evolDetails2.held_item.name;
-                    }
+                  //get the conditions of evolution
+                  let conditions="";
+                  let evolDetails = pokemonEvolution.chain.evolves_to[i].evolution_details[0];
 
-                    //gender
-                    if(evolDetails2.gender)
+                  //type of evolution trigger
+                  if(evolDetails.trigger.name == 'level-up')
+                  {
+                    if(evolDetails.min_level)
                     {
-                      if(evolDetails2.gender==1)
-                      {
-                        conditions2 += ', Female';
-                      }
-                      if(evolDetails2.gender==2)
-                      {
-                        conditions2 += ', Male';
-                      }
-                    }
-
-                    //happiness
-                    if(evolDetails2.min_happiness)
+                      conditions+= 'Level ' + evolDetails.min_level;
+                    } else
                     {
-                      conditions2 += ', Happiness ' + evolDetails2.min_happiness;
+                      conditions+= 'Level Up';
                     }
-
-                    //time of day
-                    if(evolDetails2.time_of_day)
+                    if(evolDetails.item)
                     {
-                      conditions2 += ', During ' + evolDetails2.time_of_day;
+                      conditions += ', Use '+ evolDetails.item.name;
                     }
+                  }
+                  else if(evolDetails.trigger.name == 'use-item')
+                  {
+                    conditions += 'Use '+ evolDetails.item.name;
+                    if(evolDetails.min_level)
+                    {
+                      conditions += ', Level ' + evolDetails.min_level;
+                    }
+                  }
+                  else if(evolDetails.trigger.name == 'trade')
+                  {
+                    conditions += 'Trade';
+                  }
 
+                  //known move
+                  if(evolDetails.known_move)
+                  {
+                    conditions+=', after ' + evolDetails.known_move.name + ' is learnt'
+                  }
+
+                  //held item
+                  if(evolDetails.held_item)
+                  {
+                    conditions += ', Holding ' + evolDetails.held_item.name;
+                  }
+
+                  //gender
+                  if(evolDetails.gender)
+                  {
+                    if(evolDetails.gender==1)
+                    {
+                      conditions += ', Female';
+                    }
+                    if(evolDetails.gender==2)
+                    {
+                      conditions += ', Male';
+                    }
+                  }
+
+                  //happiness
+                  if(evolDetails.min_happiness)
+                  {
+                    conditions += ', Happiness ' + evolDetails.min_happiness;
+                  }
+
+                  //time of day
+                  if(evolDetails.time_of_day)
+                  {
+                    conditions += ', During ' + evolDetails.time_of_day;
+                  }
+
+
+                  //only one stage of evolution
+                  if(pokemonEvolution.chain.evolves_to[i].evolves_to.length==0)
+                  {
                     %>
+
                     <div class="evolutions-row">
                       <div class="evolutions-wrapper">
                         <a href="/pokemon/<%= first %>">
@@ -434,32 +321,146 @@
                             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/<%= second %>.png" alt="">
                           </div>
                         </a>
-                        <div class="evolutions-arrow">
-                          <img src="../public/img/long-right-arrow-2.png" alt="">
-                          <div class="evolutions-description">
-                            <%= conditions2 %>
-                          </div>
-                        </div>
-                        <a href="/pokemon/<%= third %>">
-                          <div class="evolutions-img">
-                            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/<%= third %>.png" alt="">
-                          </div>
-                        </a>
                       </div>
                     </div>
 
                     <%
                   }
+
+                  //two stages of evolution
+                  else
+                  {
+
+                    for(let j=0; j< pokemonEvolution.chain.evolves_to[i].evolves_to.length; j++)
+                    {
+                      //get the id of third stage of evolution
+                      let third = "";
+                      for(let k=0;k< pokemonEvolution.chain.evolves_to[i].evolves_to[j].species.url.length; k++)
+                      {
+                        third += pokemonEvolution.chain.evolves_to[i].evolves_to[j].species.url.charAt(k);
+                        if(pokemonEvolution.chain.evolves_to[i].evolves_to[j].species.url.charAt(k)=='/' && k!=pokemonEvolution.chain.evolves_to[i].evolves_to[j].species.url.length-1)
+                        {
+                          third = "";
+                        }
+                      }
+                      third = third.slice(0, third.length-1);
+
+
+                      //get the conditions of second evolution
+
+                      let conditions2="";
+                      let evolDetails2 = pokemonEvolution.chain.evolves_to[i].evolves_to[j].evolution_details[0];
+
+                      //type of evolution trigger
+                      if(evolDetails2.trigger.name == 'level-up')
+                      {
+                        if(evolDetails2.min_level)
+                        {
+                          conditions2+= 'Level ' + evolDetails2.min_level;
+                        } else
+                        {
+                          conditions2+= 'Level Up';
+                        }
+                        if(evolDetails2.item)
+                        {
+                          conditions2 += ', Use '+ evolDetails2.item.name;
+                        }
+                      }
+                      else if(evolDetails2.trigger.name == 'use-item')
+                      {
+                        conditions2 += 'Use '+ evolDetails2.item.name;
+                        if(evolDetails2.min_level)
+                        {
+                          conditions2 += ', Level ' + evolDetails2.min_level;
+                        }
+                      }
+                      else if(evolDetails2.trigger.name == 'trade')
+                      {
+                        conditions2 += 'Trade';
+                      }
+
+                      //known move
+                      if(evolDetails2.known_move)
+                      {
+                        conditions2+=', after ' + evolDetails2.known_move.name + ' is learnt'
+                      }
+
+                      //held item
+                      if(evolDetails2.held_item)
+                      {
+                        conditions2 += ', Holding ' + evolDetails2.held_item.name;
+                      }
+
+                      //gender
+                      if(evolDetails2.gender)
+                      {
+                        if(evolDetails2.gender==1)
+                        {
+                          conditions2 += ', Female';
+                        }
+                        if(evolDetails2.gender==2)
+                        {
+                          conditions2 += ', Male';
+                        }
+                      }
+
+                      //happiness
+                      if(evolDetails2.min_happiness)
+                      {
+                        conditions2 += ', Happiness ' + evolDetails2.min_happiness;
+                      }
+
+                      //time of day
+                      if(evolDetails2.time_of_day)
+                      {
+                        conditions2 += ', During ' + evolDetails2.time_of_day;
+                      }
+
+                      %>
+                      <div class="evolutions-row">
+                        <div class="evolutions-wrapper">
+                          <a href="/pokemon/<%= first %>">
+                            <div class="evolutions-img">
+                              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/<%= first %>.png" alt="">
+                            </div>
+                          </a>
+                          <div class="evolutions-arrow">
+                            <img src="../public/img/long-right-arrow-2.png" alt="">
+                            <div class="evolutions-description">
+                              <%= conditions %>
+                            </div>
+                          </div>
+                          <a href="/pokemon/<%= second %>">
+                            <div class="evolutions-img">
+                              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/<%= second %>.png" alt="">
+                            </div>
+                          </a>
+                          <div class="evolutions-arrow">
+                            <img src="../public/img/long-right-arrow-2.png" alt="">
+                            <div class="evolutions-description">
+                              <%= conditions2 %>
+                            </div>
+                          </div>
+                          <a href="/pokemon/<%= third %>">
+                            <div class="evolutions-img">
+                              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/<%= third %>.png" alt="">
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+
+                      <%
+                    }
+                  }
                 }
               }
-            }
-          %>
+            %>
+
+          </div>
 
         </div>
-
       </div>
 
-      <div style="clear:both"></div>
     </div>
     <a href="" id="atag"></a>
     <div id="pokeName" style="display:none"><%=pokemon.name%></div>

@@ -1,22 +1,8 @@
 @media (min-width:1600px){
 
-
 ::-webkit-scrollbar {
  width: 1vw;
 }
-::-webkit-scrollbar-track {
- background: #adeec2;
-}
-
-::-webkit-scrollbar-thumb {
- background: #7D8D9C;
-}
-
-::-webkit-scrollbar-thumb:hover {
- background: #6c7c8b;
-}
-
-
 
 #wrapper
 {
@@ -26,44 +12,43 @@
   margin-top: 2vh;
   width: 85vw;
   border-radius: 15px;
+  display: flex;
+}
+
+#leftWrapper
+{
+  flex:1 1 35%;
+}
+
+#rightWrapper
+{
+  flex:1 1 65%;
 }
 
 #searchbar, #pokebar
 {
-  padding: 1vw;
+  padding: 1vw 1vw;
   height: 10vh;
-  float: left;
+  width: 100%;
 }
 
 #sidebar,#mainpanel
 {
   padding: 1vw;
   height: 65vh;
-  float: left;
-}
-
-#searchbar
-{
-  width: 35%;
-}
-
-#pokebar
-{
-  width: 65%;
 }
 
 #welcome
 {
   letter-spacing: 1px;
   text-align: center;
-  /* color: #adeec2; */
   color: white;
   font-size: 2.5vw;
 }
 
 #sidebar
 {
-  width: 35%;
+  width: 100%;
   overflow-x: hidden;
   overflow-y: scroll;
 }
@@ -75,9 +60,9 @@
 
 #mainpanel
 {
+  width: 100%;
   border-bottom-right-radius: 10px;
   background-color: #eee;
-  width: 65%;
   border-right: 2px solid #adeec2;
 }
 
@@ -89,6 +74,7 @@
   width: 100%;
   border:3px solid #adeec2;
   border-radius: 15px;
+  position: relative;
 }
 
 #searchbar input[type="search"]:focus
@@ -155,7 +141,8 @@
   color: white;
   background-color: #adeec2;
   font-size: 1.5vw;
-  height: 6vh;
+  padding: .5vw;
+  height: auto;
   text-shadow: 1px 1px 2px #CE5937,1px 1px 2px #CE5937,1px 1px 2px #CE5937,1px 1px 2px #CE5937;
 }
 #loadMore:hover
@@ -169,11 +156,11 @@
 {
   display: none;
   direction:rtl;
-  width: 96%;
-  position: relative;
+  width: 27.5%;
+  position: absolute;
+  margin: 0 auto;
   z-index: 1000;
   list-style-type: none;
-  margin: 0 auto;
   padding: 0;
   max-height: 36vh;
   overflow-x: hidden;
@@ -194,24 +181,5 @@
   border-bottom: 1px solid #467854;
 }
 
-#hints li:hover
-{
-  background-color: #cbe8d7;
-}
-
-#hints::-webkit-scrollbar {
- width: .5vw;
-}
-#hints::-webkit-scrollbar-track {
- background: #adeec2;
-}
-
-#hints::-webkit-scrollbar-thumb {
- background: #7D8D9C;
-}
-
-#hints::-webkit-scrollbar-thumb:hover {
- background: #6c7c8b;
-}
 
 }

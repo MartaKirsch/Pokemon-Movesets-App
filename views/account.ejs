@@ -11,35 +11,36 @@
     <%- include('./partials/nav.ejs') %>
 
     <div id="wrapper">
+      <div id="leftWrapper">
+        <div id="searchbar">
+          <input id="searchinput" data-id="0" type="search" name="account" placeholder="Type the Pokemon Name">
+          <ul id="hints">
 
-      <div id="searchbar">
-        <input id="searchinput" data-id="0" type="search" name="account" placeholder="Type the Pokemon Name">
-        <ul id="hints">
+          </ul>
+        </div>
 
-        </ul>
+        <div id="sidebar">
+          <ul>
+
+          </ul>
+
+          <div id="loadMore" data-id="1">Load More</div>
+        </div>
       </div>
 
-      <div id="pokebar">
-        <div id="welcome"><%= nickname %></div>
+      <div id="rightWrapper">
+        <div id="pokebar">
+          <div id="welcome"><%= nickname %></div>
+        </div>
+
+        <div id="mainpanel">
+          This is your account page
+          <a href="/account/logout"><input type="button" value="log out"></a>
+        </div>
       </div>
 
-      <div style="clear:both"></div>
-
-      <div id="sidebar">
-        <ul>
-
-        </ul>
-
-        <div id="loadMore" data-id="1">Load More</div>
-      </div>
-
-      <div id="mainpanel">
-        This is your account page
-        <a href="/account/logout"><input type="button" value="log out"></a>
-      </div>
-
-      <div style="clear:both"></div>
     </div>
+    
     <a href="" id="atag"></a>
     <!-- <script type="text/javascript" src="../public/scripts/fakeClick.js"></script> -->
     <script type="text/javascript" src="../public/scripts/account/globalVariables.js"></script>

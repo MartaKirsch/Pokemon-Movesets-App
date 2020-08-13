@@ -2,11 +2,11 @@
 
   #poke-img
   {
-    float: left;
+    flex:1 1 13%;
     background-color: white;
     border-radius: 15px;
     height: 16vh;
-    width: 16vh;
+    width: auto;
     padding: 1vh;
   }
 
@@ -14,15 +14,12 @@
   {
     border-radius: 15px;
     border: 3px dashed #adeec2;
-    height: 14vh;
+    height: 13.8vh;
   }
 
   #types
   {
-    float: left;
-    width: 10vw;
-    /* border: 1px solid black; */
-    margin: 0 0 0 .7vw;
+    flex:1 1 20%;
   }
 
   #types-text
@@ -49,13 +46,14 @@
 
   #forms
   {
-    width: 82%;
-    float: left;
+    flex:1 1 85%;
+    display: flex;
+    justify-content: space-around;
   }
 
   #rag-forms
   {
-    float: left;
+    flex:1 1 20%;
   }
 
   #rag-forms ul
@@ -68,19 +66,17 @@
   #rag-forms ul li
   {
     text-align: center;
-    width: 10vw;
     height: 4.5vh;
     padding: 1vh;
     background-color: white;
     text-transform: uppercase;
     font-size: 1.2vw;
-    /* float: left; */
-    margin:0 0 .5vw 1vw;
+    margin:0 0 .5vw 0;
   }
 
   #other-forms
   {
-    float: right;
+    flex:1 1 40%;
     height: 16.5vh;
     overflow-x: hidden;
     overflow-y: auto;
@@ -96,41 +92,14 @@
   #other-forms ul li
   {
     text-align: center;
-    width: 20vw;
     height: 4.5vh;
     padding: 1vh;
     background-color: white;
     text-transform: uppercase;
     font-size: 1.2vw;
-    /* float: left; */
-    margin:0 0 .5vw 1vw;
-  }
-  #rag-forms ul li.no-form, #other-forms ul li.no-form
-  {
-    color: #666;
-    background-color: #f4f4f4;
+    margin:0 0 .5vw 0;
   }
 
-  #rag-forms ul li:hover, #other-forms ul li:hover
-  {
-    color:white;
-    cursor: pointer;
-    background-color: #adeec2;
-  }
 
-  #rag-forms ul li.no-form:hover, #other-forms ul li.no-form:hover
-  {
-    cursor: default;
-    color: #666;
-    background-color: #f4f4f4;
-  }
-  
-  #other-forms ul li.pokemon-moveset-form, #other-forms ul li.pokemon-moveset-form:hover,
-  #rag-forms ul li.pokemon-moveset-form, #rag-forms ul li.pokemon-moveset-form:hover
-  {
-    cursor: default;
-    background-color: #adeec2;
-    color: white;
-  }
 
 }

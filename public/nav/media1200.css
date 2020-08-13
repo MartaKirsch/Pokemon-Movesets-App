@@ -1,3 +1,27 @@
 @media (min-width:1200px){
+  #navbar ul
+  {
+    display: flex;
+    margin: 3vh auto 2vh;
+    height: 8vh;
+    width: 30vw;
+    justify-content: space-between;
+  }
 
+  #navbar li
+  {
+    font-size: 1.5vw;
+    margin: 0;
+    padding: 1vw;
+    background-color: #eee;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+  }
+
+  #navbar li:hover
+  {
+    background-color: #ddd;
+    border: 2px solid #e36c3d;
+    cursor: pointer;
+  }
 }

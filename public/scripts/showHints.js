@@ -40,6 +40,13 @@ const showHints = async (e)=>{
     //create li elements
     let string = "";
 
+    if(hints.length==0)
+    {
+      string+=`
+      <li>There's no such pokemon!</li>
+      `;
+    }
+
     hints.forEach((name) => {
       if(input.name == "account")
       {
@@ -53,6 +60,7 @@ const showHints = async (e)=>{
         string+=`
         <a href="/pokemon/${name}"><li>${name}</li></a>
         `;
+
       }
     });
 

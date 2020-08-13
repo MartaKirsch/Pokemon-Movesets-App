@@ -1,3 +1,187 @@
 @media (min-width:1200px){
+  #wrapper
+  {
+    padding: 3vw;
+    height: 75vh;
+    margin: 2vh auto 0 auto;
+    scrollbar-width: 1vw;
+    scrollbar-color: #7D8D9C #adeec2;
+    width: 65vw;
+    border-radius: 15px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+
+  .column
+  {
+    border-radius: 15px;
+    background-color: white;
+    width: 100%;
+    padding: 3vw;
+  }
+
+  .row
+  {
+    height: 6vw;
+    text-align: center;
+    width: 100%;
+    padding: 1.5vw;
+    font-size: 2.2vw;
+    border-radius: 15px;
+    margin-bottom: 3vw;
+  }
+
+  .row:hover
+  {
+    cursor: pointer;
+    background-color: #eee;
+  }
+
+  .attribute
+  {
+    float: left;
+    width: 38%;
+  }
+
+  .row input[type="text"],.row input[type="password"]
+  {
+    text-align: center;
+    width: 58%;
+    float: right;
+    height: 100%;
+    font-size: 1.5vw;
+    padding: .5vw;
+    border: none;
+    border-bottom: 1px solid #e36c3d;
+    border-radius: 10px;
+  }
+
+  .row input[type="text"]:focus, .row select:focus, .row input[type="password"]:focus
+  {
+    outline: none;
+  }
+
+  .row select
+  {
+    float: right;
+    width: 20%;
+    height: 100%;
+    border: none;
+    border-bottom: 1px solid #e36c3d;
+    border-radius: 10px;
+    text-align-last: center;
+  }
+
+  .typing, .typing:hover
+  {
+    background-color: #adeec2;
+    color: white;
+    border: 1px solid white;
+  }
+
+  #EVul
+  {
+    width: 60%;
+    margin: 0 auto 3vw;
+  }
+
+  #EVul li
+  {
+    padding: 0;
+    margin: 0 0 4vw 0;
+    height: 3vw;
+  }
+
+  #EVul li:last-child
+  {
+    margin: 0;
+  }
+
+  #EVul li div
+  {
+    width: 40%;
+    height: 100%;
+  }
+
+  #EVul li div input[type="text"],#EVul li div input[type="password"], #EVul li div select
+  {
+    outline: none;
+    border: 1px solid black;
+    border-radius: 10px;
+    font-size: 1.5vw;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    text-align-last: center;
+  }
+
+  #EVul li div input[type="text"]:focus::placeholder,#EVul li div input[type="password"]:focus::placeholder
+  {
+    color: white;
+  }
+
+  #EVul li div input[type="text"]:focus, #EVul li div select:focus, #EVul li div input[type="password"]:focus
+  {
+    border: 2px solid #e36c3d;
+  }
+
+  #EVul li div:nth-child(1)
+  {
+    float: left;
+  }
+  #EVul li div:nth-child(2)
+  {
+    float: right;
+  }
+  #EVul li div:nth-child(3)
+  {
+    margin: 0;
+    padding: 0;
+    height: 0;
+    width: 0;
+  }
+
+  #addMoveset
+  {
+    outline: none;
+    border: 2px solid #adeec2;
+    padding: 1vw;
+    border-radius: 15px;
+    width: 95%;
+    margin: 2vw auto 0 auto;
+    text-align: center;
+    color: white;
+    background-color: #adeec2;
+    font-size: 2vw;
+    height: auto;
+    text-shadow: 1px 1px 2px #CE5937,1px 1px 2px #CE5937,1px 1px 2px #CE5937,1px 1px 2px #CE5937;
+  }
+
+  #addMoveset:hover
+  {
+    outline: none;
+    border: 2px solid #e36c3d;
+    cursor: pointer;
+    background-color: #acddb1;
+    text-shadow: 1px 1px 2px #bd4826,1px 1px 2px #bd4826,1px 1px 2px #bd4826,1px 1px 2px #bd4826;
+  }
+
+  #EVul li div.wrong-data, .wrong-data
+  {
+    background-color:#e36c3d;
+    color: white;
+    width: 100%;
+    height: auto;
+    padding: .8vw;
+    text-align: center;
+    visibility: hidden;
+    border-radius: 10px;
+    font-size: 1vw;
+    margin: .5vw 0 0 0;
+  }
+  .wrong-data
+  {
+    margin: 1.5vw 0 0 0;
+  }
 
 }

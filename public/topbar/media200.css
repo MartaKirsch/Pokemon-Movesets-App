@@ -1,3 +1,31 @@
 @media (min-width:200px){
 
+  #rag-forms ul li.no-form, #other-forms ul li.no-form
+  {
+    color: #666;
+    background-color: #f4f4f4;
+  }
+
+  #rag-forms ul li:hover, #other-forms ul li:hover
+  {
+    color:white;
+    cursor: pointer;
+    background-color: #adeec2;
+  }
+
+  #rag-forms ul li.no-form:hover, #other-forms ul li.no-form:hover
+  {
+    cursor: default;
+    color: #666;
+    background-color: #f4f4f4;
+  }
+
+  #other-forms ul li.pokemon-moveset-form, #other-forms ul li.pokemon-moveset-form:hover,
+  #rag-forms ul li.pokemon-moveset-form, #rag-forms ul li.pokemon-moveset-form:hover
+  {
+    cursor: default;
+    background-color: #adeec2;
+    color: white;
+  }
+
 }

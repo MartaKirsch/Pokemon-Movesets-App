@@ -1,5 +1,33 @@
 @media (min-width:200px){
 
+::-webkit-scrollbar-track {
+ background: #adeec2;
+}
+
+::-webkit-scrollbar-thumb {
+ background: #7D8D9C;
+}
+
+::-webkit-scrollbar-thumb:hover {
+ background: #6c7c8b;
+}
+
+#hints::-webkit-scrollbar {
+ width: .5vw;
+}
+#hints::-webkit-scrollbar-track {
+ background: #adeec2;
+}
+
+#hints::-webkit-scrollbar-thumb {
+ background: #7D8D9C;
+}
+
+#hints::-webkit-scrollbar-thumb:hover {
+ background: #6c7c8b;
+}
+
+
 #wrapper
 {
   margin: auto;

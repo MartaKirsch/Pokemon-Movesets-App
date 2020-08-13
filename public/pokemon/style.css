@@ -1,12 +1,12 @@
+@import url("../index/types.css");
+@import url("../index/style.css");
+@import url("../topbar/style.css");
 @import url("media200.css");
 @import url("media576.css");
 @import url("media768.css");
 @import url("media992.css");
 @import url("media1200.css");
 @import url("media1600.css");
-@import url("../index/types.css");
-@import url("../index/style.css");
-@import url("../topbar/style.css");
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
 
 /*
