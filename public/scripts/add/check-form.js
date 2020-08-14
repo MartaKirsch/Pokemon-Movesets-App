@@ -26,7 +26,7 @@ const inputValidation = async (e)=>{
 
   //get the entered value
   let value = e.target.value;
-  let wrongDiv = e.target.nextElementSibling.nextElementSibling;
+  let wrongDiv = e.target.parentNode.nextElementSibling;
   let parentDiv = e.target.parentNode;
   let pokemon = {};
 
@@ -245,7 +245,7 @@ const optionalInputValidation = async (e)=>{
 
   //get the entered value
   let value = e.target.value;
-  let wrongDiv = e.target.nextElementSibling.nextElementSibling;
+  let wrongDiv = e.target.parentNode.nextElementSibling;
   let parentDiv = e.target.parentNode;
 
   //reset the tab

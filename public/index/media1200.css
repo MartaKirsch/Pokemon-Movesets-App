@@ -1,7 +1,7 @@
 @media (min-width:1200px){
 
   ::-webkit-scrollbar {
-   width: 1vw;
+   width: 1.5vw;
   }
 
 
@@ -75,7 +75,7 @@
     background-color: #eee;
     border-right: 2px solid #adeec2;
   }
-  
+
   #mainpanel::-webkit-scrollbar {
     width: 1vw;
   }

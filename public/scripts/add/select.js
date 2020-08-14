@@ -9,23 +9,18 @@ let generateEV = async ()=>{
   {
     string+=`
     <li>
-      <div>
-        <select id="select-${i}" class="" name="stat[]">
-          <option value="empty">Stat</option>
-          <option value="HP">HP</option>
-          <option value="Atk">Atk</option>
-          <option value="Def">Def</option>
-          <option value="SAtk">SAtk</option>
-          <option value="SDef">SDef</option>
-          <option value="Spd">Spd</option>
-        </select>
-      </div>
-      <div>
-        <input id="num-input-${i}" type="text" name="value[]" value="" placeholder="Num">
-      </div>
-      <div style="clear:both"></div>
-      <div class="wrong-data"></div>
+      <select id="select-${i}" class="" name="stat[]">
+        <option value="empty">Stat</option>
+        <option value="HP">HP</option>
+        <option value="Atk">Atk</option>
+        <option value="Def">Def</option>
+        <option value="SAtk">SAtk</option>
+        <option value="SDef">SDef</option>
+        <option value="Spd">Spd</option>
+      </select>
+      <input id="num-input-${i}" type="text" name="value[]" value="" placeholder="Num">
     </li>
+    <div class="wrong-data"></div>
     `;
     //add one element to the evtab and evflags
     evtab.push(0);
