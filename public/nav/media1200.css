@@ -3,25 +3,29 @@
   {
     display: flex;
     margin: 3vh auto 2vh;
-    height: 8vh;
-    width: 30vw;
+    width: 40vw;
     justify-content: space-between;
   }
 
-  #navbar li
+  #navbar a
   {
-    font-size: 1.5vw;
+    font-size: 2vw;
     margin: 0;
-    padding: 1vw;
+    padding: 1.3vw;
     background-color: #eee;
     border-radius: 10px;
     border: 2px solid #ddd;
   }
 
-  #navbar li:hover
+  #navbar a:hover
   {
     background-color: #ddd;
     border: 2px solid #e36c3d;
     cursor: pointer;
+  }
+
+  #navbar a:nth-child(4)
+  {
+    display: none;
   }
 }

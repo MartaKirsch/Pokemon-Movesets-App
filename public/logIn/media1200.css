@@ -1,4 +1,9 @@
 @media (min-width:1200px){
+
+  ::-webkit-scrollbar {
+   width: 1vw;
+  }
+
   #wrapper
   {
     padding: 3vw;

@@ -4,13 +4,13 @@
   {
     display: flex;
     margin: 5vh auto 0;
-    height: 8vh;
     width: 27vw;
     justify-content: space-between;
   }
 
-  #navbar li
+  #navbar a
   {
+    height: auto;
     font-size: 1.3vw;
     margin: 0;
     padding: 1vw;
@@ -19,11 +19,11 @@
     border: 2px solid #ddd;
   }
 
-  #navbar li:hover
+  #navbar a:hover
   {
     background-color: #ddd;
     border: 2px solid #e36c3d;
     cursor: pointer;
   }
-  
+
 }
