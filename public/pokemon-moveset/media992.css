@@ -12,6 +12,7 @@
     background-color: white;
     padding: 1.5vw;
     border-radius: 15px;
+    margin-bottom: 0;
   }
   .moveset-column:nth-child(2)
   {

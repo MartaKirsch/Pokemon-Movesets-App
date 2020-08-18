@@ -1,6 +1,8 @@
 const updateInput = async (e)=>{
   const input = document.querySelector('#searchinput');
-  console.log(e.target.innerHTML);
+
+  input.hasFocus = false;
+
   input.value = e.target.innerHTML;
 };
 
