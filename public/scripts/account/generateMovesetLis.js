@@ -91,7 +91,7 @@ const generateLis = async (movesets, type)=> {
           </div>
         </li></a>
         <div class="liBottomDiv">
-          <a href="/account/update/${movesets[i]._id}"><div class="liBottomLeft">Update</div></a>
+          <a class="liBottomLeft" href="/account/update/${movesets[i]._id}">Update</a>
           <div class="liBottomRight" data-id="${movesets[i]._id}" data-name="${movesets[i].name}">Delete</div>
         </div>`;
       }

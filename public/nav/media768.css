@@ -9,7 +9,7 @@
   #navbar ul
   {
     display: flex;
-    margin: 0 auto 2vh;
+    margin: 0 auto 2vw auto;
     width: 100%;
     background-color: #f4f4f4
     justify-content: space-around;

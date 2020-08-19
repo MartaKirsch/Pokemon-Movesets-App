@@ -2,14 +2,14 @@
 
   nav
   {
-    position: static; 
+    position: static;
   }
 
   #navbar ul
   {
     background-color: transparent;
     display: flex;
-    margin: 3vh auto 2vh;
+    margin: 2vw auto;
     width: 70vw;
     justify-content: space-between;
   }

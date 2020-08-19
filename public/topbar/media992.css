@@ -10,16 +10,14 @@
     flex:1 1 13%;
     background-color: white;
     border-radius: 15px;
-    height: 22vh;
-    width: 22vh;
-    padding: 1vh;
+    height: 13vw;
+    width: 13vw;
+    padding: .7vw;
   }
 
   #poke-img img
   {
-    border-radius: 15px;
-    border: 3px dashed #adeec2;
-    height: 20vh;
+    height: 11vw;
   }
 
   #types
@@ -75,7 +73,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: 6.5vh;
+    height: 3.66vw;
     background-color: white;
     text-transform: uppercase;
     font-size: 1.8vw;
@@ -85,7 +83,7 @@
   #other-forms
   {
     flex:1 1 40%;
-    height: 22vh;
+    height: 13vw;
     overflow-x: hidden;
     overflow-y: auto;
   }
@@ -103,10 +101,20 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: 6.5vh;
+    height: 3.66vw;
     background-color: white;
     text-transform: uppercase;
     font-size: 1.8vw;
     margin:0 0 1vw 0;
+  }
+
+  #rag-forms ul li.no-form
+  {
+    margin:0 0 1vw 0;
+  }
+
+  #rag-forms ul li.no-form:last-child
+  {
+    margin:0;
   }
 }

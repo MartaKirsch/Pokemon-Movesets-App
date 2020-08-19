@@ -1,6 +1,7 @@
 @media (min-width:768px){
   #pokebar
   {
+    height: 10vw;
     display: flex;
     padding: 1vw 1vw;
   }
@@ -11,7 +12,7 @@
     text-align: center;
     flex: 1 1 50%;
     color: white;
-    font-size: 4vw;
+    font-size: 5vw;
     margin: auto 0;
   }
 
@@ -56,7 +57,7 @@
 
   #prev img, #next img
   {
-    height: 10vh;
+    height: 8vw;
     margin: auto 0;
   }
 

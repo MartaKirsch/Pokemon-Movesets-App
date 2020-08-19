@@ -20,7 +20,7 @@
     flex:1;
   }
 
-  .liBottomLeft, .liBottomRight
+  #sidebar a.liBottomLeft, .liBottomRight
   {
     font-size: 1vw;
     padding: 0.5vh;
@@ -29,14 +29,14 @@
     cursor: pointer;
   }
 
-  .liBottomLeft
+  #sidebar a.liBottomLeft
   {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     background-color: #adeec2;
   }
 
-  .liBottomLeft:hover
+  #sidebar a.liBottomLeft:hover
   {
     background-color: #acddb1;
   }

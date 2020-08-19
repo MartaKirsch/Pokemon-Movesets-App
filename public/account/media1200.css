@@ -19,23 +19,35 @@
     flex:1;
   }
 
-  .liBottomLeft, .liBottomRight
+  #sidebar a
+  {
+    margin: 0 auto;
+  }
+
+  #sidebar a.liBottomLeft, .liBottomRight
   {
     font-size: 1.5vw;
-    padding: 0.5vh;
+    padding: 0.5vw;
     flex:1;
     border-radius: 10px;
     cursor: pointer;
+    height: auto;
   }
 
-  .liBottomLeft
+  #sidebar a.liBottomLeft
   {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     background-color: #adeec2;
+    /* padding: 1vw;
+    border-radius: 15px;
+    height: 14.5vh;
+    width: 95%;
+    margin: 0 auto 1vh auto;
+    background-color: #eee; */
   }
 
-  .liBottomLeft:hover
+  #sidebar a.liBottomLeft:hover
   {
     background-color: #acddb1;
   }

@@ -1,4 +1,42 @@
 @media (min-width:200px){
+  nav
+  {
+    position: sticky;
+    top:0;
+  }
 
+  #navbar ul
+  {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    margin: 0 auto 2vw auto;;
+    width: 100%;
+    background-color: #f4f4f4;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  #navbar a
+  {
+    text-align: center;
+    width: 25%;
+    font-size: 4.5vw;
+    margin: 0;
+    padding: 3vw;
+    background-color: #f4f4f4
+  }
+
+  #navbar a:hover
+  {
+    background-color: #ddd;
+    cursor: pointer;
+  }
+
+  #navbar a:nth-child(4)
+  {
+    display: block;
+    height: auto;
+  }
 
 }

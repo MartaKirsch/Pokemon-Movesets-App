@@ -1,9 +1,9 @@
 @media (min-width:1600px){
 
-
   #pokebar
   {
     display: flex;
+    height: 5vw;
   }
 
   #pokemon
@@ -28,7 +28,7 @@
 
   #prev img, #next img
   {
-    height: 7vh;
+    height: 3.5vw;
   }
 
   #stats

@@ -1,5 +1,5 @@
 @media (min-width:992px){
-  
+
   ::-webkit-scrollbar {
    width: 2vw;
   }
@@ -28,7 +28,7 @@
 
   #searchbar, #pokebar
   {
-    height: 15vh;
+    height: 8.5vw;
     padding: 2vw 2vw;
     margin: auto 0;
   }
@@ -36,7 +36,8 @@
   #sidebar,#mainpanel
   {
     padding: 2vw;
-    height: 67vh;
+    height: 30vw;
+    min-height: unset;
   }
 
 
@@ -80,8 +81,8 @@
 
   #searchbar input[type="search"]
   {
-    padding: 2vh;
-    font-size: 2.5vw;
+    padding: 1.5vw;
+    font-size: 2vw;
     height: 100%;
     width: 100%;
     border:3px solid #adeec2;
@@ -97,24 +98,25 @@
 
 
 
-  #sidebar ul, #navbar ul
+  #sidebar ul
   {
     margin: 0;
     list-style-type:none;
     padding: 0;
   }
 
-  #sidebar li
+  #sidebar a
   {
+    flex:1;
     padding: 2vw ;
     border-radius: 15px;
-    height: 17.5vh;
+    height: 20vw;
     width: 95%;
-    margin: 0 auto 2vh auto;
+    margin: 0 auto 1vw auto;
     background-color: #eee;
   }
 
-  #sidebar li:hover
+  #sidebar a:hover
   {
     background-color: #ddd;
   }
@@ -122,12 +124,11 @@
   #sidebar img
   {
     float: left;
-    height: 12vh;
+    height: 7.5vw;
   }
 
   .sidebarContent
   {
-    height: 12vh;
     float: left;
     margin-left: 1vw;
   }
@@ -135,16 +136,16 @@
   .sidebarName
   {
     font-size: 2.5vw;
-    margin-bottom: 2vh;
+    margin-bottom: 1vw;
   }
   .type
   {
     border-radius: 5px;
-    padding: .8vw;
+    padding: 1vw;
   }
   .type:nth-child(1)
   {
-    margin-right: 0.3vw;
+    margin-right: 0.5vw;
   }
 
   #loadMore
@@ -157,7 +158,7 @@
     padding: 1vw;
     width: 95%;
     border-radius: 15px;
-    margin: 0 auto 2vh auto;
+    margin: 0 auto 2vw auto;
     text-shadow: 1px 1px 2px #CE5937,1px 1px 2px #CE5937,1px 1px 2px #CE5937,1px 1px 2px #CE5937;
   }
   #loadMore:hover
@@ -177,7 +178,7 @@
     z-index: 1000;
     list-style-type: none;
     padding: 0;
-    max-height: 36vh;
+    max-height: 20vw;
     overflow-x: hidden;
     overflow-y: auto;
     border-bottom: 3px solid #467854;

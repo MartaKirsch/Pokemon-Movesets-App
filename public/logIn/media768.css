@@ -6,8 +6,7 @@
   #wrapper
   {
     padding: 3vw;
-    /* height: 75vh; */
-    margin: 5vh auto 5vh auto;
+    margin: 4vw auto ;
     scrollbar-width: 1vw;
     scrollbar-color: #7D8D9C #adeec2;
     width: 100%;

@@ -1,8 +1,174 @@
 @media (min-width:200px){
 
-#wrapper
-{
-  border-bottom: 4px solid  #adeec2;
-}
+  #wrapper
+  {
+    border-bottom: 4px solid  #adeec2;
+  }
 
+  #pokebar
+  {
+    height: 60vw;
+    flex-wrap: wrap;
+    display: flex;
+    padding: 1vw 1vw;
+  }
+
+  #pokemon
+  {
+    letter-spacing: 1px;
+    text-align: center;
+    flex: 1 1 50%;
+    color: white;
+    font-size: 7vw;
+    margin: auto 0;
+  }
+
+  #prev:hover, #next:hover
+  {
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #d25b2c;
+  }
+
+  #prev
+  {
+    align-self: right;
+    max-width: 90%;
+    justify-content: center;
+    padding-left: 1vw;
+    display: flex;
+    font-size: 3.5vw;
+    flex: 1 1 100%;
+  }
+
+  #next
+  {
+    max-width: 90%;
+    padding-right: 1vw;
+    justify-content: center;
+    display: flex;
+    font-size: 3.5vw;
+    text-align: right;
+    flex: 1 1 100%;
+  }
+
+  .prev-text
+  {
+    margin: auto 2vw auto 0;
+  }
+
+  .next-text
+  {
+    margin: auto 2vw auto 0;
+  }
+
+  #prev img, #next img
+  {
+    height: 15vw;
+    margin: auto 0;
+  }
+
+  #stats
+  {
+    font-size: 3.2vw;
+    padding: 3vw;
+    margin-top: 10vw;
+    background-color: white;
+    border-radius: 15px;
+    /* border: 1px solid black; */
+  }
+
+  .row
+  {
+    padding: 1.5vw 1vw;
+    width: 100%;
+    border-bottom: 1px solid #adeec2;
+    margin-bottom: 1vw;
+  }
+
+  .row:nth-last-of-type(1)
+  {
+    border:none;
+    margin-bottom: 0;
+  }
+  .row:nth-last-of-type(1) .row-section
+  {
+    margin-bottom: 0;
+  }
+
+  .row:nth-last-of-type(1) .row-section:nth-child(2)
+  {
+    visibility: hidden;
+  }
+
+  .row-section
+  {
+    padding: 0 .5vw;
+    margin-bottom: 1vw;
+    float: left;
+    text-align: center;
+  }
+
+  .row-section:nth-of-type(1)
+  {
+    width: 25%;
+  }
+
+  .row-section:nth-of-type(2)
+  {
+    width: 45%;
+  }
+
+  .row-section:nth-of-type(3)
+  {
+    width: 15%;
+  }
+
+  .row-section:nth-of-type(4)
+  {
+    width: 15%;
+  }
+
+  .stats-bar
+  {
+    width: 0%;
+    border-radius: 10px;
+    color:#f5da88;
+    background-color: #f5da88;
+  }
+
+  #evolutions
+  {
+    margin: 8vw 0 5vw 0;
+  }
+
+  .evolutions-row
+  {
+    margin-bottom: 5vw;
+  }
+
+  .evolutions-row:last-of-type
+  {
+    margin-bottom: 0vw;
+  }
+
+  .evolutions-wrapper
+  {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .evolutions-arrow
+  {
+    margin: auto 0;
+    text-align: center;
+  }
+
+  .evolutions-arrow img
+  {
+    margin: auto;
+    width: 6vw;
+  }
 }

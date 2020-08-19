@@ -2,6 +2,7 @@
 
   #pokebar
   {
+    height: 7vw;
     display: flex;
     padding: 1vw 1vw;
   }
@@ -57,7 +58,7 @@
 
   #prev img, #next img
   {
-    height: 10vh;
+    height: 6vw;
     margin: auto 0;
   }
 

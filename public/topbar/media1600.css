@@ -5,16 +5,14 @@
     flex:1 1 13%;
     background-color: white;
     border-radius: 15px;
-    height: 16vh;
+    height: 8.5vw;
     width: auto;
-    padding: 1vh;
+    padding: .5vw;
   }
 
   #poke-img img
   {
-    border-radius: 15px;
-    border: 3px dashed #adeec2;
-    height: 13.8vh;
+    height: 7.2vw;
   }
 
   #types
@@ -66,7 +64,7 @@
   #rag-forms ul li
   {
     text-align: center;
-    height: 4.5vh;
+    height: 2.5vw;
     background-color: white;
     text-transform: uppercase;
     font-size: 1.2vw;
@@ -76,7 +74,7 @@
   #other-forms
   {
     flex:1 1 40%;
-    height: 16.5vh;
+    height: 8.5vw;
     overflow-x: hidden;
     overflow-y: auto;
   }
@@ -91,7 +89,7 @@
   #other-forms ul li
   {
     text-align: center;
-    height: 4.5vh;
+    height: 2.5vw;
     background-color: white;
     text-transform: uppercase;
     font-size: 1.2vw;

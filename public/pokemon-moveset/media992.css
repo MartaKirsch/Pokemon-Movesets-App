@@ -14,10 +14,6 @@
     border-radius: 15px;
     margin-bottom: 0;
   }
-  .moveset-column:nth-child(2)
-  {
-    float: right;
-  }
 
   .moveset-column ul li div
   {

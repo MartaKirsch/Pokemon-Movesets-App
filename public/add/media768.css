@@ -5,9 +5,7 @@
   #wrapper
   {
     padding: 3vw;
-    margin: 2vh auto 0 auto;
-    scrollbar-width: 1vw;
-    scrollbar-color: #7D8D9C #adeec2;
+    margin: 0 auto;
     width: 100%;
   }
 

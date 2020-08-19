@@ -1,3 +1,110 @@
 @media (min-width:576px){
-  
+  #sidebar li
+  {
+    margin: 0 auto;
+  }
+
+  .liBottomDiv
+  {
+    /* color: white; */
+    display: flex;
+    margin: 0 auto 4vw auto;
+    width: 95%;
+    padding: 0 0.5vw 0.5vw 0.5vw;
+    text-align: center;
+    font-size: 3vw;
+  }
+
+  #sidebar ul a
+  {
+    flex:1;
+    margin: 0 auto;
+  }
+
+  #sidebar a.liBottomLeft, .liBottomRight
+  {
+    height: auto;
+    padding: 2vw;
+    flex:1;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+
+  #sidebar a.liBottomLeft
+  {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    background-color: #adeec2;
+  }
+
+  #sidebar a.liBottomLeft:hover
+  {
+    background-color: #acddb1;
+  }
+
+  .liBottomRight:hover
+  {
+    background-color: #e4ca77;
+  }
+
+  .liBottomRight
+  {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    background-color: #f5da88;
+  }
+
+
+  .col
+  {
+    text-align: center;
+    width: 47.5%;
+    background-color: white;
+    padding: 1vw;
+    margin: auto;
+    border-radius: 15px;
+  }
+
+  .col a
+  {
+    text-decoration: underline;
+    text-transform: uppercase;
+    color: #adeec2;
+  }
+
+  #deleteOptions
+  {
+    background-color: none ;
+    display: flex;
+    text-align: center;
+    width: 47.5%;
+    padding: 2vw;
+    margin: 1vw auto 0 auto;
+    border-radius: 15px;
+    justify-content: space-between;
+  }
+
+  .yes, #deleteOptions a
+  {
+    flex:1;
+    text-align: center;
+    max-width: 40%;
+    background-color: white;
+    padding: .5vw;
+    margin: auto;
+    border-radius: 15px;
+    cursor: pointer;
+  }
+
+  .yes:hover
+  {
+    background-color: #adeec2;
+    color:white;
+  }
+
+  #deleteOptions a:hover
+  {
+    background-color: #e36c3d;
+    color:white;
+  }
 }

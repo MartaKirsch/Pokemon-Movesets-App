@@ -1,3 +1,127 @@
 @media (min-width:576px){
-  
+  ::-webkit-scrollbar {
+   width: 2vw;
+  }
+
+  #wrapper
+  {
+    padding: 3vw;
+    /* height: 75vh; */
+    margin: 5vw auto 5vw auto;
+    scrollbar-width: 1vw;
+    scrollbar-color: #7D8D9C #adeec2;
+    width: 100%;
+    border-radius: 0;
+    overflow-x: hidden;
+    /* overflow-y: scroll; */
+  }
+
+
+  .column
+  {
+    border-radius: 15px;
+    background-color: white;
+    width: 100%;
+    padding: 3vw;
+  }
+
+  .column form
+  {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .row
+  {
+    flex: 1;
+    text-align: center;
+    width: 100%;
+    padding: 3vw;
+    border-radius: 15px;
+    margin-bottom: 3vw;
+  }
+
+  .row:hover
+  {
+    cursor: pointer;
+    background-color: #eee;
+  }
+
+  .attribute
+  {
+    font-size: 4.5vw;
+    float: left;
+    width: 38%;
+  }
+
+  .row input[type="text"],.row input[type="password"]
+  {
+    text-align: center;
+    width: 58%;
+    float: right;
+    height: 100%;
+    font-size: 3vw;
+    padding: 1vw;
+    border: none;
+    border-bottom: 1px solid #e36c3d;
+    border-radius: 10px;
+  }
+
+  .row input[type="text"]:focus, .row input[type="password"]:focus
+  {
+    outline: none;
+  }
+
+  .typing, .typing:hover
+  {
+    background-color: #adeec2;
+    color: white;
+    border: 1px solid white;
+  }
+
+  #logIn
+  {
+    flex:1;
+    outline: none;
+    padding: 1.5vw;
+    border-radius: 15px;
+    width: 95%;
+    margin: 2vw auto 0;
+    text-align: center;
+    color: white;
+    background-color: #adeec2;
+    border: 2px solid #adeec2;
+    font-size: 4vw;
+    height: auto;
+    text-shadow: 1px 1px 2px #CE5937,1px 1px 2px #CE5937,1px 1px 2px #CE5937,1px 1px 2px #CE5937;
+  }
+
+  #logIn:hover, #logIn:focus
+  {
+    outline: none;
+    border: 2px solid #e36c3d;
+    cursor: pointer;
+    background-color: #acddb1;
+    text-shadow: 1px 1px 2px #bd4826,1px 1px 2px #bd4826,1px 1px 2px #bd4826,1px 1px 2px #bd4826;
+  }
+
+  #register
+  {
+    font-size: 3vw;
+    background-color: white;
+    padding: 2vw;
+    border: 3px solid #adeec2;
+    border-radius: 15px;
+    margin: 4vw 0 0 0;
+    text-align: center;
+  }
+
+  #register:hover
+  {
+    cursor: pointer;
+    background-color: #adeec2;
+    color: white;
+    border: 3px solid white;
+  }
 }

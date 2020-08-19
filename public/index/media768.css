@@ -27,20 +27,21 @@
 
   #searchbar, #pokebar
   {
-    height: 15vh;
+    height: 10vw;
     padding: 2vw 2vw;
     margin: auto 0;
   }
 
-  #sidebar,#mainpanel
+  #sidebar
   {
     padding: 2vw;
-    height: 68vh;
+    min-height: 20vw;
   }
 
   #mainpanel
   {
     padding: 3vw 2vw;
+    min-height: 20vw;
   }
 
   #pokebar
@@ -62,7 +63,7 @@
   #sidebar
   {
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: hidden;
   }
 
   #sidebar .type
@@ -82,7 +83,7 @@
 
   #searchbar input[type="search"]
   {
-    padding: 2vh;
+    padding: 1.5vw;
     font-size: 3vw;
     height: 100%;
     width: 100%;
@@ -106,17 +107,17 @@
     padding: 0;
   }
 
-  #sidebar li
+  #sidebar a
   {
     padding: 2vw ;
     border-radius: 15px;
-    height: 21.5vh;
+    height: 13.5vw;
     width: 95%;
-    margin: 0 auto 2vh auto;
+    margin: 0 auto 1.5vw auto;
     background-color: #eee;
   }
 
-  #sidebar li:hover
+  #sidebar a:hover
   {
     background-color: #ddd;
   }
@@ -124,12 +125,11 @@
   #sidebar img
   {
     float: left;
-    height: 16vh;
+    height: 9.5vw;
   }
 
   .sidebarContent
   {
-    height: 13vh;
     float: left;
     margin-left: 1vw;
   }
@@ -137,7 +137,7 @@
   .sidebarName
   {
     font-size: 3.5vw;
-    margin-bottom: 2vh;
+    margin-bottom: 1.25vw;
   }
   .type
   {
@@ -159,7 +159,7 @@
     padding: 1.5vw;
     width: 95%;
     border-radius: 15px;
-    margin: 0 auto 2vh auto;
+    margin: 0 auto 1.5vw auto;
     text-shadow: 1px 1px 2px #CE5937,1px 1px 2px #CE5937,1px 1px 2px #CE5937,1px 1px 2px #CE5937;
   }
   #loadMore:hover
@@ -179,7 +179,7 @@
     z-index: 1000;
     list-style-type: none;
     padding: 0;
-    max-height: 36vh;
+    max-height: 20vw;
     overflow-x: hidden;
     overflow-y: auto;
     border-bottom: 3px solid #467854;

@@ -28,4 +28,139 @@
     color: white;
   }
 
+  #topbar
+  {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  #poke-img
+  {
+    flex:1 1 13%;
+    background-color: white;
+    border-radius: 15px;
+    height: 27vw;
+    width: 100%;
+    padding: 2vw;
+    margin-bottom: 4vw;
+  }
+  #img-border
+  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border: 3px dashed #adeec2;
+    border-radius: 15px;
+  }
+  #poke-img img
+  {
+    height: 22vw;
+  }
+
+  #types
+  {
+    flex:1 1 20%;
+  }
+
+  #types-text
+  {
+    font-size: 4.5vw;
+    text-decoration: underline;
+    text-decoration-color: #adeec2;
+    text-underline-position: under;
+    text-align: center;
+    margin-bottom: 2.5vw;
+  }
+
+  #types .type
+  {
+    text-align: center;
+    width: 18vw;
+    margin: auto;
+  }
+
+  #types .type:nth-child(3)
+  {
+    margin-top: 1vw;
+  }
+
+  #forms
+  {
+    margin-left: 1vw;
+    display: flex;
+    flex:1 1 85%;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  #rag-forms
+  {
+    flex:1 1 20%;
+  }
+
+  #rag-forms ul
+  {
+    list-style-type: none;
+    margin:0;
+    padding: 0;
+  }
+
+  #rag-forms ul li
+  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 10vw;
+    background-color: white;
+    text-transform: uppercase;
+    font-size: 3vw;
+    margin:0 0 2vw 0;
+  }
+
+  #rag-forms ul li:nth-of-type(2)
+  {
+    margin: 0;
+  }
+
+  #other-forms
+  {
+    flex:1 1 40%;
+    height: 34vw;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  #other-forms ul
+  {
+    list-style-type: none;
+    margin:0;
+    padding: 0;
+  }
+
+  #other-forms ul li
+  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 10vw;
+    background-color: white;
+    text-transform: uppercase;
+    font-size: 3vw;
+    margin:0 0 2vw 0;
+  }
+
+  #rag-forms ul li.no-form
+  {
+    margin:0 0 2vw 0;
+  }
+
+  #rag-forms ul li.no-form:last-child
+  {
+    margin:0;
+  }
+
 }

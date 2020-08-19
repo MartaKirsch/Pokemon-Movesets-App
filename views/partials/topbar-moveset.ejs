@@ -1,19 +1,21 @@
 <div id="topbar">
   <div id="poke-img">
-    <%
-    if(pokemonForm.name != pokemonSpecies.name)
-    {
-      %>
-      <img src="<%= pokemonForm.sprites.front_default %>" alt="">
+    <div id="img-border">
       <%
-    }
-    else
-    {
+      if(pokemonForm.name != pokemonSpecies.name)
+      {
+        %>
+        <img src="<%= pokemonForm.sprites.front_default %>" alt="">
+        <%
+      }
+      else
+      {
+        %>
+        <img src="<%= pokemon.sprites.front_default %>" alt="">
+        <%
+      }
       %>
-      <img src="<%= pokemon.sprites.front_default %>" alt="">
-      <%
-    }
-    %>
+    </div>
   </div>
   <div id="forms">
     <div id="rag-forms">

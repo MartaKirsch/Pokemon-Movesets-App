@@ -18,24 +18,27 @@
   #sidebar ul a
   {
     flex:1;
+    margin: 0 auto;
   }
 
-  .liBottomLeft, .liBottomRight
+  #sidebar a.liBottomLeft, .liBottomRight
   {
-    padding: 2vh;
+    height: auto;
+    padding: 1.5vw;
     flex:1;
     border-radius: 20px;
     cursor: pointer;
+    margin: 0 auto;
   }
 
-  .liBottomLeft
+  #sidebar a.liBottomLeft
   {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     background-color: #adeec2;
   }
 
-  .liBottomLeft:hover
+  #sidebar a.liBottomLeft:hover
   {
     background-color: #acddb1;
   }

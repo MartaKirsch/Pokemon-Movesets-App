@@ -16,11 +16,6 @@ yellow: #fef579
 pistachio: #adeec2
 red: #e36c3d
 */
-#mainpanel
-{
-  overflow-x: hidden;
-  overflow-y: scroll;
-}
 
 #mainpanel::-webkit-scrollbar-track {
   background: #adeec2;
