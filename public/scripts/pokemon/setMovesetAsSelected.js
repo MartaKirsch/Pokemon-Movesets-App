@@ -1,5 +1,5 @@
 const load = async () => {
-  let sidebarMovesets = document.querySelectorAll('#sidebar li');
+  let sidebarMovesets = document.querySelectorAll('#sidebar a');
   let loadmoreId = loadMore.dataset.id;
 
   //get moveset id
