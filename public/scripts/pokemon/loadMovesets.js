@@ -141,6 +141,9 @@ const stateChanges = async (id) => {
   //set the data id param on the loadmore button for loading next pokemon from pokedex
   loadMore.dataset.id = id + 10;
 
+
+  document.body.style.cursor = "default";
+
 };
 
 const loadMovesets = async (id)=>{
@@ -149,6 +152,7 @@ const loadMovesets = async (id)=>{
   if(id.type=='click')
   {
     id = loadMore.dataset.id;
+    document.body.style.cursor = "wait";
   }
 
   //make id an int
