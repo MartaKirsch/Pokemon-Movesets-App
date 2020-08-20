@@ -38,7 +38,7 @@ const loadPokedex = async (id)=>{
   tab.forEach((pokemon)=>{
     if(pokemon.types.length==1)
     {
-      newContent += `<a href="/pokemon/${pokemon.name}"><li>
+      newContent += `<a href="/pokemon/${pokemon.name}">
         <img src="${pokemon.sprites.front_default}" alt="">
         <div class="sidebarContent">
           <div class="sidebarName">#${pokemon.id} ${pokemon.name}</div>
@@ -48,11 +48,11 @@ const loadPokedex = async (id)=>{
           </div>
           <div style="clear:both"></div>
         </div>
-      </li></a>`;
+      </a>`;
     }
     else
     {
-      newContent += `<a href="/pokemon/${pokemon.name}"><li>
+      newContent += `<a href="/pokemon/${pokemon.name}">
         <img src="${pokemon.sprites.front_default}" alt="">
         <div class="sidebarContent">
           <div class="sidebarName">#${pokemon.id} ${pokemon.name}</div>
@@ -63,7 +63,7 @@ const loadPokedex = async (id)=>{
           </div>
           <div style="clear:both"></div>
         </div>
-      </li></a>`;
+      </a>`;
     }
   });
 

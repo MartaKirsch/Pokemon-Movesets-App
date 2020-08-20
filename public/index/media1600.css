@@ -109,14 +109,12 @@
 
   #sidebar img
   {
-    float: left;
     height: 4vw;
   }
 
   .sidebarContent
   {
     height: 4vw;
-    float: left;
     margin-left: .5vw;
   }
 
@@ -133,6 +131,13 @@
   .type:nth-child(1)
   {
     margin-right: 0.3vw;
+  }
+
+  .sidebarStar
+  {
+    margin-right: .5vw;
+    margin-left: auto;
+    max-height: 2vw;
   }
 
   #loadMore

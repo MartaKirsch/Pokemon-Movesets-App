@@ -9,6 +9,9 @@
 
     <%- include('./partials/nav.ejs') %>
 
+        <div id="popup">
+          
+        </div>
     <div id="wrapper">
 
       <div id="leftWrapper">
@@ -114,6 +117,58 @@
 
             </div>
 
+            <div id="rates-wrapper">
+              <div id="rate">
+                <div class="rates-text">
+                  <%
+                  let sum = moveset.rates.average;
+                  if(!sum)
+                  {
+                    sum=0;
+                  }
+
+                  let num_of_votes = moveset.rates.rate.length;
+
+                  %>
+                  <%= sum %>/5
+                  <img src="/public/img/star.png" alt="">
+                </div>
+
+                <div class="rates-text">
+                  based on <%= num_of_votes %> votes
+                </div>
+              </div>
+
+              <div id="rateIt">
+                <div class="rates-text">
+                  <%
+                    if(userRate == 0)
+                    {
+                      %>
+                        Give it your rate!
+                      <%
+                    }
+                    else
+                    {
+                      %>
+                        Your rate is <%= userRate%>!
+                      <%
+                    }
+                  %>
+                </div>
+                <select name="" id="">
+                  <option value="5">5</option>
+                  <option value="4">4</option>
+                  <option value="3">3</option>
+                  <option value="2">2</option>
+                  <option value="1">1</option>
+                </select>
+                <button id="rate-button">
+                  Rate Me!
+                </button>
+              </div>
+            </div>
+
             <div id="nick-footer">
               The author of this moveset is: <%= moveset.author %>
             </div>
@@ -125,6 +180,8 @@
       </div>
 
     </div>
+
+
     <a href="" id="atag"></a>
     <div id="pokeName" style="display:none"><%= pokemon.name %></div>
     <div id="movesetId" style="display:none"><%= id %></div>
@@ -137,5 +194,7 @@
     <script type="text/javascript" src="/public/scripts/globalVariables.js"></script>
     <script type="text/javascript" src="/public/scripts/showHints.js"></script>
     <script type="text/javascript" src="/public/scripts/showSearchbar.js"></script>
+    <script type="text/javascript" src="/public/scripts/pokemon-moveset/rate.js"></script>
+    <!-- <div>Icons made by <a href="http://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> -->
   </body>
 </html>

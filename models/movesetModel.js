@@ -33,9 +33,14 @@ const movesetSchema = new Schema({
     required: true
   },
   "createdOn": {
-    type: Date, 
+    type: Date,
     default: Date.now
-   },
+  },
+  "rates": {
+    "rate": [{type:Number}],
+    "author": [{type:String}],
+    "average": {type:Number}
+  }
 });
 
 //create model

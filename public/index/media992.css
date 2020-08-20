@@ -123,13 +123,11 @@
 
   #sidebar img
   {
-    float: left;
     height: 7.5vw;
   }
 
   .sidebarContent
   {
-    float: left;
     margin-left: 1vw;
   }
 

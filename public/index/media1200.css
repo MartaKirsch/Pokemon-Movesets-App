@@ -126,14 +126,12 @@
 
   #sidebar img
   {
-    float: left;
     height: 6vw;
   }
 
   .sidebarContent
   {
     height: 6vw;
-    float: left;
     margin-left: .5vw;
   }
 

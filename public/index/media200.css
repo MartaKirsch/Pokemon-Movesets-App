@@ -158,6 +158,8 @@
     width: 95%;
     margin: 0 auto 3vw auto;
     background-color: #eee;
+    display: flex;
+    align-items: center;
   }
 
   #sidebar a:hover
@@ -167,13 +169,11 @@
 
   #sidebar img
   {
-    float: left;
     height: 16vw;
   }
 
   .sidebarContent
   {
-    float: left;
     margin-left: 1vw;
   }
 
@@ -190,6 +190,11 @@
   .type:nth-child(1)
   {
     margin-right: 1vw;
+  }
+
+  .sidebarStar
+  {
+    margin-left: auto;
   }
 
   #loadMore

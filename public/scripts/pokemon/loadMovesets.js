@@ -50,9 +50,9 @@ const stateChanges = async (id) => {
   }
 
   //create new li elements
-  if(movesets.length==0 && oldContent != "")
+  if(movesets.length==0 && oldContent == "")
   {
-    newContent += `<a href=""><li>
+    newContent += `<a href="">
       <img src="" alt="">
       <div class="sidebarContent">
         <div class="sidebarName">No Movesets Yet!</div>
@@ -62,7 +62,7 @@ const stateChanges = async (id) => {
         </div>
         <div style="clear:both"></div>
       </div>
-    </li></a>`;
+    </a>`;
   }
   else
   {
@@ -70,7 +70,7 @@ const stateChanges = async (id) => {
     {
       if(pokemon.types.length==1)
       {
-        newContent += `<a href="/movesets/${pokemon.name}/${movesets[i]._id}"><li>
+        newContent += `<a href="/movesets/${pokemon.name}/${movesets[i]._id}">
           <img src="${pokemonForm.sprites.front_default}" alt="">
           <div class="sidebarContent">
             <div class="sidebarName">${movesets[i].movesetName}</div>
@@ -79,12 +79,25 @@ const stateChanges = async (id) => {
               <div style="clear:both"></div>
             </div>
             <div style="clear:both"></div>
-          </div>
-        </li></a>`;
+          </div>`;
+
+          if(movesets[i].rates.average >= 4)
+          {
+            newContent +=
+            `
+            <img class ="sidebarStar" src="/public/img/star.png" alt="" />
+          </a>`;
+          }
+          else
+          {
+            newContent +=
+            `
+          </a>`;
+          }
       }
       else
       {
-        newContent += `<a href="/movesets/${pokemon.name}/${movesets[i]._id}"><li>
+        newContent += `<a href="/movesets/${pokemon.name}/${movesets[i]._id}">
           <img src="${pokemon.sprites.front_default}" alt="">
           <div class="sidebarContent">
             <div class="sidebarName">${movesets[i].movesetName}</div>
@@ -93,9 +106,21 @@ const stateChanges = async (id) => {
               <div class="type ${pokemon.types[1].type.name}">${pokemon.types[1].type.name}</div>
               <div style="clear:both"></div>
             </div>
-            <div style="clear:both"></div>
-          </div>
-        </li></a>`;
+          </div>`;
+
+          if(movesets[i].rates.average >= 4)
+          {
+            newContent +=
+            `
+            <img class ="sidebarStar" src="/public/img/star.png" alt="" />
+          </a>`;
+          }
+          else
+          {
+            newContent +=
+            `
+          </a>`;
+          }
       }
     }
 

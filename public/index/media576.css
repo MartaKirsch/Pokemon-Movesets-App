@@ -132,13 +132,11 @@
 
   #sidebar img
   {
-    float: left;
     height: 13vw;
   }
 
   .sidebarContent
   {
-    float: left;
     margin-left: 1vw;
   }
 

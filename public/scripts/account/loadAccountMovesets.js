@@ -6,7 +6,7 @@ const loadAccountMovesets = async (id, isRedirect = 1)=>{
   {
     id = loadMore.dataset.id;
   }
-  
+
   // console.log("account"+id);
   //make id an int
   id = parseInt(id, 10);
@@ -32,6 +32,17 @@ const loadAccountMovesets = async (id, isRedirect = 1)=>{
 
 
 
-window.onload = loadAccountMovesets(0);
+window.onload = ()=>{
+  if(sessionStorage.getItem('msurl'))
+  {
+    let url = sessionStorage.getItem('msurl');
+    sessionStorage.removeItem('msurl');
+    window.location = url;
+  }
+  else
+  {
+    loadAccountMovesets(0);
+  }
+};
 
 loadMore.addEventListener('click', loadAccountMovesets);
