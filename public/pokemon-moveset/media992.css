@@ -51,6 +51,7 @@
 
   #nick-footer
   {
+    margin-top: 0;
     font-size: 2vw;
     border: 2px solid #e36c3d;
     text-align: center;
@@ -69,5 +70,156 @@
     background-color: #acddb1;
   }
 
+  #rates-wrapper
+  {
+    margin: 0 auto 2vw;
+    height: 5vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 2vw;
+  }
 
+  #rate
+  {
+    height: 100%;
+    border-radius: 15px;
+    border-bottom: 2px solid #adeec2;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex:1;
+    max-width: 47.5%;
+  }
+
+  #rateIt
+  {
+    margin-top: 0;
+    height: 100%;
+    border-radius: 15px;
+    border-bottom: 2px solid #adeec2;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex:1;
+    max-width: 47.5%;
+  }
+
+  #rate img
+  {
+    margin-left: 1vw;
+    height: 3.5vw;
+  }
+
+  .rates-text
+  {
+    display: flex;
+    align-items: center;
+  }
+
+  #rateIt select, #rateIt button
+  {
+    font-size: 1.5vw;
+    border: none;
+    border-bottom: 1px solid #e36c3d;
+    border-radius: 10px;
+    text-align-last: center;
+    width: 6vw;
+    padding: .5vw 1.5vw;
+    height: 3.5vw;
+  }
+
+  #rateIt button
+  {
+    cursor: pointer;
+    background-color: white;
+    width: auto;
+  }
+
+  #rateIt button:hover
+  {
+    background-color: #adeec2;
+    color: white;
+  }
+
+  #rateIt select:focus, #rateIt button:focus
+  {
+    outline: none;
+  }
+
+  body
+  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #popup
+  {
+    text-align: justify;
+    display: none;
+    padding: 2vw;
+    font-size: 2vw;
+    background-color: #eee;
+    border-radius: 15px;
+    border-bottom: 3px solid #adeec2;
+    position: absolute;
+    z-index: 1000;
+    /* left: 50%;
+    top: 50%; */
+    top:unset;
+    align-self: center;
+    max-width: 50%;
+
+    /* shadow */
+    -webkit-box-shadow: 0px 0px 38px 20px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 38px 20px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 38px 20px rgba(0,0,0,0.75);
+  }
+
+  #popup.visible
+  {
+    display: block;
+  }
+
+  #popup-header
+  {
+    font-size: 3vw;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: #adeec2 underline;
+    margin-bottom: 2.5vw;
+  }
+
+  #popup-options
+  {
+    margin-top: 2.5vw;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .yes, .no
+  {
+    min-width: 25%;
+    font-size: 2vw;
+    text-align: center;
+    background-color: white;
+    padding: 1vw;
+    margin: auto;
+    border-radius: 15px;
+    cursor: pointer;
+  }
+
+  .yes:hover
+  {
+    background-color: #adeec2;
+    color:white;
+  }
+
+  .no:hover
+  {
+    background-color: #e36c3d;
+    color:white;
+  }
 }

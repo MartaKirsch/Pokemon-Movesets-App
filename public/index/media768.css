@@ -147,6 +147,13 @@
     margin-right: 0.3vw;
   }
 
+  .sidebarStar
+  {
+    margin-right: 2vw;
+    margin-left: auto;
+    max-height: 6vw;
+  }
+
   #loadMore
   {
     text-align: center;

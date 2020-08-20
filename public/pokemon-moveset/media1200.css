@@ -66,4 +66,154 @@
   {
     background-color: #acddb1;
   }
+  #rates-wrapper
+  {
+    margin: 0 auto 2vw;
+    height: 4vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 1.5vw;
+  }
+
+  #rate
+  {
+    height: 100%;
+    border-radius: 15px;
+    border-bottom: 2px solid #adeec2;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex:1;
+    max-width: 47.5%;
+  }
+
+  #rateIt
+  {
+    height: 100%;
+    border-radius: 15px;
+    border-bottom: 2px solid #adeec2;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex:1;
+    max-width: 47.5%;
+  }
+
+  #rate img
+  {
+    margin-left: 1vw;
+    height: 2.5vw;
+  }
+
+  .rates-text
+  {
+    display: flex;
+    align-items: center;
+  }
+
+  #rateIt select, #rateIt button
+  {
+    font-size: 1vw;
+    border: none;
+    border-bottom: 1px solid #e36c3d;
+    border-radius: 10px;
+    text-align-last: center;
+    width: 5vw;
+    padding: .5vw 1vw;
+    height: 2.5vw;
+  }
+
+  #rateIt button
+  {
+    cursor: pointer;
+    background-color: white;
+    width: auto;
+  }
+
+  #rateIt button:hover
+  {
+    background-color: #adeec2;
+    color: white;
+  }
+
+  #rateIt select:focus, #rateIt button:focus
+  {
+    outline: none;
+  }
+
+  body
+  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #popup
+  {
+    text-align: justify;
+    display: none;
+    padding: 2vw;
+    font-size: 1.5vw;
+    background-color: #eee;
+    border-radius: 15px;
+    border-bottom: 3px solid #adeec2;
+    position: absolute;
+    z-index: 1000;
+    /* left: 50%;
+    top: 50%; */
+    align-self: center;
+    max-width: 45%;
+
+    /* shadow */
+    -webkit-box-shadow: 0px 0px 38px 20px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 38px 20px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 38px 20px rgba(0,0,0,0.75);
+  }
+
+  #popup.visible
+  {
+    display: block;
+  }
+
+  #popup-header
+  {
+    font-size: 2vw;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: #adeec2 underline;
+    margin-bottom: 2vw;
+  }
+
+  #popup-options
+  {
+    margin-top: 2.5vw;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .yes, .no
+  {
+    min-width: 25%;
+    font-size: 1.5vw;
+    text-align: center;
+    background-color: white;
+    padding: 1vw;
+    margin: auto;
+    border-radius: 15px;
+    cursor: pointer;
+  }
+
+  .yes:hover
+  {
+    background-color: #adeec2;
+    color:white;
+  }
+
+  .no:hover
+  {
+    background-color: #e36c3d;
+    color:white;
+  }
 }

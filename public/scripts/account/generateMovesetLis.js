@@ -9,7 +9,7 @@ const generateLis = async (movesets, type)=> {
 
   if(movesets.length==0 && oldContent != "")
   {
-    newContent += `<a href=""><li>
+    newContent += `<a href="">
       <img src="" alt="">
       <div class="sidebarContent">
         <div class="sidebarName">No Movesets Yet!</div>
@@ -19,7 +19,7 @@ const generateLis = async (movesets, type)=> {
         </div>
         <div style="clear:both"></div>
       </div>
-    </li></a>`;
+    </a>`;
   }
   else
   {
@@ -60,7 +60,7 @@ const generateLis = async (movesets, type)=> {
       //create a li element for a single moveset
       if(pokeinfo.types.length==1)
       {
-        newContent += `<a href="/movesets/${movesets[i].name}/${movesets[i]._id}"><li>
+        newContent += `<a href="/movesets/${movesets[i].name}/${movesets[i]._id}">
           <img src="${imgurl}" alt="">
           <div class="sidebarContent">
             <div class="sidebarName">${movesets[i].movesetName}</div>
@@ -68,9 +68,23 @@ const generateLis = async (movesets, type)=> {
               <div class="type ${pokeinfo.types[0].type.name}">${pokeinfo.types[0].type.name}</div>
               <div style="clear:both"></div>
             </div>
-            <div style="clear:both"></div>
           </div>
-        </li></a>
+          `;
+
+          if(movesets[i].rates.average >= 4)
+          {
+            newContent +=
+            `
+            <img class ="sidebarStar" src="/public/img/star.png" alt="" />
+          </a>`;
+          }
+          else
+          {
+            newContent +=
+            `
+          </a>`;
+          }
+          newContent+=`
         <div class="liBottomDiv">
           <a class="liBottomLeft" href="/account/update/${movesets[i]._id}">Update</a>
           <div class="liBottomRight" data-id="${movesets[i]._id}" data-name="${movesets[i].name}">Delete</div>
@@ -78,7 +92,7 @@ const generateLis = async (movesets, type)=> {
       }
       else
       {
-        newContent += `<a href="/movesets/${movesets[i].name}/${movesets[i]._id}"><li>
+        newContent += `<a href="/movesets/${movesets[i].name}/${movesets[i]._id}">
           <img src="${imgurl}" alt="">
           <div class="sidebarContent">
             <div class="sidebarName">${movesets[i].movesetName}</div>
@@ -87,9 +101,23 @@ const generateLis = async (movesets, type)=> {
               <div class="type ${pokeinfo.types[1].type.name}">${pokeinfo.types[1].type.name}</div>
               <div style="clear:both"></div>
             </div>
-            <div style="clear:both"></div>
           </div>
-        </li></a>
+          `;
+
+          if(movesets[i].rates.average >= 4)
+          {
+            newContent +=
+            `
+            <img class ="sidebarStar" src="/public/img/star.png" alt="" />
+          </a>`;
+          }
+          else
+          {
+            newContent +=
+            `
+          </a>`;
+          }
+          newContent+=`
         <div class="liBottomDiv">
           <a class="liBottomLeft" href="/account/update/${movesets[i]._id}">Update</a>
           <div class="liBottomRight" data-id="${movesets[i]._id}" data-name="${movesets[i].name}">Delete</div>

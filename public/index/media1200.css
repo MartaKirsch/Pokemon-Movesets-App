@@ -150,6 +150,13 @@
     margin-right: 0.3vw;
   }
 
+  .sidebarStar
+  {
+    margin-right: 1vw;
+    margin-left: auto;
+    max-height: 4vw;
+  }
+
   #loadMore
   {
     text-align: center;

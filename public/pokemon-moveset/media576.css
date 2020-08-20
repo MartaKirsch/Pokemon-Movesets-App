@@ -51,6 +51,7 @@
 
   #nick-footer
   {
+    margin-top: 10vw;
     font-size: 2.5vw;
     border: 2px solid #e36c3d;
     text-align: center;
@@ -67,5 +68,156 @@
   #sidebar li.selectedMoveset:hover
   {
     background-color: #acddb1;
+  }
+
+  #rates-wrapper
+  {
+    margin: 0 auto 2vw;
+    height: 25vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 3.5vw;
+  }
+
+  #rate
+  {
+    height: 100%;
+    border-radius: 15px;
+    border-bottom: 2px solid #adeec2;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex:1;
+    width: 95%;
+  }
+
+  #rateIt
+  {
+    margin-top: 6vw;
+    height: 100%;
+    border-radius: 15px;
+    border-bottom: 2px solid #adeec2;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex:1;
+    width: 95%;
+  }
+
+  #rate img
+  {
+    margin-left: 1vw;
+    height: 5.5vw;
+  }
+
+  .rates-text
+  {
+    display: flex;
+    align-items: center;
+  }
+
+  #rateIt select, #rateIt button
+  {
+    font-size: 3vw;
+    border: none;
+    border-bottom: 1px solid #e36c3d;
+    border-radius: 10px;
+    text-align-last: center;
+    width: 12vw;
+    padding: .5vw 1.5vw;
+    height: 5.5vw;
+  }
+
+  #rateIt button
+  {
+    cursor: pointer;
+    background-color: white;
+    width: auto;
+  }
+
+  #rateIt button:hover
+  {
+    background-color: #adeec2;
+    color: white;
+  }
+
+  #rateIt select:focus, #rateIt button:focus
+  {
+    outline: none;
+  }
+
+  body
+  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #popup
+  {
+    text-align: justify;
+    display: none;
+    padding: 4vw;
+    font-size: 3vw;
+    background-color: #eee;
+    border-radius: 15px;
+    border-bottom: 3px solid #adeec2;
+    position: absolute;
+    z-index: 1000;
+    top: 165vw;
+    align-self: center;
+    max-width: 70%;
+
+    /* shadow */
+    -webkit-box-shadow: 0px 0px 38px 20px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 38px 20px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 38px 20px rgba(0,0,0,0.75);
+  }
+
+  #popup.visible
+  {
+    display: block;
+  }
+
+  #popup-header
+  {
+    font-size: 4.5vw;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: #adeec2 underline;
+    margin-bottom: 5vw;
+  }
+
+  #popup-options
+  {
+    margin-top: 6vw;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .yes, .no
+  {
+    min-width: 25%;
+    font-size: 3vw;
+    text-align: center;
+    background-color: white;
+    padding: 2vw;
+    margin: auto;
+    border-radius: 15px;
+    cursor: pointer;
+  }
+
+  .yes:hover
+  {
+    background-color: #adeec2;
+    color:white;
+  }
+
+  .no:hover
+  {
+    background-color: #e36c3d;
+    color:white;
   }
 }

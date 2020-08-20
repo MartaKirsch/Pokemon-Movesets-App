@@ -194,7 +194,9 @@
 
   .sidebarStar
   {
+    margin-right: 3vw;
     margin-left: auto;
+    max-height: 10vw;
   }
 
   #loadMore

@@ -23,6 +23,8 @@
 
   #sidebar a.liBottomLeft, .liBottomRight
   {
+    display: flex;
+    justify-content: center;
     height: auto;
     padding: 2vw;
     flex:1;

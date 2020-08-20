@@ -50,7 +50,7 @@ const stateChanges = async (id) => {
   }
 
   //create new li elements
-  if(movesets.length==0 && oldContent == "")
+  if(movesets.length==0 && !oldContent.includes('img')) //==""
   {
     newContent += `<a href="">
       <img src="" alt="">
@@ -140,6 +140,7 @@ const stateChanges = async (id) => {
 
   //set the data id param on the loadmore button for loading next pokemon from pokedex
   loadMore.dataset.id = id + 10;
+
 };
 
 const loadMovesets = async (id)=>{
