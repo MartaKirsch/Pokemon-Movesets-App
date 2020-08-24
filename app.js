@@ -9,8 +9,8 @@ const session = require('express-session');
 //create app
 const app = express();
 
-//db link & listen to port 3000
-const dbURI = 'mongodb+srv://pandeu:alabala00@cluster0.whmux.mongodb.net/movesetsApp';
+//db link & listen to port 3000 ?retryWrites=true&w=majority
+let dbURI = 'mongodb+srv://pandeu:alabala00@cluster0.whmux.mongodb.net/movesetsApp?retryWrites=true&w=majority';
 
 //heroku stuff
 let port = process.env.PORT;
