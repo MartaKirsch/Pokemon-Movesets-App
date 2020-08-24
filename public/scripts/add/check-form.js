@@ -6,6 +6,9 @@ submitButton.type = 'button';
 //'live' check on text inputs' entered data
 const inputValidation = async (e)=>{
 
+  //in chrome there's an error involving cors, it makes it work
+  const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+
   if(e.type!='change')
   {
     e.target = e;
@@ -62,7 +65,7 @@ const inputValidation = async (e)=>{
 
       //try to get the wanted item to check if it exists
 
-      fetch(`https://pokeapi.co/api/v2/pokemon/${name}/`, {method: "GET"})
+      fetch(proxyUrl+`https://pokeapi.co/api/v2/pokemon/${name}/`, {method: "GET"})
         .then((res)=>{
           if(!res.ok)
           {
@@ -113,7 +116,7 @@ const inputValidation = async (e)=>{
 
       //try to get the wanted item to check if it exists
 
-      fetch(`https://pokeapi.co/api/v2/ability/${name}/`, {method: "GET"})
+      fetch(proxyUrl+`https://pokeapi.co/api/v2/ability/${name}/`, {method: "GET"})
         .then((res)=>{
           if(!res.ok)
           {
@@ -164,7 +167,7 @@ const inputValidation = async (e)=>{
 
       //try to get the wanted item to check if it exists
 
-      fetch(`https://pokeapi.co/api/v2/nature/${name}/`, {method: "GET"})
+      fetch(proxyUrl+`https://pokeapi.co/api/v2/nature/${name}/`, {method: "GET"})
         .then((res)=>{
           if(!res.ok)
           {
@@ -212,7 +215,7 @@ const inputValidation = async (e)=>{
 
       //try to get the wanted item to check if it exists
 
-      fetch(`https://pokeapi.co/api/v2/move/${name}/`, {method: "GET"})
+      fetch(proxyUrl+`https://pokeapi.co/api/v2/move/${name}/`, {method: "GET"})
         .then((res)=>{
           if(!res.ok)
           {
@@ -331,7 +334,7 @@ const optionalInputValidation = async (e)=>{
 
     //try to get the wanted item to check if it exists
 
-    fetch(`https://pokeapi.co/api/v2/item/${name}/`, {method: "GET"})
+    fetch(proxyUrl+`https://pokeapi.co/api/v2/item/${name}/`, {method: "GET"})
       .then((res)=>{
         if(!res.ok)
         {

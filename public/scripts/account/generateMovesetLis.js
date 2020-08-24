@@ -41,8 +41,11 @@ const generateLis = async (movesets, type)=> {
         }
       }
 
+      //in chrome there's an error involving cors, it makes it work
+      const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+
       //get the pokemon info for img
-      let pokeinfo = await fetch("http://pokeapi.co/api/v2/pokemon/"+name+"", {method:'GET'}).then(value => value.json()).catch(err=>console.log(err));
+      let pokeinfo = await fetch(proxyUrl+"http://pokeapi.co/api/v2/pokemon/"+name+"", {method:'GET'}).then(value => value.json()).catch(err=>console.log(err));
 
       let imgurl = '';
 
@@ -53,7 +56,7 @@ const generateLis = async (movesets, type)=> {
       }
       else
       {
-        let pokeForm = await fetch(pokeinfo.forms[0].url).then(res=>res.json());
+        let pokeForm = await fetch(proxyUrl+pokeinfo.forms[0].url).then(res=>res.json());
         imgurl = pokeForm.sprites.front_default;
       }
 
