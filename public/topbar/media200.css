@@ -1,4 +1,4 @@
-
+@media (min-width:200px){
 
   #rag-forms ul li.no-form, #other-forms ul li.no-form
   {
@@ -163,3 +163,4 @@
   {
     margin:0;
   }
+}

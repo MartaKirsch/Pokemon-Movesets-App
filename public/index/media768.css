@@ -136,12 +136,13 @@
   }
   .type
   {
+    font-size: 2vw;
     border-radius: 5px;
     padding: .8vw;
   }
   .type:nth-child(1)
   {
-    margin-right: 0.3vw;
+    margin-right: 1vw;
   }
 
   .sidebarStar

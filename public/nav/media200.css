@@ -1,4 +1,4 @@
-
+@media (min-width:200px){
   nav
   {
     position: sticky;
@@ -41,3 +41,4 @@
     display: block;
     height: auto;
   }
+}

@@ -1,4 +1,4 @@
-
+@media (min-width:200px){
 
   #moveset-wrapper
   {
@@ -239,3 +239,4 @@
     background-color: #e36c3d;
     color:white;
   }
+}
