@@ -65,9 +65,4 @@ window.onresize =  ()=>{
     document.querySelector('#leftWrapper').style.display = "block";
     document.querySelector('#rightWrapper').style.display = "block";
   }
-  else if(window.innerWidth < 1200)
-  {
-    document.querySelector('#leftWrapper').style.display = "none";
-    document.querySelector('#rightWrapper').style.display = "block";
-  }
 };
