@@ -1,4 +1,4 @@
-@media (min-width:200px){
+@media (min-width:100px){
 
   #rag-forms ul li.no-form, #other-forms ul li.no-form
   {
@@ -76,8 +76,9 @@
 
   #types .type
   {
+    font-size: 3vw;
     text-align: center;
-    width: 18vw;
+    width: 20vw;
     margin: auto;
   }
 
@@ -116,7 +117,7 @@
     height: 10vw;
     background-color: white;
     text-transform: uppercase;
-    font-size: 3vw;
+    font-size: 3.5vw;
     margin:0 0 2vw 0;
   }
 
@@ -149,7 +150,7 @@
     height: 10vw;
     background-color: white;
     text-transform: uppercase;
-    font-size: 3vw;
+    font-size: 3.5vw;
     margin:0 0 2vw 0;
   }
 

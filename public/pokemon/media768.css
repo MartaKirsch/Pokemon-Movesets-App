@@ -164,5 +164,9 @@
     margin: auto;
     width: 6vw;
   }
-
+  
+  .evolutions-description
+  {
+    font-size: 2vw;
+  }
 }

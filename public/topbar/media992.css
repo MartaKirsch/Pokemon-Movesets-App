@@ -10,14 +10,14 @@
     flex:1 1 13%;
     background-color: white;
     border-radius: 15px;
-    height: 13vw;
-    width: 13vw;
+    height: 14vw;
+    width: 14vw;
     padding: .7vw;
   }
 
   #poke-img img
   {
-    height: 11vw;
+    height: 12vw;
   }
 
   #types
@@ -37,6 +37,7 @@
 
   #types .type
   {
+    font-size: 1.5vw;
     text-align: center;
     width: 11vw;
     margin: auto;
@@ -73,10 +74,10 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: 3.66vw;
+    height: 3.99vw;
     background-color: white;
     text-transform: uppercase;
-    font-size: 1.8vw;
+    font-size: 2vw;
     margin:0 0 1vw 0;
   }
 
@@ -101,10 +102,10 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: 3.66vw;
+    height: 3.99vw;
     background-color: white;
     text-transform: uppercase;
-    font-size: 1.8vw;
+    font-size: 2vw;
     margin:0 0 1vw 0;
   }
 

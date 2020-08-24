@@ -57,7 +57,7 @@
 
   #evolutions
   {
-    margin: 5vw 0;
+    margin: 5vw 0 3.5vw;
   }
 
   .evolutions-row
@@ -85,6 +85,10 @@
   {
     margin: auto;
     width: 3vw;
+  }
+  .evolutions-description
+  {
+    font-size:1vw;
   }
 
 }

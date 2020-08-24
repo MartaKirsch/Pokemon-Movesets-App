@@ -38,8 +38,9 @@
 
   #types .type
   {
+    font-size: 1.2vw;
     text-align: center;
-    width: 7vw;
+    width: 7.5vw;
     margin: auto;
   }
 

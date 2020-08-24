@@ -7,6 +7,8 @@
 
   #navbar ul
   {
+    border:none;
+    flex-wrap: nowrap;
     list-style-type: none;
     padding: 0;
     display: flex;

@@ -10,10 +10,11 @@
     /* scrollbar */
     scrollbar-width: 1vw;
     scrollbar-color: #7D8D9C #adeec2;
-    width: 95vw;
     border-radius: 15px;
     display: flex;
     flex-direction: row;
+    margin: 1.5vw auto 5vw;
+    width: 95%;
   }
 
   #leftWrapper
@@ -36,9 +37,8 @@
 
   #sidebar,#mainpanel
   {
+    max-height: 60vh;
     padding: 1vw;
-    height: 33vw;
-    min-height: unset;
   }
 
   #pokebar
@@ -60,7 +60,7 @@
   #sidebar
   {
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: auto;
   }
 
   #sidebar .type
@@ -70,6 +70,7 @@
 
   #mainpanel
   {
+    font-size: 1.2vw;
     border-bottom-right-radius: 10px;
     background-color: #eee;
     border-right: 2px solid #adeec2;

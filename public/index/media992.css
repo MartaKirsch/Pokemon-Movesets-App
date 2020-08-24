@@ -9,10 +9,10 @@
     /* scrollbar */
     scrollbar-width: 1vw;
     scrollbar-color: #7D8D9C #adeec2;
-    width: 95vw;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
+    margin: 0 auto 3vw;
   }
 
   #leftWrapper
@@ -36,7 +36,6 @@
   #sidebar,#mainpanel
   {
     padding: 2vw;
-    height: 30vw;
     min-height: unset;
   }
 
@@ -60,7 +59,7 @@
   #sidebar
   {
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: auto;
   }
 
   #sidebar .type
@@ -70,6 +69,7 @@
 
   #mainpanel
   {
+    font-size: 1.5vw;
     border-bottom-right-radius: 10px;
     background-color: #eee;
     border-right: 2px solid #adeec2;
@@ -112,7 +112,7 @@
     border-radius: 15px;
     height: 20vw;
     width: 95%;
-    margin: 0 auto 1vw auto;
+    margin: 0 auto 2vw auto;
     background-color: #eee;
   }
 

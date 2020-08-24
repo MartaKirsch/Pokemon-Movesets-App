@@ -1,4 +1,4 @@
-@media (min-width:200px){
+@media (min-width:100px){
 
   #wrapper
   {
@@ -170,5 +170,10 @@
   {
     margin: auto;
     width: 6vw;
+  }
+
+  .evolutions-description
+  {
+    font-size: 3vw;
   }
 }

@@ -36,10 +36,13 @@
   {
     padding: 2vw;
     min-height: 20vw;
+    overflow-x: hidden;
+    overflow-y: hidden;
   }
 
   #mainpanel
   {
+    font-size: 2vw;
     padding: 3vw 2vw;
     min-height: 20vw;
   }
@@ -58,12 +61,6 @@
     text-align: center;
     color: white;
     font-size: 5vw;
-  }
-
-  #sidebar
-  {
-    overflow-x: hidden;
-    overflow-y: hidden;
   }
 
   #sidebar .type

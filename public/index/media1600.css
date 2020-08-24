@@ -9,10 +9,10 @@
     /* scrollbar */
     scrollbar-width: 1vw;
     scrollbar-color: #7D8D9C #adeec2;
-    margin-top: 1.5vw;
-    width: 85vw;
+    margin: 1.5vw auto 3vw;
     border-radius: 15px;
     display: flex;
+    width: 85%;
   }
 
   #leftWrapper
@@ -34,8 +34,8 @@
 
   #sidebar,#mainpanel
   {
+    max-height: 65vh;
     padding: 1vw;
-    min-height: 30vw;
   }
 
   #welcome
@@ -50,7 +50,7 @@
   {
     width: 100%;
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: auto;
   }
 
   #sidebar .type

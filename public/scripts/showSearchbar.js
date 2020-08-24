@@ -39,6 +39,7 @@ document.addEventListener("click", (e) => {
   const input = document.querySelector('#searchinput');
   const loadMore = document.querySelector('#loadMore');
   const ul = document.querySelector('#sidebar ul');
+  const ul_lis = document.querySelector('#sidebar a');
 
   let target = e.target; // clicked element
 
@@ -50,7 +51,7 @@ document.addEventListener("click", (e) => {
     }
   });
 
-  if (target != left && target != ul && target != button && !hintsClick && target != loadMore && target != li && target != input && target != left.children[0] && target != left.children[1])
+  if (input != document.activeElement && target != left && target != ul && target != ul_lis && target != button && !hintsClick && target != loadMore && target != li && target != input && target != left.children[0] && target != left.children[1])
   {
     // This is a click outside
     showMain();

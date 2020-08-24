@@ -165,5 +165,8 @@
     width: 5vw;
   }
 
-
+  .evolutions-description
+  {
+    font-size: 1.8vw;
+  }
 }
