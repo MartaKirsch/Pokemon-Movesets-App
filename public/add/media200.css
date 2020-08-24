@@ -1,4 +1,3 @@
-@media (min-width:10px){
 
   ::-webkit-scrollbar {
    width: 2.5vw;
@@ -178,4 +177,3 @@
   {
     margin: 0 0 4vw 0;
   }
-}
