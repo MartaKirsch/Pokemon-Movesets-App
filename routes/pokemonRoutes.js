@@ -10,6 +10,7 @@ const router = express.Router();
 
 
 router.get('/:name', pokemonController.loadPokeDBinfo);
+router.get('/loadInfo/:id', pokemonController.loadInfo);
 
 // router.get('/loadData/:name', pokemonController.loadData);
 

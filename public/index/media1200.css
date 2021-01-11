@@ -37,7 +37,7 @@
 
   #sidebar,#mainpanel
   {
-    max-height: 60vh;
+    height: 60vh;
     padding: 1vw;
   }
 

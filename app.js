@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const addRoutes = require('./routes/addRoutes');
 const movesetsRoutes = require('./routes/movesetsRoutes');
 const pokemonRoutes = require('./routes/pokemonRoutes');
@@ -36,6 +37,12 @@ app.set('view engine', 'ejs');
 //session
 app.use(session({secret: 'ssshhhhh', resave:true, saveUninitialized: false}));
 
+//cors
+//app.use(cors());
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
 
 //get requests
 app.get('/', (req, res)=>{

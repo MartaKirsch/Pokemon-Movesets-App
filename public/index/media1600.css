@@ -23,6 +23,7 @@
   #rightWrapper
   {
     flex:1 1 65%;
+    min-height: 65vh;
   }
 
   #searchbar, #pokebar
@@ -34,7 +35,7 @@
 
   #sidebar,#mainpanel
   {
-    max-height: 65vh;
+    height: 65vh;
     padding: 1vw;
   }
 

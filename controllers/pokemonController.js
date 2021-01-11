@@ -1,5 +1,6 @@
 const Moveset = require('../models/movesetModel.js');
 const fetch = require('node-fetch');
+const axios = require('axios');
 
 
 const loadData = async (res, name)=>{
@@ -101,6 +102,16 @@ const loadPokeDBinfo = async (req, res) => {
 
 };
 
+
+const loadInfo = (req,res)=>{
+  //console.log(req.params);
+  axios.get("http://pokeapi.co/api/v2/pokemon/"+req.params.id+"").then(value => {
+    //console.log(value.data);
+    res.json(value.data);
+  });
+};
+
 module.exports = {
-  loadPokeDBinfo
+  loadPokeDBinfo,
+  loadInfo
 }

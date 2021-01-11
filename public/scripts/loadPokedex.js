@@ -17,20 +17,34 @@ const loadPokedex = async (id)=>{
   const oldContent = sidebar.innerHTML;
 
   //in chrome there's an error involving cors, it makes it work
-  const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+  let proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+  proxyUrl='';
 
   // get pokemon in pokedex order
+  // let tab = await Promise.all([
+  //   fetch(proxyUrl+"http://pokeapi.co/api/v2/pokemon/"+id+"",{headers:{'Access-Control-Allow-Origin':"http://pokeapi.co"}}).then(value => value.json()),
+  //   fetch(proxyUrl+"http://pokeapi.co/api/v2/pokemon/"+(id + 1)+"",{headers:{'Access-Control-Allow-Origin':"http://pokeapi.co"}}).then(value => value.json()),
+  //   fetch(proxyUrl+"http://pokeapi.co/api/v2/pokemon/"+(id + 2)+"",{headers:{'Access-Control-Allow-Origin':"http://pokeapi.co"}}).then(value => value.json()),
+  //   fetch(proxyUrl+"http://pokeapi.co/api/v2/pokemon/"+(id + 3)+"",{headers:{'Access-Control-Allow-Origin':"http://pokeapi.co"}}).then(value => value.json()),
+  //   fetch(proxyUrl+"http://pokeapi.co/api/v2/pokemon/"+(id + 4)+"",{headers:{'Access-Control-Allow-Origin':"http://pokeapi.co"}}).then(value => value.json()),
+  //   fetch(proxyUrl+"http://pokeapi.co/api/v2/pokemon/"+(id + 5)+"",{headers:{'Access-Control-Allow-Origin':"http://pokeapi.co"}}).then(value => value.json()),
+  //   fetch(proxyUrl+"http://pokeapi.co/api/v2/pokemon/"+(id + 6)+"",{headers:{'Access-Control-Allow-Origin':"http://pokeapi.co"}}).then(value => value.json()),
+  //   fetch(proxyUrl+"http://pokeapi.co/api/v2/pokemon/"+(id + 7)+"",{headers:{'Access-Control-Allow-Origin':"http://pokeapi.co"}}).then(value => value.json()),
+  //   fetch(proxyUrl+"http://pokeapi.co/api/v2/pokemon/"+(id + 8)+"",{headers:{'Access-Control-Allow-Origin':"http://pokeapi.co"}}).then(value => value.json()),
+  //   fetch(proxyUrl+"http://pokeapi.co/api/v2/pokemon/"+(id + 9)+"",{headers:{'Access-Control-Allow-Origin':"http://pokeapi.co"}}).then(value => value.json())
+  // ]);
+
   let tab = await Promise.all([
-    fetch(proxyUrl+"http://pokeapi.co/api/v2/pokemon/"+id+"").then(value => value.json()),
-    fetch(proxyUrl+"http://pokeapi.co/api/v2/pokemon/"+(id + 1)+"").then(value => value.json()),
-    fetch(proxyUrl+"http://pokeapi.co/api/v2/pokemon/"+(id + 2)+"").then(value => value.json()),
-    fetch(proxyUrl+"http://pokeapi.co/api/v2/pokemon/"+(id + 3)+"").then(value => value.json()),
-    fetch(proxyUrl+"http://pokeapi.co/api/v2/pokemon/"+(id + 4)+"").then(value => value.json()),
-    fetch(proxyUrl+"http://pokeapi.co/api/v2/pokemon/"+(id + 5)+"").then(value => value.json()),
-    fetch(proxyUrl+"http://pokeapi.co/api/v2/pokemon/"+(id + 6)+"").then(value => value.json()),
-    fetch(proxyUrl+"http://pokeapi.co/api/v2/pokemon/"+(id + 7)+"").then(value => value.json()),
-    fetch(proxyUrl+"http://pokeapi.co/api/v2/pokemon/"+(id + 8)+"").then(value => value.json()),
-    fetch(proxyUrl+"http://pokeapi.co/api/v2/pokemon/"+(id + 9)+"").then(value => value.json())
+    fetch("/pokemon/loadInfo/"+id+"").then(value => value.json()),
+    fetch("/pokemon/loadInfo/"+(id + 1)+"").then(value => value.json()),
+    fetch("/pokemon/loadInfo/"+(id + 2)+"").then(value => value.json()),
+    fetch("/pokemon/loadInfo/"+(id + 3)+"").then(value => value.json()),
+    fetch("/pokemon/loadInfo/"+(id + 4)+"").then(value => value.json()),
+    fetch("/pokemon/loadInfo/"+(id + 5)+"").then(value => value.json()),
+    fetch("/pokemon/loadInfo/"+(id + 6)+"").then(value => value.json()),
+    fetch("/pokemon/loadInfo/"+(id + 7)+"").then(value => value.json()),
+    fetch("/pokemon/loadInfo/"+(id + 8)+"").then(value => value.json()),
+    fetch("/pokemon/loadInfo/"+(id + 9)+"").then(value => value.json())
   ]);
 
   let newContent = "";
