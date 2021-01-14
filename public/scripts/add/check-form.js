@@ -1,13 +1,13 @@
 //set the button's type as 'button' so the form can't be submitted if sth is missing
 submitButton.type = 'button';
+//in chrome there's an error involving cors, it makes it work
+const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
 
 
 
 //'live' check on text inputs' entered data
 const inputValidation = async (e)=>{
 
-  //in chrome there's an error involving cors, it makes it work
-  const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
 
   if(e.type!='change')
   {
@@ -334,7 +334,7 @@ const optionalInputValidation = async (e)=>{
 
     //try to get the wanted item to check if it exists
 
-    fetch(proxyUrl+`https://pokeapi.co/api/v2/item/${name}/`, {method: "GET"})
+    fetch(`/pokemon/getItem/${name}/`, {method: "GET"})
       .then((res)=>{
         if(!res.ok)
         {
@@ -350,7 +350,7 @@ const optionalInputValidation = async (e)=>{
           wrongDiv.style.visibility = "hidden";
           parentDiv.style.border = "none";
         }
-      });
+      }).catch(err=>console.log(err.message));
   }
 
 };
@@ -625,18 +625,15 @@ const checkForm = ()=>{
     if(tab[i]==0)
     {
       isOK=false;
+      let index=i;
       if(i>2)
       {
-        textInputs[i-1].nextElementSibling.nextElementSibling.innerHTML = "You need to correct this!";
-        textInputs[i-1].nextElementSibling.nextElementSibling.style.visibility = "visible";
-        textInputs[i-1].parentNode.style.border = "1px solid #e36c3d";
+        index=i-1;
       }
-      else
-      {
-        textInputs[i].nextElementSibling.nextElementSibling.innerHTML = "You need to correct this!";
-        textInputs[i].nextElementSibling.nextElementSibling.style.visibility = "visible";
-        textInputs[i].parentNode.style.border = "1px solid #e36c3d";
-      }
+      textInputs[i].parentNode.nextElementSibling.innerHTML = "You need to correct this!";
+      textInputs[i].parentNode.nextElementSibling.style.visibility = "visible";
+      textInputs[i].parentNode.style.border = "1px solid #e36c3d";
+
     }
   }
 

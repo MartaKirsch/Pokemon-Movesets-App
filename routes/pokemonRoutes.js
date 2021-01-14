@@ -11,6 +11,7 @@ const router = express.Router();
 
 router.get('/:name', pokemonController.loadPokeDBinfo);
 router.get('/loadInfo/:id', pokemonController.loadInfo);
+router.get('/getItem/:name', pokemonController.getItem);
 
 // router.get('/loadData/:name', pokemonController.loadData);
 

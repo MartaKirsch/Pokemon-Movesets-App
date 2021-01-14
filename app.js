@@ -10,7 +10,7 @@ const session = require('express-session');
 const app = express();
 
 //db link & listen to port 3000 ?retryWrites=true&w=majority
-let dbURI = '';
+let dbURI = 'mongodb+srv://pandeu:alabala@cluster0.whmux.mongodb.net/movesetsApp?retryWrites=true&w=majority';
 
 //heroku stuff
 let port = process.env.PORT;
@@ -26,6 +26,12 @@ mongoose.connect(dbURI,{ useNewUrlParser: true, useUnifiedTopology: true })
   .then((result)=>{console.log('connected to db');app.listen(port);})
   .catch((err)=>{console.log('there is an error: '+err);});
 
+//This snipped from the code above helps handle CORS related issues that you might face when trying to access the api from different domains during development and testing:
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 //static files
 app.use('/public', express.static('public'));

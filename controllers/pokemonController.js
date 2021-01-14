@@ -111,7 +111,23 @@ const loadInfo = (req,res)=>{
   });
 };
 
+const getItem = (req,res)=>{
+  axios.get(`https://pokeapi.co/api/v2/item/${req.params.name}/`).then(doc=>{
+    if(doc.statusText!=="OK"||doc.isAxiosError)
+    {
+      throw Error('could not fetch data');
+    }
+    console.log(doc.data);
+    res.json({ok:true});
+  }).catch(err=>{
+    console.log(err);
+
+    res.status(404).json({ok:false});
+  })
+};
+
 module.exports = {
   loadPokeDBinfo,
-  loadInfo
+  loadInfo,
+  getItem
 }
