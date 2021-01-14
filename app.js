@@ -11,7 +11,7 @@ const bodyParser = require('body-parser');
 const app = express();
 
 //db link & listen to port 3000 ?retryWrites=true&w=majority
-let dbURI = 'mongodb+srv://pandeu:alabala@cluster0.whmux.mongodb.net/movesetsApp?retryWrites=true&w=majority';
+let dbURI = '';
 
 //heroku stuff
 let port = process.env.PORT;
