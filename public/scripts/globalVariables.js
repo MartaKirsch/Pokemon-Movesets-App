@@ -1,11 +1,24 @@
 let pokedex = {};
 
 const loadDex = async ()=>{
-  //in chrome there's an error involving cors, it makes it work
-  const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-  
-  pokedex = await fetch(proxyUrl+'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=964',{method:'GET'})
-  .then(res=>res.json());
+
+  pokedex = await fetch(`/pokemon/check`, {
+    method: "POST",
+    headers: {
+      'Accept': 'application/json, text/plain, */*',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({url:`https://pokeapi.co/api/v2/pokemon/?offset=0&limit=964`})
+   })
+  .then(data=>data.json())
+  .then(res=>{
+    if(!res.ok)
+    {
+      throw Error('could not fetch data');
+    }
+    return(res.data);
+  })
+  .catch(err=>console.log(err.message));
   console.log(pokedex);
 };
 

@@ -1,7 +1,5 @@
 //set the button's type as 'button' so the form can't be submitted if sth is missing
 submitButton.type = 'button';
-//in chrome there's an error involving cors, it makes it work
-const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
 
 
 
@@ -64,27 +62,34 @@ const inputValidation = async (e)=>{
       }
 
       //try to get the wanted item to check if it exists
+      fetch(`/pokemon/check`, {
+        method: "POST",
+        headers: {
+          'Accept': 'application/json, text/plain, */*',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({url:`https://pokeapi.co/api/v2/pokemon/${name}/`})
+       })
+      .then(data=>data.json())
+      .then((res)=>{
+        if(!res.ok)
+        {
+          tab[index] = 0;
+          wrongDiv.innerHTML = "Wrong name! This pokemon doesn't exist!";
+          wrongDiv.style.visibility = "visible";
+          parentDiv.style.border = "1px solid #e36c3d";
+        }
+        else
+        {
+          tab[index] = 1;
+          wrongDiv.innerHTML = "";
+          wrongDiv.style.visibility = "hidden";
+          parentDiv.style.border = "none";
 
-      fetch(proxyUrl+`https://pokeapi.co/api/v2/pokemon/${name}/`, {method: "GET"})
-        .then((res)=>{
-          if(!res.ok)
-          {
-            tab[index] = 0;
-            wrongDiv.innerHTML = "Wrong name! This pokemon doesn't exist!";
-            wrongDiv.style.visibility = "visible";
-            parentDiv.style.border = "1px solid #e36c3d";
-          }
-          else
-          {
-            tab[index] = 1;
-            wrongDiv.innerHTML = "";
-            wrongDiv.style.visibility = "hidden";
-            parentDiv.style.border = "none";
-
-            //set the global pokemon object equal to the received data
-            res.json().then((data)=>{setPoke(data)});
-          }
-        });
+          //set the global pokemon object equal to the received data
+          setPoke(res.data);
+        }
+      });
     }
   }
 
@@ -115,27 +120,34 @@ const inputValidation = async (e)=>{
       }
 
       //try to get the wanted item to check if it exists
+      fetch(`/pokemon/check`, {
+        method: "POST",
+        headers: {
+          'Accept': 'application/json, text/plain, */*',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({url:`https://pokeapi.co/api/v2/ability/${name}/`})
+       })
+      .then(data=>data.json())
+      .then((res)=>{
+        if(!res.ok)
+        {
+          tab[index] = 0;
+          wrongDiv.innerHTML = "Wrong name! This ability doesn't exist!";
+          wrongDiv.style.visibility = "visible";
+          parentDiv.style.border = "1px solid #e36c3d";
+        }
+        else
+        {
+          tab[index] = 1;
+          wrongDiv.innerHTML = "";
+          wrongDiv.style.visibility = "hidden";
+          parentDiv.style.border = "none";
 
-      fetch(proxyUrl+`https://pokeapi.co/api/v2/ability/${name}/`, {method: "GET"})
-        .then((res)=>{
-          if(!res.ok)
-          {
-            tab[index] = 0;
-            wrongDiv.innerHTML = "Wrong name! This ability doesn't exist!";
-            wrongDiv.style.visibility = "visible";
-            parentDiv.style.border = "1px solid #e36c3d";
-          }
-          else
-          {
-            tab[index] = 1;
-            wrongDiv.innerHTML = "";
-            wrongDiv.style.visibility = "hidden";
-            parentDiv.style.border = "none";
-
-            //set the global ability object equal to the received data
-            res.json().then((data)=>{setAbility(data)});
-          }
-        });
+          //set the global ability object equal to the received data
+          setAbility(res.data);
+        }
+      });
     }
   }
 
@@ -167,23 +179,31 @@ const inputValidation = async (e)=>{
 
       //try to get the wanted item to check if it exists
 
-      fetch(proxyUrl+`https://pokeapi.co/api/v2/nature/${name}/`, {method: "GET"})
-        .then((res)=>{
-          if(!res.ok)
-          {
-            tab[index] = 0;
-            wrongDiv.innerHTML = "Wrong name! This nature doesn't exist!";
-            wrongDiv.style.visibility = "visible";
-            parentDiv.style.border = "1px solid #e36c3d";
-          }
-          else
-          {
-            tab[index] = 1;
-            wrongDiv.innerHTML = "";
-            wrongDiv.style.visibility = "hidden";
-            parentDiv.style.border = "none";
-          }
-        });
+      fetch(`/pokemon/check`, {
+        method: "POST",
+        headers: {
+          'Accept': 'application/json, text/plain, */*',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({url:`https://pokeapi.co/api/v2/nature/${name}/`})
+       })
+      .then(data=>data.json())
+      .then(res=>{
+        if(!res.ok)
+        {
+          tab[index] = 0;
+          wrongDiv.innerHTML = "Wrong name! This nature doesn't exist!";
+          wrongDiv.style.visibility = "visible";
+          parentDiv.style.border = "1px solid #e36c3d";
+        }
+        else
+        {
+          tab[index] = 1;
+          wrongDiv.innerHTML = "";
+          wrongDiv.style.visibility = "hidden";
+          parentDiv.style.border = "none";
+        }
+      });
     }
   }
 
@@ -214,27 +234,34 @@ const inputValidation = async (e)=>{
       }
 
       //try to get the wanted item to check if it exists
+      fetch(`/pokemon/check`, {
+        method: "POST",
+        headers: {
+          'Accept': 'application/json, text/plain, */*',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({url:`https://pokeapi.co/api/v2/move/${name}/`})
+       })
+      .then(data=>data.json())
+      .then(res=>{
+        if(!res.ok)
+        {
+          tab[index] = 0;
+          wrongDiv.innerHTML = "Wrong name! This move doesn't exist!";
+          wrongDiv.style.visibility = "visible";
+          parentDiv.style.border = "1px solid #e36c3d";
+        }
+        else
+        {
+          tab[index] = 1;
+          wrongDiv.innerHTML = "";
+          wrongDiv.style.visibility = "hidden";
+          parentDiv.style.border = "none";
 
-      fetch(proxyUrl+`https://pokeapi.co/api/v2/move/${name}/`, {method: "GET"})
-        .then((res)=>{
-          if(!res.ok)
-          {
-            tab[index] = 0;
-            wrongDiv.innerHTML = "Wrong name! This move doesn't exist!";
-            wrongDiv.style.visibility = "visible";
-            parentDiv.style.border = "1px solid #e36c3d";
-          }
-          else
-          {
-            tab[index] = 1;
-            wrongDiv.innerHTML = "";
-            wrongDiv.style.visibility = "hidden";
-            parentDiv.style.border = "none";
-
-            //set the global move object equal to the received data
-            res.json().then((data)=>{setMove(data,index-5)});
-          }
-        });
+          //set the global move object equal to the received data
+          setMove(res.data,index-5);
+        }
+      });
     }
   }
 
@@ -334,8 +361,18 @@ const optionalInputValidation = async (e)=>{
 
     //try to get the wanted item to check if it exists
 
-    fetch(`/pokemon/getItem/${name}/`, {method: "GET"})
-      .then((res)=>{
+    //fetch(`/pokemon/getItem/${name}/`, {method: "GET"})
+      //.then((res)=>{
+      fetch(`/pokemon/check`, {
+        method: "POST",
+        headers: {
+          'Accept': 'application/json, text/plain, */*',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({url:`https://pokeapi.co/api/v2/item/${name}/`})
+       })
+        .then(data=>data.json())
+        .then(res=>{
         if(!res.ok)
         {
           tab[index] = 0;

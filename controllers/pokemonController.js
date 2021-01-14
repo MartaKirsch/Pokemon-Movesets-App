@@ -111,14 +111,15 @@ const loadInfo = (req,res)=>{
   });
 };
 
-const getItem = (req,res)=>{
-  axios.get(`https://pokeapi.co/api/v2/item/${req.params.name}/`).then(doc=>{
+const check = (req,res)=>{
+  //console.log('checking');
+  axios.get(req.body.url).then(doc=>{
     if(doc.statusText!=="OK"||doc.isAxiosError)
     {
       throw Error('could not fetch data');
     }
-    console.log(doc.data);
-    res.json({ok:true});
+    //console.log(doc.data);
+    res.json({data:doc.data,ok:true});
   }).catch(err=>{
     console.log(err);
 
@@ -129,5 +130,5 @@ const getItem = (req,res)=>{
 module.exports = {
   loadPokeDBinfo,
   loadInfo,
-  getItem
+  check
 }

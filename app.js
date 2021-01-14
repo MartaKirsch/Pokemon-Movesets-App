@@ -5,6 +5,7 @@ const movesetsRoutes = require('./routes/movesetsRoutes');
 const pokemonRoutes = require('./routes/pokemonRoutes');
 const accountRoutes = require('./routes/accountRoutes');
 const session = require('express-session');
+const bodyParser = require('body-parser');
 
 //create app
 const app = express();
@@ -32,6 +33,10 @@ app.use((req, res, next) => {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
+
+// Body Parser Middleware
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 //static files
 app.use('/public', express.static('public'));

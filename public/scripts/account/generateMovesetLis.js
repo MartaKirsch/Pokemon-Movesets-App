@@ -41,11 +41,23 @@ const generateLis = async (movesets, type)=> {
         }
       }
 
-      //in chrome there's an error involving cors, it makes it work
-      const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
 
       //get the pokemon info for img
-      let pokeinfo = await fetch(proxyUrl+"http://pokeapi.co/api/v2/pokemon/"+name+"", {method:'GET'}).then(value => value.json()).catch(err=>console.log(err));
+      let pokeinfo = await
+      fetch(`/pokemon/check`, {
+        method: "POST",
+        headers: {
+          'Accept': 'application/json, text/plain, */*',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({url:`http://pokeapi.co/api/v2/pokemon/${name}/`})
+       })
+      .then(data=>data.json()).then(res=>{
+        if(!res.ok){
+          throw Error('could not fetch data');
+        }
+        return(res.data);
+      }).catch(err=>console.log(err.message));
 
       let imgurl = '';
 
@@ -56,7 +68,21 @@ const generateLis = async (movesets, type)=> {
       }
       else
       {
-        let pokeForm = await fetch(proxyUrl+pokeinfo.forms[0].url).then(res=>res.json());
+        let pokeForm = await
+        fetch(`/pokemon/check`, {
+          method: "POST",
+          headers: {
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({url:`${pokeinfo.forms[0].url}`})
+         })
+        .then(data=>data.json()).then(res=>{
+          if(!res.ok){
+            throw Error('could not fetch data');
+          }
+          return(res.data);
+        }).catch(err=>console.log(err.message));
         imgurl = pokeForm.sprites.front_default;
       }
 
